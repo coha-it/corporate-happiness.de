@@ -282,6 +282,7 @@ final class MonsterInsights_API_Request {
 
 		// Perform the query and retrieve the response.
 		$response      = 'GET' == $this->method ? wp_remote_get( esc_url_raw( $this->url ) . '?' . $string, $data ) : wp_remote_post( esc_url_raw( $this->url ), $data );
+
 		//return new WP_Error( 'debug', '<pre>' . var_export( $response, true ) . '</pre>' );
 
 		if ( is_wp_error( $response ) ) {
@@ -323,9 +324,6 @@ final class MonsterInsights_API_Request {
 			if ( empty( $response_body['tt'] ) || ! hash_equals( $this->tt, $response_body['tt'] ) ) {
 				// TT isn't set on return or doesn't match
 				return new WP_Error( 'validation-error', sprintf( __( 'Improper API request.', 'google-analytics-for-wordpress' ) ) );
-			} else {
-				// if the TT is valid, reset so it cannot be replayed
-				MonsterInsights()->api_auth->rotate_tt();
 			}
 		}
 
@@ -381,7 +379,8 @@ final class MonsterInsights_API_Request {
 	}
 
 	private function is_blocked( $url = '' ) {
-		if ( defined( 'AIRMDE_VER' ) ) {
+		global $Airplane_Mode_Core;
+		if ( defined( 'AIRMDE_VER' ) && ! empty( $Airplane_Mode_Core ) && $Airplane_Mode_Core->enabled() ) {
 			return new WP_Error( 'api-error', __( 'Reason: The API was unreachable because the Airplane Mode plugin is active.', 'google-analytics-for-wordpress' ) );
 		}
 
