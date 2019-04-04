@@ -1,0 +1,1424 @@
+# Translation of Plugins - Enhanced Media Library - Stable (latest release) in Finnish
+# This file is distributed under the same license as the Plugins - Enhanced Media Library - Stable (latest release) package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Plugins - Enhanced Media Library - Stable (latest "
+"release)\n"
+"POT-Creation-Date: 2018-06-16 15:48+0300\n"
+"PO-Revision-Date: 2018-06-16 15:59+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.0.8\n"
+
+#: core/mime-types.php:30
+msgid "MIME Types settings restored."
+msgstr "MIME-tyyppien asetukset palautettu."
+
+#: core/mime-types.php:39
+msgid "MIME Types settings saved."
+msgstr "MIME-tyyppien asetukset tallennettu."
+
+#: core/mime-types.php:117
+#, php-format
+msgid " <span class=\"count\">(%s)</span>"
+msgid_plural " <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/options-pages.php:97 core/options-pages.php:106
+#: core/options-pages.php:115 core/options-pages.php:124
+#: core/options-pages.php:321 core/options-pages.php:399
+#: core/options-pages.php:1553 core/options-pages.php:1811
+#: core/options-pages.php:2124 core/options-pages.php:2324
+msgid "Media Settings"
+msgstr "Media-asetukset"
+
+#: core/options-pages.php:106 core/options-pages.php:107
+#: core/options-pages.php:363
+msgid "Media Library"
+msgstr "Mediakirjasto"
+
+#: core/options-pages.php:115 core/options-pages.php:116
+#: core/options-pages.php:364 core/options-pages.php:1601
+#: core/options-pages.php:1832 pro/core/options-pages.php:300
+msgid "Media Taxonomies"
+msgstr "Mediataksonomiat"
+
+#: core/options-pages.php:124 core/options-pages.php:125
+#: core/options-pages.php:365
+msgid "MIME Types"
+msgstr "MIME-tyypit"
+
+#: core/options-pages.php:166 core/options-pages.php:167
+#: core/options-pages.php:194 core/options-pages.php:195
+msgid "Enhanced Media Library"
+msgstr "Enhanced Media Library"
+
+#: core/options-pages.php:362
+msgid "General"
+msgstr "Yleinen"
+
+#: core/options-pages.php:388 core/options-pages.php:395
+#: core/options-pages.php:715 core/options-pages.php:723
+#: core/options-pages.php:908 core/options-pages.php:1541
+#: core/options-pages.php:1548 core/options-pages.php:1799
+#: core/options-pages.php:1806 core/options-pages.php:2111
+#: core/options-pages.php:2118
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Sivulle pääsy on rajoitettu. Tarvitset laajemmat oikeudet."
+
+#: core/options-pages.php:410
+msgid "Image sizes"
+msgstr "Kuvakoot"
+
+#: core/options-pages.php:411
+msgid ""
+"The sizes listed below determine the maximum dimensions in pixels to use "
+"when adding an image to the Media Library."
+msgstr ""
+"Alla listatut koot määrittävät maksimikoot pikseleinä kun kuva lisätään "
+"mediakirjastoon."
+
+#: core/options-pages.php:415
+msgid "Thumbnail size"
+msgstr "Pienoiskuvan koko"
+
+#: core/options-pages.php:417
+msgid "Width"
+msgstr "Leveys"
+
+#: core/options-pages.php:419
+msgid "Height"
+msgstr "Korkeus"
+
+#: core/options-pages.php:422
+msgid ""
+"Crop thumbnail to exact dimensions (normally thumbnails are proportional)"
+msgstr ""
+"Rajaa pienoiskuva tiettyihin pikselimääriin (normaalisti pienoiskuvat ovat "
+"suhteellisia oikean kuvan kokoon)"
+
+#: core/options-pages.php:427 core/options-pages.php:428
+msgid "Medium size"
+msgstr "Keskikoko"
+
+#: core/options-pages.php:429 core/options-pages.php:440
+msgid "Max Width"
+msgstr "Maksimileveys"
+
+#: core/options-pages.php:432 core/options-pages.php:443
+msgid "Max Height"
+msgstr "Maksimikorkeus"
+
+#: core/options-pages.php:438 core/options-pages.php:439
+msgid "Large size"
+msgstr "Iso koko"
+
+#: core/options-pages.php:456
+msgid "Embeds"
+msgstr "Upotuskoodi"
+
+#: core/options-pages.php:463
+msgid "Uploading Files"
+msgstr "Tiedostoja siirretään"
+
+#: core/options-pages.php:470
+msgid "Store uploads in this folder"
+msgstr "Tallenna siirretyt tiedostot tähän kansioon"
+
+#: core/options-pages.php:474
+#, php-format
+msgid "Default is %s"
+msgstr "Oletus on %s"
+
+#: core/options-pages.php:480
+msgid "Full URL path to files"
+msgstr "URL-osoite tiedostoihin"
+
+#: core/options-pages.php:482
+msgid "Configuring this is optional. By default, it should be blank."
+msgstr "Tämä asetus on valinnainen. Oletuksena sen pitäisi olla tyhjä."
+
+#: core/options-pages.php:490
+msgid "Organize my uploads into month- and year-based folders"
+msgstr "Järjestä siirretyt tiedostot kuukausi- ja vuosikohtaisiin kansioihin"
+
+#: core/options-pages.php:560 core/options-pages.php:1856
+#: core/options-pages.php:1871 core/options-pages.php:1934
+#: core/options-pages.php:2006
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: core/options-pages.php:561 pro/enhanced-media-library-pro.php:124
+msgid "Close"
+msgstr "Sulje"
+
+#: core/options-pages.php:562 core/options-pages.php:1872
+#: core/options-pages.php:1935
+msgid "View"
+msgstr "Näytä"
+
+#: core/options-pages.php:563 core/options-pages.php:1873
+#: core/options-pages.php:1936
+msgid "Update"
+msgstr "Päivitä"
+
+#: core/options-pages.php:564 core/options-pages.php:1874
+#: core/options-pages.php:1937
+msgid "Add New"
+msgstr "Lisää uusi"
+
+#: core/options-pages.php:565 core/options-pages.php:1875
+#: core/options-pages.php:1938
+msgid "New"
+msgstr "Uusi"
+
+#: core/options-pages.php:566
+msgid "Name"
+msgstr "Nimi"
+
+#: core/options-pages.php:567 core/options-pages.php:1876
+#: core/options-pages.php:1939
+msgid "Parent"
+msgstr "Ylempi taso"
+
+#: core/options-pages.php:568 core/options-pages.php:845
+#: core/options-pages.php:1000 core/options-pages.php:1870
+#: core/options-pages.php:1933 core/taxonomies.php:381
+#: enhanced-media-library.php:567
+msgid "All"
+msgstr "Kaikki"
+
+#: core/options-pages.php:569 core/options-pages.php:1877
+#: core/options-pages.php:1940 pro/core/options-pages.php:281
+msgid "Search"
+msgstr "Haku"
+
+#: core/options-pages.php:571 core/options-pages.php:1921
+msgid "New Taxonomy"
+msgstr "Uusi taksonomia"
+
+#: core/options-pages.php:573
+msgid "Remove Taxonomy"
+msgstr "Poista taksonomia."
+
+#: core/options-pages.php:574
+msgid "Taxonomy will be removed."
+msgstr "Taksonomia poistetaan."
+
+#: core/options-pages.php:575
+msgid ""
+"Taxonomy terms (categories) will remain intact in the database. If you "
+"create a taxonomy with the same name in the future, its terms (categories) "
+"will be available again."
+msgstr ""
+"Taksonomiatermit (kategoriat) säilyvät muuttumattomina tietokannassa. Jos "
+"teet saman nimisen taksonomian tulevaisuudessa, sen termit (kategoriat) ovat "
+"käytettävissä suoraan."
+
+#: core/options-pages.php:576
+msgid "Media items will remain intact."
+msgstr "Mediatiedostot pysyvät muuttumattomina."
+
+#: core/options-pages.php:577
+msgid "Are you still sure?"
+msgstr "Oletko yhä varma?"
+
+#: core/options-pages.php:578
+msgid "Yes, remove taxonomy"
+msgstr "Kyllä, poista taksonomia"
+
+#: core/options-pages.php:580
+msgid "Duplicate"
+msgstr "Nimi on varattu"
+
+#: core/options-pages.php:581
+msgid "Taxonomy with the same name already exists. Please chose other one."
+msgstr "Taksonomia samalla nimellä on jo olemassa. Valitse toinen nimi."
+
+#: core/options-pages.php:583
+msgid "Empty Fields"
+msgstr "Tyhjät kentät"
+
+#: core/options-pages.php:584
+msgid "Wrong Taxonomy Name"
+msgstr ""
+
+#: core/options-pages.php:585
+msgid "Wrong Slug"
+msgstr ""
+
+#: core/options-pages.php:587
+msgid "Please choose Singular and Plural names for all new taxomonies."
+msgstr "Valitse yksikkö- ja monikkomuoto kaikille uusille taksonomioille."
+
+#: core/options-pages.php:588
+msgid "Please choose Singular name for all new taxomonies."
+msgstr "Valitse yksikkömuoto kaikille uusille taksonomioille."
+
+#: core/options-pages.php:589
+msgid "Please choose Plural name for all new taxomonies."
+msgstr ""
+
+#: core/options-pages.php:591
+msgid ""
+"Taxonomy Name cannot be empty. If it was not generated from the Singular "
+"name please enter it manually."
+msgstr ""
+
+#: core/options-pages.php:592
+msgid ""
+"Taxonomy Name should only contain lowercase Latin letters, the underscore "
+"character ( _ ), and be 3-32 characters long."
+msgstr ""
+
+#: core/options-pages.php:593
+msgid ""
+"Slug should only contain lowercase Latin letters, numbers, underscore ( _ ) "
+"or hyphen ( - ) characters."
+msgstr ""
+
+#: core/options-pages.php:595 core/options-pages.php:644
+msgid "Ok"
+msgstr "Ok"
+
+#: core/options-pages.php:596 core/options-pages.php:601
+#: core/options-pages.php:645 core/options-pages.php:690
+#: pro/enhanced-media-library-pro.php:132
+msgid "Cancel"
+msgstr "Peru"
+
+#: core/options-pages.php:598 pro/core/options-pages.php:243
+msgid "Synchronize Now"
+msgstr "Synkronoi nyt"
+
+#: core/options-pages.php:599 core/options-pages.php:687
+msgid "This operation cannot be canceled! Are you still sure?"
+msgstr "Tätä toiminto ei ole peruttavissa! Oletko varma?"
+
+#: core/options-pages.php:600
+msgid "Synchronize"
+msgstr "Synkronisoi"
+
+#: core/options-pages.php:602
+msgid "Synchronizing..."
+msgstr "Synkronoidaan..."
+
+#: core/options-pages.php:639 core/options-pages.php:2247
+msgid "Restore WordPress default MIME Types"
+msgstr "Palauta WordPressin MIME-tyyppien oletusasetukset"
+
+#: core/options-pages.php:640
+msgid "Warning! All your custom MIME Types will be deleted by this operation."
+msgstr "Varoitus! Tämä toiminto poistaa kaikki sinun mukautetut MIME tyypit."
+
+#: core/options-pages.php:641
+msgid "Restore Defaults"
+msgstr "Palauta oletusasetukset"
+
+#: core/options-pages.php:642
+msgid "Restoring..."
+msgstr "Palauttaa..."
+
+#: core/options-pages.php:647
+msgid "MIME Types cannot be saved"
+msgstr ""
+
+#: core/options-pages.php:648
+msgid "Please fill into all fields."
+msgstr "Täytä kaikki kentät. "
+
+#: core/options-pages.php:649
+msgid "Duplicate extensions or MIME types. Please choose other one."
+msgstr ""
+
+#: core/options-pages.php:685 core/options-pages.php:836
+#: core/options-pages.php:979
+msgid "Complete Cleanup"
+msgstr "Viimeistele puhdistus"
+
+#: core/options-pages.php:686
+msgid ""
+"You are about to <strong style=\"text-transform:uppercase\">delete all "
+"plugin data</strong> from the database including backups."
+msgstr ""
+"Olet poistamassa <strong style=\"text-transform:uppercase\">kaikki lisäosan "
+"tiedot</strong> tietokannasta, mukaan lukien kaikki varmuuskopiot."
+
+#: core/options-pages.php:688
+msgid "Yes, delete all data"
+msgstr "Kyllä, poista kaikki tiedot"
+
+#: core/options-pages.php:689
+msgid "Cleaning..."
+msgstr "Puhdistetaan..."
+
+#: core/options-pages.php:729 core/options-pages.php:918
+msgid "Enhanced Media Library Utilities"
+msgstr ""
+
+#: core/options-pages.php:739
+msgid "Export"
+msgstr "Vienti"
+
+#: core/options-pages.php:744
+msgid "Plugin settings to export:"
+msgstr ""
+
+#: core/options-pages.php:745 core/options-pages.php:772
+#: core/options-pages.php:812
+msgid "Settings > Media Library"
+msgstr ""
+
+#: core/options-pages.php:746 core/options-pages.php:773
+#: core/options-pages.php:813
+msgid "Settings > Media Taxonomies"
+msgstr ""
+
+#: core/options-pages.php:747 core/options-pages.php:774
+#: core/options-pages.php:814
+msgid "Settings > MIME Types"
+msgstr ""
+
+#: core/options-pages.php:751
+msgid ""
+"Use generated JSON file to import the configuration into another website."
+msgstr ""
+
+#: core/options-pages.php:756
+msgid "Export Plugin Settings"
+msgstr "Vie lisäosan asetukset"
+
+#: core/options-pages.php:766
+msgid "Import"
+msgstr "Tuonti"
+
+#: core/options-pages.php:771
+msgid "Plugin settings to import:"
+msgstr ""
+
+#: core/options-pages.php:777
+msgid ""
+"Plugin settings will be imported from a configuration JSON file which can be "
+"obtained by exporting the settings on another website using the export "
+"button above."
+msgstr ""
+
+#: core/options-pages.php:778
+msgid ""
+"All plugin settings will be overridden by the import. You will have a chance "
+"to restore current data from an automatic backup in case you are not "
+"satisfied with the result of the import."
+msgstr ""
+"Tuonti korvaa kaikki lisäosan asetukset. Jos et ole tuontiin tyytyväinen, "
+"voit palauttaa nykyiset tiedot automaattisista varmuuskopioista."
+
+#: core/options-pages.php:784
+msgid "Import Plugin Settings"
+msgstr "Tuo lisäosan asetukset"
+
+#: core/options-pages.php:796
+msgid "Restore"
+msgstr "Palauta"
+
+#: core/options-pages.php:802
+msgid "No backup available at the moment."
+msgstr "Ei varmuuskopioita saatavilla."
+
+#: core/options-pages.php:804
+msgid "Backup will be created automatically before any import operation."
+msgstr "Varmuuskopio luodaan automaattisesti ennen tuontitoimintoa."
+
+#: core/options-pages.php:808
+msgid ""
+"The backup has been automatically created before the latest import operation."
+msgstr "Varmuuskopio on luotu automaattisesti ennen edellistä tuontitoimintoa."
+
+#: core/options-pages.php:811
+msgid "Plugin settings to restore:"
+msgstr ""
+
+#: core/options-pages.php:820
+msgid "Restore Settings from the Backup"
+msgstr "Palauta asetukset tietokannasta"
+
+#: core/options-pages.php:843 core/options-pages.php:998
+msgid "What will be deleted:"
+msgstr "Mitä poistetaan:"
+
+#: core/options-pages.php:848
+msgid "All plugin options"
+msgstr "Kaikki lisäosan asetukset"
+
+#: core/options-pages.php:849 core/options-pages.php:1005
+msgid "All plugin backups stored in the database"
+msgstr ""
+
+#: core/options-pages.php:853 core/options-pages.php:1009
+msgid "What will remain intact:"
+msgstr "Nämä pysyvät ennallaan:"
+
+#: core/options-pages.php:854 core/options-pages.php:1010
+msgid "All media items"
+msgstr "Kaikki mediatiedostot"
+
+#: core/options-pages.php:855 core/options-pages.php:1011
+msgid "All taxonomies not listed above"
+msgstr "Kaikki taksonomiat eivät ole listattu yläpuolella."
+
+#: core/options-pages.php:858 core/options-pages.php:1014
+msgid ""
+"The plugin cannot delete itself for security reasons. Please delete it "
+"manually from the plugin list after the cleanup is complete."
+msgstr ""
+
+#: core/options-pages.php:860 core/options-pages.php:1016
+msgid ""
+"If you are not sure about this operation it's HIGHLY RECOMMENDED to create a "
+"backup of your database prior to cleanup!"
+msgstr ""
+
+#: core/options-pages.php:865
+msgid "Delete All Data & Deactivate"
+msgstr "Poista kaikki tieto ja poista käytöstä"
+
+#: core/options-pages.php:928
+msgid "Network Settings"
+msgstr ""
+
+#: core/options-pages.php:935
+msgid "No settings available. The plugin is not network activated."
+msgstr ""
+
+#: core/options-pages.php:946
+msgid "Media Settings per site"
+msgstr ""
+
+#: core/options-pages.php:949
+msgid "Enable Media Settings"
+msgstr ""
+
+#: core/options-pages.php:950
+msgid "Allow an individual site admin to edit enhanced Media Settings"
+msgstr ""
+
+#: core/options-pages.php:951
+msgid ""
+"Otherwise, only a network (super) admin can see the menu and edit media "
+"settings."
+msgstr ""
+
+#: core/options-pages.php:957
+msgid "Plugin Utilities per site"
+msgstr ""
+
+#: core/options-pages.php:960
+msgid "Enable plugin Utilities"
+msgstr ""
+
+#: core/options-pages.php:961
+msgid ""
+"Allow an individual site admin to import / export / restore plugin settings "
+"and perform the complete cleanup for a specific site"
+msgstr ""
+
+#: core/options-pages.php:962
+msgid ""
+"Otherwise, only a network (super) admin can see the menu and perform those "
+"actions."
+msgstr ""
+
+#: core/options-pages.php:969 core/options-pages.php:1629
+#: core/options-pages.php:1683 core/options-pages.php:1720
+#: core/options-pages.php:1764 core/options-pages.php:1972
+#: core/options-pages.php:2036 core/options-pages.php:2074
+#: core/options-pages.php:2245 pro/core/options-pages.php:307
+#: pro/core/options-pages.php:353 pro/core/options-pages.php:477
+#: pro/enhanced-media-library-pro.php:123
+msgid "Save Changes"
+msgstr "Tallenna muutokset"
+
+#: core/options-pages.php:1003
+msgid "All plugin options on every site"
+msgstr ""
+
+#: core/options-pages.php:1004
+msgid "Network settings"
+msgstr ""
+
+#: core/options-pages.php:1021
+msgid "Delete All Data & Network Deactivate"
+msgstr ""
+
+#: core/options-pages.php:1081
+msgid "Network settings saved."
+msgstr ""
+
+#: core/options-pages.php:1175
+msgid "Settings cannot be imported. Please upload a file to import settings."
+msgstr ""
+
+#: core/options-pages.php:1196
+msgid ""
+"Settings cannot be imported. Please upload a correct JSON file to import "
+"settings."
+msgstr ""
+
+#: core/options-pages.php:1214
+msgid "Plugin settings imported."
+msgstr "Lisäosien asetukset tuotu."
+
+#: core/options-pages.php:1267
+msgid "Plugin settings restored from the backup."
+msgstr "Lisäosan asetukset palautettu varmuuskopioista."
+
+#: core/options-pages.php:1573
+msgid "Filters"
+msgstr ""
+
+#: core/options-pages.php:1582 core/options-pages.php:1585
+msgid "Force filters"
+msgstr "Pakota suodattimet"
+
+#: core/options-pages.php:1586
+msgid "Show media filters for ANY Media Popup"
+msgstr "Näytä suodattimet kaikille median ponnahdusikkunoille "
+
+#: core/options-pages.php:1587
+msgid "Try this if filters are not shown for third-party plugins or themes."
+msgstr ""
+"Kokeile tätä jos suodattimet eivät ole näkyvissä kolmannen osapuolen "
+"lisäosille tai teemoille."
+
+#: core/options-pages.php:1593 core/options-pages.php:1596
+msgid "Filters to show"
+msgstr ""
+
+#: core/options-pages.php:1597
+msgid "Types"
+msgstr ""
+
+#: core/options-pages.php:1598
+msgid "Can be disabled for Grid Mode only"
+msgstr ""
+
+#: core/options-pages.php:1599
+msgid "Dates"
+msgstr ""
+
+#: core/options-pages.php:1600 pro/core/options-pages.php:299
+msgid "Authors"
+msgstr ""
+
+#: core/options-pages.php:1607 core/options-pages.php:1610
+msgid "Show count"
+msgstr "Näytä lukumäärä"
+
+#: core/options-pages.php:1611
+msgid "Show item count per category for media filters"
+msgstr "Näytä kategoriakohtaiset lukumäärät mediasuodattimille"
+
+#: core/options-pages.php:1612
+msgid ""
+"Disable this if it slows down your site admin. The problem is resolved in "
+"the upcoming major update v3.0"
+msgstr ""
+
+#: core/options-pages.php:1618 core/options-pages.php:1621
+msgid "Include children"
+msgstr ""
+
+#: core/options-pages.php:1622
+msgid "Show media items of child media categories as a result of filtering"
+msgstr ""
+
+#: core/options-pages.php:1639 pro/core/medialist.php:43
+#: pro/core/medialist.php:88
+msgid "Order"
+msgstr ""
+
+#: core/options-pages.php:1648
+msgid "Order media items by"
+msgstr "Mediatiedostojen järjestys"
+
+#: core/options-pages.php:1651 pro/core/medialist.php:28
+#: pro/core/medialist.php:73
+msgid "Date"
+msgstr "Päivämäärä"
+
+#: core/options-pages.php:1652 core/options-pages.php:1712
+#: pro/core/medialist.php:31 pro/core/medialist.php:76
+msgid "Title"
+msgstr "Otsikko"
+
+#: core/options-pages.php:1653 pro/core/medialist.php:34
+#: pro/core/medialist.php:79
+msgid "Custom Order"
+msgstr "Mukautettu järjestys"
+
+#: core/options-pages.php:1655 core/options-pages.php:1667
+msgid "For media library and media popups"
+msgstr "Mediakirjastoon ja median ponnahdusikkunoihin"
+
+#: core/options-pages.php:1656
+msgid ""
+"Allows changing media items order by drag and drop with Custom Order value."
+msgstr ""
+
+#: core/options-pages.php:1661
+msgid "Sort order"
+msgstr "Lajittelujärjestys"
+
+#: core/options-pages.php:1664 pro/core/medialist.php:47
+#: pro/core/medialist.php:92
+msgid "Ascending"
+msgstr "Nouseva"
+
+#: core/options-pages.php:1665 pro/core/medialist.php:50
+#: pro/core/medialist.php:95
+msgid "Descending"
+msgstr "Laskeva"
+
+#: core/options-pages.php:1672 core/options-pages.php:1675
+msgid "Natural sort order"
+msgstr ""
+
+#: core/options-pages.php:1676
+msgid "Apply human-friendly sort order to Media Library and Galleries"
+msgstr ""
+
+#: core/options-pages.php:1677
+msgid ""
+"Example: [1, 2, 3, 10, 18, 22, abc-2, abc-11] instead of [1, 10, 18, 2, 22, "
+"3, abc-11, abc-2]"
+msgstr ""
+
+#: core/options-pages.php:1690
+msgid "Grid Mode"
+msgstr ""
+
+#: core/options-pages.php:1699 core/options-pages.php:1702
+msgid "Show caption"
+msgstr ""
+
+#: core/options-pages.php:1703
+msgid "Add text caption for media item thumbnails"
+msgstr ""
+
+#: core/options-pages.php:1709
+msgid "Caption type"
+msgstr ""
+
+#: core/options-pages.php:1713
+msgid "Filename"
+msgstr ""
+
+#: core/options-pages.php:1714
+msgid "Caption"
+msgstr ""
+
+#: core/options-pages.php:1727
+msgid "Media Shortcodes"
+msgstr "Median lyhytkoodit"
+
+#: core/options-pages.php:1736 core/options-pages.php:1739
+msgid "Enhanced media shortcodes"
+msgstr "Parannetut median lyhytkoodit"
+
+#: core/options-pages.php:1740
+msgid ""
+"Enhance WordPress media shortcodes to make them understand media taxonomies, "
+"upload date, and media items number limit"
+msgstr ""
+"Paranna WordPressin median lyhytkoodeja ymmärtämään mediataksonomioita, "
+"siirtopäiviä ja mediatiedostojen määrän rajoituksia."
+
+#: core/options-pages.php:1741
+msgid "Gallery example:"
+msgstr "Esimerkki galleriasta:"
+
+#: core/options-pages.php:1742
+msgid "Audio playlist example:"
+msgstr "Esimerkki audiosoittolistasta:"
+
+#: core/options-pages.php:1743
+msgid "Video playlist example:"
+msgstr "Esimerkki videosoittolistasta:"
+
+#: core/options-pages.php:1747 pro/core/options-pages.php:246
+msgid "Warning"
+msgstr ""
+
+#: core/options-pages.php:1750
+#, php-format
+msgid ""
+"Incompatibility with other gallery plugins or themes possible! <a href=\"%s"
+"\">Learn more</a>."
+msgstr ""
+
+#: core/options-pages.php:1755
+#, php-format
+msgid ""
+"Please check out your gallery front-end and back-end functionality once this "
+"option activated. If you find an issue please inform plugin authors at %s or "
+"%s."
+msgstr ""
+"Tarkista julkinen puoli ja hallintapuoli aktivoituasi tämän valinnan. Jos "
+"löydät ongelmia, ole yhteydessä lisäosan tekijöihin %s tai %s."
+
+#: core/options-pages.php:1836 core/options-pages.php:1983
+msgid "Assign following taxonomies to Media Library:"
+msgstr "Valitse seuraavat taksonomiat mediakirjastoon:"
+
+#: core/options-pages.php:1855 core/options-pages.php:1921
+#: core/options-pages.php:2005
+msgid "Assign Taxonomy"
+msgstr "Valitse taksonomia"
+
+#: core/options-pages.php:1856 core/options-pages.php:2006
+msgid "Edit Taxonomy"
+msgstr "Muokkaa taksonomiaa"
+
+#: core/options-pages.php:1860 core/options-pages.php:1923
+msgid "Delete Taxonomy"
+msgstr "Poista taksonomia"
+
+#: core/options-pages.php:1865 core/options-pages.php:1928
+msgid "Labels"
+msgstr "Nimet"
+
+#: core/options-pages.php:1867 core/options-pages.php:1930
+msgid "Singular"
+msgstr "Yksikkömuoto"
+
+#: core/options-pages.php:1868 core/options-pages.php:1931
+msgid "Plural"
+msgstr "Monikossa"
+
+#: core/options-pages.php:1869 core/options-pages.php:1932
+msgid "Menu Name"
+msgstr "Valikon nimi"
+
+#: core/options-pages.php:1882 core/options-pages.php:1905
+#: core/options-pages.php:1945 core/options-pages.php:2009
+msgid "Settings"
+msgstr "Asetukset"
+
+#: core/options-pages.php:1884 core/options-pages.php:1947
+msgid "Taxonomy Name"
+msgstr "Taksonomian nimi"
+
+#: core/options-pages.php:1885 core/options-pages.php:1948
+msgid "Hierarchical"
+msgstr "Hierarkinen"
+
+#: core/options-pages.php:1886 core/options-pages.php:1949
+msgid "Column for List View"
+msgstr "Kolumni listanäkymässä"
+
+#: core/options-pages.php:1887 core/options-pages.php:1907
+#: core/options-pages.php:1950 core/options-pages.php:2011
+msgid "Filter for List View"
+msgstr "Suodatin listanäkymässä"
+
+#: core/options-pages.php:1888 core/options-pages.php:1908
+#: core/options-pages.php:1951 core/options-pages.php:2012
+msgid "Filter for Grid View / Media Popup"
+msgstr "Suodatin ruudukkonäkymässä / ponnahdusikkunassa"
+
+#: core/options-pages.php:1889 core/options-pages.php:1909
+#: core/options-pages.php:1952 core/options-pages.php:2013
+msgid "Edit in Media Popup"
+msgstr "Muokkaa ponnahdusikkunassa"
+
+#: core/options-pages.php:1890 core/options-pages.php:1953
+msgid "Show in Nav Menu"
+msgstr "Näytä navigaatiossa"
+
+#: core/options-pages.php:1891 core/options-pages.php:1954
+msgid "Remember Terms Order (sort)"
+msgstr "Muista termien järjestys (järjestä)"
+
+#: core/options-pages.php:1892 core/options-pages.php:1955
+msgid "Show in REST"
+msgstr "Näytä REST-rajapinnassa"
+
+#: core/options-pages.php:1893 core/options-pages.php:1956
+msgid "Rewrite Slug"
+msgstr "Polkutunnus"
+
+#: core/options-pages.php:1894 core/options-pages.php:1957
+msgid "Slug with Front"
+msgstr "Polkutunnus alkuliitteen kanssa"
+
+#: core/options-pages.php:1969
+msgid "Add New Taxonomy"
+msgstr "Lisää uusi taksonomia"
+
+#: core/options-pages.php:1979
+msgid "Non-Media Taxonomies"
+msgstr "Muut kuin mediataksonomiat"
+
+#: core/options-pages.php:2042
+msgid "Options"
+msgstr "Asetukset"
+
+#: core/options-pages.php:2052 core/options-pages.php:2055
+msgid "Taxonomy archive pages"
+msgstr "Taksonomian arkistosivut"
+
+#: core/options-pages.php:2056
+msgid "Turn on media taxonomy archive pages on the front-end"
+msgstr "Näytä mediataksonomian arkistosivut julkisella puolella"
+
+#: core/options-pages.php:2057
+msgid ""
+"Re-save your permalink settings after this option change to make it work."
+msgstr "Tallenna kestolinkin asetukset, jos vaihdat tätä asetusta."
+
+#: core/options-pages.php:2063 core/options-pages.php:2066
+msgid "Assign all like hierarchical"
+msgstr "Liitä kaikki kuten hierarkiset"
+
+#: core/options-pages.php:2067
+msgid ""
+"Show non-hierarchical taxonomies like hierarchical in Grid View / Media Popup"
+msgstr ""
+"Näytä ei-hierarkiset taksonomiat kuten hierarkiset ruudukkonäkymässä / "
+"median ponnahdusikkunassa"
+
+#: core/options-pages.php:2130
+msgid "Add New MIME Type"
+msgstr "Lisää uusii MIME-tyyppi"
+
+#: core/options-pages.php:2150 core/options-pages.php:2204
+msgid "Extension"
+msgstr "Laajennus"
+
+#: core/options-pages.php:2151 core/options-pages.php:2205
+msgid "MIME Type"
+msgstr "MIME-tyyppi"
+
+#: core/options-pages.php:2152 core/options-pages.php:2206
+msgid "Singular Label"
+msgstr "Tunnus yksikössä"
+
+#: core/options-pages.php:2153 core/options-pages.php:2207
+msgid "Plural Label"
+msgstr "Tunnus monikossa"
+
+#: core/options-pages.php:2154 core/options-pages.php:2183
+#: core/options-pages.php:2196 core/options-pages.php:2208
+msgid "Add Filter"
+msgstr "Lisää suodatin"
+
+#: core/options-pages.php:2155 core/options-pages.php:2184
+#: core/options-pages.php:2197 core/options-pages.php:2209
+msgid "Allow Upload"
+msgstr "Salli tiedoston siirto"
+
+#: core/options-pages.php:2185 core/options-pages.php:2198
+msgid "Delete MIME Type"
+msgstr "Poista MIME-tyyppi"
+
+#: core/options-pages.php:2274
+msgid "Changelog"
+msgstr "Muutosloki"
+
+#: core/options-pages.php:2275
+msgid "What's new in"
+msgstr "Muutokset"
+
+#: core/options-pages.php:2275
+msgid "version"
+msgstr "versio"
+
+#: core/options-pages.php:2278
+msgid "More features under the hood"
+msgstr "Lisää ominaisuuksia"
+
+#: core/options-pages.php:2280
+msgid "Support"
+msgstr "Tuki"
+
+#: core/options-pages.php:2281
+msgid "Feel free to ask for help on"
+msgstr "Pyydä apua"
+
+#: core/options-pages.php:2281
+msgid "Support is free for both versions of the plugin."
+msgstr "Tuki on ilmainen molemmille lisäosan versioille."
+
+#: core/options-pages.php:2283
+msgid "Plugin rating"
+msgstr "Lisäosan arvostelu"
+
+#: core/options-pages.php:2284
+msgid "Please"
+msgstr "Ole hyvä ja"
+
+#: core/options-pages.php:2284
+msgid "vote for the plugin"
+msgstr "arvostele lisäosa"
+
+#: core/options-pages.php:2284
+msgid "Thanks!"
+msgstr "Kiitos."
+
+#: core/options-pages.php:2286
+msgid "Other plugins you may find useful"
+msgstr "Muita lisäosia, jotka voivat olla hyödyllisiä"
+
+#: core/options-pages.php:2328
+msgid "Utility"
+msgstr "Käyttö"
+
+#: core/options-pages.php:2353
+msgid "Rate us:"
+msgstr ""
+
+#: core/options-pages.php:2353
+msgid "Poor"
+msgstr ""
+
+#: core/options-pages.php:2353
+msgid "Works"
+msgstr ""
+
+#: core/options-pages.php:2353
+msgid "Good"
+msgstr ""
+
+#: core/options-pages.php:2353
+msgid "Great"
+msgstr ""
+
+#: core/options-pages.php:2353
+msgid "Fantastic!"
+msgstr ""
+
+#: core/taxonomies.php:101
+msgid "Media Taxonomies settings saved."
+msgstr "Mediataksonomioiden asetukset tallennettu."
+
+#: core/taxonomies.php:174
+msgid "Media Library settings saved."
+msgstr "Mediakirjaston asetukset tallennettu."
+
+#: core/taxonomies.php:353
+msgid "Filter by author"
+msgstr ""
+
+#: core/taxonomies.php:357
+msgid "All Authors"
+msgstr ""
+
+#: core/taxonomies.php:374 core/taxonomies.php:380
+#: enhanced-media-library.php:566
+msgid "Filter by"
+msgstr "suodata"
+
+#: core/taxonomies.php:382 enhanced-media-library.php:568
+msgid "Not in a"
+msgstr "Ei sisällä"
+
+#: core/taxonomies.php:1500
+msgid "Remove"
+msgstr "Poista"
+
+#: core/taxonomies.php:1502
+msgid "Deselect"
+msgstr "Poista valinta"
+
+#: core/taxonomies.php:1558
+msgid "Caption this image&hellip;"
+msgstr "Syötä kuvateksti&hellip;"
+
+#: core/taxonomies.php:1562
+msgid "Describe this video&hellip;"
+msgstr "Anna kuvaus tälle videotiedostolle&hellip;"
+
+#: core/taxonomies.php:1564
+msgid "Describe this audio file&hellip;"
+msgstr "Anna kuvaus tälle äänitiedostolle&hellip;"
+
+#: core/taxonomies.php:1566
+msgid "Describe this media file&hellip;"
+msgstr "Anna kuvaus tälle mediatiedostolle&hellip;"
+
+#: enhanced-media-library.php:373 enhanced-media-library.php:565
+msgid "All Uncategorized"
+msgstr "Kaikki kategorisoimattomat"
+
+#: enhanced-media-library.php:374 enhanced-media-library.php:569
+msgid "Reset All Filters"
+msgstr "Tyhjennä kaikki suodattimet"
+
+#: enhanced-media-library.php:570
+msgid "author"
+msgstr ""
+
+#: enhanced-media-library.php:571
+msgid "authors"
+msgstr ""
+
+#: enhanced-media-library.php:601
+msgid "Uploaded to post #"
+msgstr "Siirrä artikkeliin #"
+
+#: enhanced-media-library.php:602
+msgid "Based On"
+msgstr "Perustuu"
+
+#: enhanced-media-library.php:680 enhanced-media-library.php:682
+msgid "Media Categories"
+msgstr "Mediakategoriat"
+
+#: enhanced-media-library.php:681
+msgid "Media Category"
+msgstr "Mediakategoria"
+
+#: enhanced-media-library.php:683
+msgid "All Media Categories"
+msgstr "Kaikki mediakategoriat"
+
+#: enhanced-media-library.php:684
+msgid "Edit Media Category"
+msgstr "Muokkaa mediakategoriaa"
+
+#: enhanced-media-library.php:685
+msgid "View Media Category"
+msgstr "Näytä mediakategoria"
+
+#: enhanced-media-library.php:686
+msgid "Update Media Category"
+msgstr "Päivitä mediakategoria"
+
+#: enhanced-media-library.php:687
+msgid "Add New Media Category"
+msgstr "Lisää uusi mediakategoria"
+
+#: enhanced-media-library.php:688
+msgid "New Media Category Name"
+msgstr "Uuden mediakategorian nimi"
+
+#: enhanced-media-library.php:689
+msgid "Parent Media Category"
+msgstr "Ylemmän tason mediakategoria"
+
+#: enhanced-media-library.php:690
+msgid "Parent Media Category:"
+msgstr "Ylemmän tason mediakategoria:"
+
+#: enhanced-media-library.php:691
+msgid "Search Media Categories"
+msgstr "Etsi mediakategorioita"
+
+#: pro/core/bulk-edit.php:51
+msgid "Attachments Details"
+msgstr ""
+
+#: pro/core/bulk-edit.php:104
+msgid "Select All"
+msgstr ""
+
+#: pro/core/bulk-edit.php:105
+msgid "Deselect All"
+msgstr ""
+
+#: pro/core/bulk-edit.php:106 pro/core/bulk-edit.php:109
+msgid "Delete Selected"
+msgstr ""
+
+#: pro/core/bulk-edit.php:107
+msgid "Trash Selected"
+msgstr ""
+
+#: pro/core/bulk-edit.php:108
+msgid "Untrash Selected"
+msgstr ""
+
+#: pro/core/bulk-edit.php:529 pro/core/options-pages.php:333
+#: pro/enhanced-media-library-pro.php:126
+msgid "Bulk Edit"
+msgstr ""
+
+#: pro/core/medialist.php:24 pro/core/medialist.php:69
+msgid "Order By"
+msgstr ""
+
+#: pro/core/medialist.php:37 pro/core/medialist.php:82
+msgid "Random"
+msgstr ""
+
+#: pro/core/medialist.php:60 pro/core/medialist.php:101
+msgid "Limit"
+msgstr ""
+
+#: pro/core/options-pages.php:107
+msgid "Your license has been network deactivated."
+msgstr ""
+
+#: pro/core/options-pages.php:107
+msgid "Your license has been deactivated."
+msgstr ""
+
+#: pro/core/options-pages.php:130
+msgid "Please check if your license key is correct and try again."
+msgstr ""
+
+#: pro/core/options-pages.php:151
+#, php-format
+msgid ""
+"Activation failed with the error: %s. Please <a href=\"%s\">contact plugin "
+"authors</a>."
+msgstr ""
+
+#: pro/core/options-pages.php:169
+#, php-format
+msgid ""
+"Your license key is incorrect or canceled. Please <a href=\"%s\">contact "
+"plugin authors</a>."
+msgstr ""
+
+#: pro/core/options-pages.php:178
+msgid "Your license has been network activated."
+msgstr ""
+
+#: pro/core/options-pages.php:178
+msgid "Your license has been activated."
+msgstr ""
+
+#: pro/core/options-pages.php:239
+#, php-format
+msgid "Auto-assign media items to parent %s %s on upload"
+msgstr ""
+
+#: pro/core/options-pages.php:249
+#, php-format
+msgid ""
+"As a result of clicking \"Synchronize Now\" all media items attached to a %s "
+"will be assigned to %s of their parent %s. Currently assigned %s will not be "
+"saved. Media items that are not attached to any %s will not be affected."
+msgstr ""
+
+#: pro/core/options-pages.php:290 pro/core/options-pages.php:293
+msgid "Enable search in"
+msgstr ""
+
+#: pro/core/options-pages.php:295
+msgid "Titles"
+msgstr ""
+
+#: pro/core/options-pages.php:296
+msgid "Captions"
+msgstr ""
+
+#: pro/core/options-pages.php:297
+msgid "Descriptions"
+msgstr ""
+
+#: pro/core/options-pages.php:301
+msgid ""
+"Enhance default search in Media Library and Media Popups. By default, "
+"WordPress looks into filenames, titles, captions, and descriptions."
+msgstr ""
+
+#: pro/core/options-pages.php:341 pro/core/options-pages.php:344
+msgid "Turn off 'Save Changes' button"
+msgstr ""
+
+#: pro/core/options-pages.php:345
+msgid "Save changes on the fly"
+msgstr ""
+
+#: pro/core/options-pages.php:346
+msgid ""
+"Any click on a taxonomy checkbox during media files bulk editing will lead "
+"to an <strong style=\"color:red\">immediate saving</strong> of the data. "
+"Please, be careful! You have much greater chance to <strong style=\"color:red"
+"\">accidentally perform wrong re-assigning</strong> of a lot of your media "
+"files / taxonomies with this option turned on."
+msgstr ""
+
+#: pro/core/options-pages.php:347
+msgid "NOT recommended if you work with more than hundred files at a time."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: pro/core/options-pages.php:384
+msgid "Enhanced Media Library PRO"
+msgstr ""
+
+#: pro/core/options-pages.php:389
+msgid "Updates"
+msgstr ""
+
+#: pro/core/options-pages.php:396
+msgid "to check if your license key is correct"
+msgstr ""
+
+#: pro/core/options-pages.php:396 pro/core/update.php:223
+msgid "to check if an update is available"
+msgstr ""
+
+#: pro/core/options-pages.php:400 pro/core/update.php:221
+#, php-format
+msgid ""
+"%s could not establish a secure connection %s. An error occurred: %s. Please "
+"<a href=\"%s\">contact plugin authors</a>."
+msgstr ""
+
+#: pro/core/options-pages.php:423
+msgid "Your license is active!"
+msgstr ""
+
+#: pro/core/options-pages.php:427
+msgid "Deactivate License"
+msgstr ""
+
+#: pro/core/options-pages.php:432
+#, php-format
+msgid ""
+"To unlock updates please enter your license key below. You can get your "
+"license key in <a href=\"%s\">Your Account</a>. If you do not have a "
+"license, you are welcome to <a href=\"%s\">purchase it</a>."
+msgstr ""
+
+#: pro/core/options-pages.php:439
+msgid "License Key"
+msgstr ""
+
+#: pro/core/options-pages.php:442
+msgid "Activate License"
+msgstr ""
+
+#: pro/core/options-pages.php:465 pro/core/options-pages.php:468
+msgid "Turn off SSL verification"
+msgstr ""
+
+#: pro/core/options-pages.php:469
+msgid "Try this if you see the error message above."
+msgstr ""
+
+#: pro/core/options-pages.php:471
+#, php-format
+msgid ""
+"This will turn off SSL verification for the update requests that %s sends to "
+"its server %s only."
+msgstr ""
+
+#: pro/core/update.php:192
+#, php-format
+msgid "Auto-updates disabled for %s."
+msgstr ""
+
+#: pro/core/update.php:200 pro/core/update.php:346
+#, php-format
+msgid ""
+"To unlock updates, please <a href=\"%s\">activate your license</a>. You can "
+"get your license key in <a href=\"%s\">Your Account</a>. If you do not have "
+"a license, you are welcome to <a href=\"%s\">purchase it</a>."
+msgstr ""
+
+#: pro/core/update.php:277 pro/core/update.php:283 pro/core/update.php:289
+msgid ""
+"An unexpected error occurred. Something may be wrong with WordPress.org or "
+"this server&#8217;s configuration. If you continue to have problems, please "
+"try the <a href=\"https://wordpress.org/support/\">support forums</a>."
+msgstr ""
+
+#: pro/core/update.php:277
+msgid ""
+"(WordPress could not establish a secure connection to WordPress.org. Please "
+"contact your server administrator.)"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:118
+msgid "ALL files belong to this item"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:119
+msgid "SOME files belong to this item"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:120
+msgid "NO files belong to this item"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:121
+msgid "Changes saved."
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:122
+msgid "Something went wrong."
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:125
+msgid "Edit Media Files"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:128
+msgid "Selecting"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:129
+msgid "Delete Selected Permanently"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:130
+msgid "You are about to permanently delete all selected items."
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:131
+msgid "Delete"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:133
+msgid "Moving to Trash"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:134
+msgid "Restoring"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:135
+msgid "Deleting"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:159
+msgid "Create a filter-based gallery"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:160
+msgid "Create a filter-based playlist"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:161
+msgid "Create a filter-based video playlist"
+msgstr ""
+
+#: pro/enhanced-media-library-pro.php:419
+msgid ""
+"Only one version of <strong>Enhanced Media Library</strong> should be active "
+"at a time."
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://wpUXsolutions.com"
+msgstr "http://wpUXsolutions.com"
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin will be handy for those who need to manage a lot of media files."
+msgstr "Tämä lisäosa on kätevä kun haluat hallinnoida paljon mediatiedostoja."
+
+#. Author of the plugin/theme
+msgid "wpUXsolutions"
+msgstr "wpUXsolutions"
