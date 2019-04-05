@@ -336,16 +336,16 @@ class MetaVimeoSlide extends MetaSlide {
      *
      * @param integer $video_id Video ID
      * @param array   $settings Slider settings
-     * @param integer $ratio    SLider ratio
+     * @param float   $ratio    Slider ratio
      * @return string
      */
     public function get_responsive_slides_markup( $video_id, $settings, $ratio ) {
 
         $url = $this->get_vimeo_iframe_url( $video_id );
-		$autoPlay = isset( $this->slide_settings['autoPlay'] ) && $this->slide_settings['autoPlay'] == 'on' ? '1' : '0';
+		$autoPlay = isset($this->slide_settings['autoPlay'] ) && $this->slide_settings['autoPlay'] == 'on' ? '1' : '0';
 		$muted = isset($this->slide_settings['mute']) ? (int)filter_var($this->slide_settings['mute'], FILTER_VALIDATE_BOOLEAN) : 0;
 
-        $html  = "<div style='position: relative; padding-bottom: {$ratio}%; height: 0;'>";
+        $html  = sprintf("<div style='position:relative;padding-bottom:%s%%;height:0'>", $ratio);
         $html .= "<iframe class='vimeo' data-muted='{$muted}' data-vimeo-autoplay='{$autoPlay}' id='vimeo_{$this->slide->ID}' data-vimeo-width='{$settings['width']}' data-vimeo-height='{$settings['height']}' width='{$settings['width']}' height='{$settings['height']}' src='{$url}' frameborder='0' allowfullscreen></iframe>";
         $html .= "</div>";
 
@@ -357,7 +357,7 @@ class MetaVimeoSlide extends MetaSlide {
      *
      * @param integer $video_id Video ID
      * @param array   $settings Slider settings
-     * @param integer $ratio    SLider ratio
+     * @param float	  $ratio    Slider ratio
      * @return string
      */
     public function get_flex_slider_markup($video_id, $settings, $ratio) {
@@ -366,7 +366,7 @@ class MetaVimeoSlide extends MetaSlide {
 		$autoPlay = isset($this->slide_settings['autoPlay']) ? (int) filter_var($this->slide_settings['autoPlay'], FILTER_VALIDATE_BOOLEAN) : 0;
         $muted = isset($this->slide_settings['mute']) ? (int) filter_var($this->slide_settings['mute'], FILTER_VALIDATE_BOOLEAN) : 0;
 
-		$html = "<div style='position: relative; padding-bottom: {$ratio}%; height: 0;'>";
+		$html = sprintf("<div style='position:relative;padding-bottom:%s%%;height:0'>", $ratio);
         $html .= "<iframe class='vimeo' data-muted='{$muted}' data-vimeo-autoplay='{$autoPlay}' id='vimeo_{$this->slide->ID}' data-vimeo-width='{$settings['width']}' data-vimeo-height='{$settings['height']}' width='{$settings['width']}' height='{$settings['height']}' src='{$url}' frameborder='0' allowfullscreen></iframe>";
         $html .= "</div>";
 

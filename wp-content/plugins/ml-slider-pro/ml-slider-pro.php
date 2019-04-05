@@ -4,7 +4,7 @@
  * Plugin Name: MetaSlider - Pro Add-on Pack
  * Plugin URI: https://www.metaslider.com
  * Description: This Add-on pack unlocks the power of video slides, layer slides, post type slides as well as many other features.
- * Version: 2.12.0
+ * Version: 2.13.1
  * Author: Team Updraft
  * Author URI: https://www.metaslider.com
  * Copyright: 2017- Simba Hosting Ltd
@@ -31,7 +31,7 @@ class MetaSliderPro {
 	 *
 	 * @var string $version
 	 */
-	public $version = '2.12.0';
+	public $version = '2.13.1';
 
 	/**
 	 * Minimum required version
@@ -76,12 +76,13 @@ class MetaSliderPro {
 		add_action('metaslider_register_admin_styles', array($this, 'register_admin_styles'), 10, 1);
 		add_filter('metaslider_css', array($this, 'get_public_css'), 11, 3);
 
-		if (!class_exists('Updraft_Manager_Updater_1_5')) {
+		if (!class_exists('Updraft_Manager_Updater_1_8')) {
 			include_once(METASLIDERPRO_PATH . 'vendor/davidanderson684/simba-plugin-manager-updater/class-udm-updater.php');
 		}
 		
 		try {
-			new Updraft_Manager_Updater_1_5('https://metaslider.com', 1, $this->get_real_file_path('ml-slider-pro/ml-slider-pro.php'));
+			// This path is the correct thing to use regardless of whether the user moved it - because if they did, then updates won't work anyway
+			new Updraft_Manager_Updater_1_8('https://www.metaslider.com', 1, 'ml-slider-pro/ml-slider-pro.php', array('require_login' => false));
 		} catch (Exception $e) {
 			error_log($e->getMessage().' at '.$e->getFile().' line '.$e->getLine());
 		}

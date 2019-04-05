@@ -6,10 +6,10 @@ if (!defined('ABSPATH')) die('No direct access.');
 Licence: MIT / GPLv2+
 */
 
-if (!class_exists('Updraft_Manager_Updater_1_5')):
-class Updraft_Manager_Updater_1_5 {
+if (!class_exists('Updraft_Manager_Updater_1_8')):
+class Updraft_Manager_Updater_1_8 {
 
-	public $version = '1.5.10';
+	public $version = '1.8.0';
 
 	public $relative_plugin_file;
 	public $slug;
@@ -30,27 +30,29 @@ class Updraft_Manager_Updater_1_5 {
 	
 	private $option_name;
 	private $admin_notices = array();
+	
+	public $require_login = true;
 
 	/**
 	 * Constructor
 	 *
-	 * @param String $mothership
+	 * @param String  $mothership
 	 * @param Integer $muid
-	 * @param String $relative_plugin_file
-	 * @param Integer $interval_hours
-	 * @param Boolean $auto_backoff
-	 * @param Boolean $debug
+	 * @param String  $relative_plugin_file
+	 * @param Array   $options - further options; keys: 'interval_hours' (integer), 'auto_backoff' (boolean), 'debug' (boolean), 'require_login' (boolean)
 	 */
-	public function __construct($mothership, $muid = 1, $relative_plugin_file, $interval_hours = 24, $auto_backoff = true, $debug = false) {
+	public function __construct($mothership, $muid, $relative_plugin_file, $options = array()) {
 
+		$this->auto_backoff = isset($options['auto_backoff']) ? $options['auto_backoff'] : true;
+		$this->debug = isset($options['debug']) ? $options['debug'] : false;
+		$this->require_login = isset($options['require_login']) ? $options['require_login'] : true;
+		$this->interval_hours = isset($options['interval_hours']) ? $options['interval_hours'] : 24;
+	
 		$this->relative_plugin_file = $relative_plugin_file;
 		$this->slug = dirname($relative_plugin_file);
 		$this->url = trailingslashit($mothership).'?muid='.$muid;
 		$this->muid = $muid;
-		$this->debug = $debug;
 		$this->ourdir = dirname(__FILE__);
-		$this->auto_backoff = $auto_backoff;
-		$this->interval_hours = $interval_hours;
 
 		// This needs to exactly match PluginUpdateChecker's view
 		$this->plugin_file = trailingslashit(WP_PLUGIN_DIR).$relative_plugin_file;
@@ -71,6 +73,12 @@ class Updraft_Manager_Updater_1_5 {
 
 		$this->option_name = $this->slug.'_updater_options';
 
+		if (did_action('init')) {
+			$this->load_text_domain();
+		} else {
+			add_action('init', array($this, 'load_text_domain'));
+		}
+		
 		$this->get_puc_updates_checker();
 
 		add_action("after_plugin_row_$relative_plugin_file", array($this, 'after_plugin_row'), 10, 2 );
@@ -78,6 +86,18 @@ class Updraft_Manager_Updater_1_5 {
 		add_action('core_upgrade_preamble', array($this, 'core_upgrade_preamble'));
 		
 		add_filter('auto_update_plugin', array($this, 'auto_update_plugin'), 10, 2);
+	}
+
+	/**
+	 * Loading of translations
+	 */
+	public function load_text_domain() {
+		$domain = 'udmupdater';
+		$locale = apply_filters('udmupdater_locale', (is_admin() && function_exists('get_user_locale')) ? get_user_locale() : get_locale(), $domain, $this);
+
+		$mo_file = realpath(dirname(__FILE__).'/languages').'/'.$domain.'-'.$locale.'.mo';
+
+		if (file_exists($mo_file)) load_textdomain($domain, $mo_file);
 	}
 	
 	/**
@@ -98,7 +118,7 @@ class Updraft_Manager_Updater_1_5 {
 		
 		$email = isset($options['email']) ? $options['email'] : '';
 		
-		if (!$email) return;
+		if (!$email && $this->require_login) return;
 		
 		// Load the file even if the Puc_v4_Factory class is already around, as this may get us a later version / avoid a really old + incompatible one
 		if (file_exists($puc_dir.'/plugin-update-checker.php')) include_once($puc_dir.'/plugin-update-checker.php');
@@ -199,7 +219,7 @@ class Updraft_Manager_Updater_1_5 {
 						
 						$this->get_puc_updates_checker();
 						
-						// e.g. Puc_v4p4_Plugin_UpdateChecker
+						// e.g. Puc_v4p5_Plugin_UpdateChecker
 						$checker_class = get_class($this->plug_updatechecker);
 						
 						// Hopefully take off the 'Checker'. The setUpdate() call below wants a compatible version.

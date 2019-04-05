@@ -166,9 +166,9 @@ class MetaLayerSlide extends MetaSlide {
             // copy over the custom fields
             $custom_fields = get_post_custom( $slide_id );
 
-            foreach ( $custom_fields as $key => $value ) {
-                if ( $key != '_wp_attachment_metadata' ) {
-                    update_post_meta( $new_slide_id, $key, $value[0] );
+            foreach ($custom_fields as $key => $value) {
+                if ($key != '_wp_attachment_metadata') {
+                    update_post_meta($new_slide_id, $key, $value[0]);
                 }
             }
 

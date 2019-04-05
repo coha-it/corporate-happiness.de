@@ -23,7 +23,7 @@ class MetaYouTubeSlide extends MetaSlide {
             add_action('metaslider_register_admin_styles', array($this, 'register_admin_styles'), 10, 1);
         }
 
-        add_filter("metaslider_get_{$this->identifier}_slide", array($this, 'get_slide'), 10, 2);
+		add_filter("metaslider_get_{$this->identifier}_slide", array($this, 'get_slide'), 10, 2);
     }
 
     /**
@@ -85,6 +85,15 @@ class MetaYouTubeSlide extends MetaSlide {
     }
 
     /**
+     * Add inline styles used by videos
+     */
+    public function add_extra_styles() {
+		$css = '.metaslider .youtube iframe{opacity:0;transition:opacity 0.5s ease-in-out}.metaslider .youtube.video-loaded iframe{opacity:1}.metaslider .youtube .play_button{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center}.metaslider .youtube .play_button img{width:75px;cursor:pointer;opacity:0.8}.metaslider .youtube .play_button img:hover{opacity:1}';
+		$css = apply_filters('metaslider_youtube_inline_css', $css, $this->slide, $this->slider->ID);
+		wp_add_inline_style('metaslider-public', $css);
+    }
+
+    /**
      * Media Manager Tab
      */
     public function youtube_tab() {
@@ -106,13 +115,13 @@ class MetaYouTubeSlide extends MetaSlide {
             'post_mime_type' => 'image/jpeg',
             'post_status' => 'inherit',
             'post_content' => '',
-            'guid' => "http://www.youtube.com/watch?v={$fields['video_id']}",
+            'guid' => "https://www.youtube.com/watch?v={$fields['video_id']}",
             'menu_order' => $fields['menu_order'],
             'post_name' => $fields['video_id']
         );
 
         $youtube_thumb = new WP_Http();
-        $youtube_thumb = $youtube_thumb->request( "http://img.youtube.com/vi/{$fields['video_id']}/0.jpg" );
+        $youtube_thumb = $youtube_thumb->request("https://img.youtube.com/vi/{$fields['video_id']}/0.jpg");
 
         if ( !is_wp_error( $youtube_thumb ) && isset( $youtube_thumb['response']['code'] ) && $youtube_thumb['response']['code'] == 200 ) {
             $attachment = wp_upload_bits( "youtube_{$fields['video_id']}.jpg", null, $youtube_thumb['body'] );
@@ -125,10 +134,10 @@ class MetaYouTubeSlide extends MetaSlide {
         }
 
         if ( method_exists( $this, 'insert_slide' ) ) {
-            $slide_id = $this->insert_slide($slide_id, $this->identifier, $slider_id);
-            $this->add_or_update_or_delete_meta( $slide_id, 'youtube_url', "http://www.youtube.com/watch?v={$fields['video_id']}");
+			$slide_id = $this->insert_slide($slide_id, $this->identifier, $slider_id);
+            $this->add_or_update_or_delete_meta($slide_id, 'youtube_url', "https://www.youtube.com/watch?v={$fields['video_id']}");
         } else {
-            $this->add_or_update_or_delete_meta( $slide_id, 'type', $this->identifier );
+            $this->add_or_update_or_delete_meta($slide_id, 'type', $this->identifier);
         }
 
         // store the type as a meta field against the attachment
@@ -205,13 +214,12 @@ class MetaYouTubeSlide extends MetaSlide {
         $slide_id = absint($this->slide->ID);
         $showControls_checked = !isset($this->slide_settings['showControls']) || $this->slide_settings['showControls'] == 'on' ? 'checked=checked' : '';
         $show_related_checked = isset($this->slide_settings['showRelated']) && $this->slide_settings['showRelated'] == 'on' ? 'checked=checked' : '';
-        $autoHide_checked = !isset($this->slide_settings['autoHide']) || $this->slide_settings['autoHide'] == 'on' ? 'checked=checked' : '';
         $auto_play_checked = isset($this->slide_settings['autoPlay']) && $this->slide_settings['autoPlay'] == 'on' ? 'checked=checked' : '';
         $mute_checked = isset($this->slide_settings['mute']) && $this->slide_settings['mute'] == 'on' ? 'checked=checked' : '';
-        $showInfo_checked = isset($this->slide_settings['showInfo']) && $this->slide_settings['showInfo'] == 'on' ? 'checked=checked' : '';
         $light_theme_selected = isset($this->slide_settings['theme']) && $this->slide_settings['theme'] == 'light' ? 'selected' : '';
         $white_color_selected = isset($this->slide_settings['color']) && $this->slide_settings['color'] == 'white' ? 'selected' : '';
-        $video_url = get_post_meta($slide_id, 'ml-slider_youtube_url', true);
+		$lazy_load = !isset($this->slide_settings['lazyLoad']) || $this->slide_settings['lazyLoad'] == 'on' ? 'checked=checked' : '';
+		$video_url = get_post_meta($slide_id, 'ml-slider_youtube_url', true);
 
         $general_tab = "<input style='padding:7px 10px;max-width:500px' class='ms-super-wide' name='attachment[{$slide_id}][youtube_url]' value='{$video_url}'>";
         $general_tab .= "<ul class='ms-split-li'>
@@ -219,6 +227,7 @@ class MetaYouTubeSlide extends MetaSlide {
 							<li><label><input type='checkbox' name='attachment[{$slide_id}][settings][mute]' {$mute_checked}/><span>" . __('Mute video on start (enabling this may help with auto play, <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes" target="_blank">see here</a>)', 'ml-slider-pro') ."</span></label></li>
 							<li><label><input type='checkbox' name='attachment[{$slide_id}][settings][showControls]' {$showControls_checked}/><span>" . __('Enable controls', 'ml-slider-pro') ."</span></label></li>
 							<li><label><input type='checkbox' name='attachment[{$slide_id}][settings][autoPlay]' {$auto_play_checked}/><span>" . __('Auto play video', 'ml-slider-pro') ."</span></label></li>
+							<li><label><input type='checkbox' name='attachment[{$slide_id}][settings][lazyLoad]' {$lazy_load}/><span>" . __('Lazy load video', 'ml-slider-pro') ."</span></label></li>
                         </ul>";
 
         $theme_tab =   "<div class='row'>
@@ -257,7 +266,9 @@ class MetaYouTubeSlide extends MetaSlide {
      */
     protected function get_public_slide() {
 
-        wp_enqueue_script('metasliderpro-youtube-api', METASLIDERPRO_BASE_URL . 'node_modules/jquery-tubeplayer-plugin/dist/jquery.tubeplayer.min.js', array('jquery'), METASLIDERPRO_VERSION);
+		wp_enqueue_script('metasliderpro-youtube-api', METASLIDERPRO_BASE_URL . 'node_modules/jquery-tubeplayer-plugin/dist/jquery.tubeplayer.js', array('jquery'), METASLIDERPRO_VERSION);
+
+		add_action('metaslider_register_public_styles', array($this, 'add_extra_styles'), 10, 2);
 
         if ( get_post_meta($this->slide->ID, 'ml-slider_youtube_url', true) ) {
             $url = get_post_meta($this->slide->ID, 'ml-slider_youtube_url', true);
@@ -295,7 +306,7 @@ class MetaYouTubeSlide extends MetaSlide {
      * Flex slider markup
      *
      * @param integer $video_id Video ID
-     * @param integer $ratio    Video Ratio
+     * @param float   $ratio    Video Ratio
      * @return string
      */
     public function get_flex_slider_markup( $video_id, $ratio ) {
@@ -326,12 +337,12 @@ class MetaYouTubeSlide extends MetaSlide {
      * Videon Markup
      *
      * @param integer $video_id Video ID
-     * @param integer $ratio    Video Ratio
+     * @param float   $ratio    Video Ratio
      * @return string
      */
     public function get_video_markup($video_id, $ratio) {
         $attrs = array(
-            'style' => "position: relative; padding-bottom: {$ratio}%; height: 0;",
+            'style' => sprintf("position:relative;padding-bottom:%s%%;height:0", $ratio),
             'class' => "youtube",
             'data-id' => $video_id,
             'data-auto-play' => isset($this->slide_settings['autoPlay']) ? (int) filter_var($this->slide_settings['autoPlay'], FILTER_VALIDATE_BOOLEAN) : 0,
@@ -340,16 +351,82 @@ class MetaYouTubeSlide extends MetaSlide {
             'data-show-related' => isset($this->slide_settings['showRelated']) ? (int) filter_var($this->slide_settings['showRelated'], FILTER_VALIDATE_BOOLEAN) : 0,
             'data-theme' => isset($this->slide_settings['theme']) && 'light' == $this->slide_settings['theme'] ? "light" : "dark",
             'data-color' => isset($this->slide_settings['color']) && 'white' == $this->slide_settings['color'] ? "white" : "red",
+			'data-lazy-load' => isset($this->slide_settings['lazyLoad']) ? (int) filter_var($this->slide_settings['lazyLoad'], FILTER_VALIDATE_BOOLEAN) : 0
 		);
 
-        $html = "<div";
-        foreach ($attrs as $key => $value) {
-            $html .= " " . $key . '="' . $value . '"';
-        }
-        $html .= "></div>";
+
+		$html = "<div";
+		foreach ($attrs as $key => $value) {
+			$html .= " " . $key . '="' . $value . '"';
+		}
+		$html .= ">";
+
+		if ($attrs['data-lazy-load']) {
+			$html .= $this->temporary_video_image($video_id);
+		}
+
+		$html .="</div>";
 
         return $html;
-    }
+	}
+
+	/**
+     * Get the title of the video
+     *
+     * @param int|string $video_id - ID of the video
+     * @return string
+     */
+	public function temporary_video_image($video_id) {
+		$imageHelper = new MetaSliderImageHelper(
+			$this->slide->ID,
+			$this->settings['width'],
+			$this->settings['height'],
+			isset($this->settings['smartCrop']) ? $this->settings['smartCrop'] : 'false'
+		);
+		$url = $imageHelper->get_image_url();
+
+		if (!(bool) $video_title = get_post_meta($this->slide->ID, 'ml-slider_youtube_title', true)) {
+			$video_title = $this->youtube_title($video_id);
+			$this->add_or_update_or_delete_meta($this->slide->ID, 'youtube_title', $video_title);
+		}
+
+		$image_attributes = array(
+			'src' => $url,
+			'alt' => $video_title,
+			'title' => '',
+			'class' => 'msDefaultImage',
+			'height' => $this->settings['height'],
+			'width' => $this->settings['width']
+		);
+
+		if ($this->settings['type'] == 'flex') {
+			$attributes = apply_filters('metaslider_flex_slider_youtube_attributes', $image_attributes, $this->slide, $this->slider->ID);
+		}
+
+		if ($this->settings['type'] == 'responsive') {
+			$attributes = apply_filters('metaslider_responsive_slider_youtube_attributes', $image_attributes, $this->slide, $this->slider->ID);
+		}
+
+		$html = $this->build_image_tag($attributes);
+
+		$play_button_url = METASLIDERPRO_BASE_URL . "modules/youtube/assets/yt-play-" . $this->slide_settings['color'] . '.png';
+		$play_button_url = apply_filters('metaslider_youtube_play_button', $play_button_url, $this->slide, $this->slider->ID);
+		$html .= "<span class='play_button'><a tabindex='0' role='button' id='toggle'><img width='75' src='{$play_button_url}'></a></span>";
+
+		return $html;
+	}
+
+	/**
+     * Get the title of the video
+     *
+     * @param int|string $video_id - ID of the video
+     * @return string
+     */		
+	public function youtube_title($video_id) {
+		$json = file_get_contents('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' . $video_id . '&format=json');
+		$details = json_decode($json, true);
+		return $details['title'];
+	}
 
     /**
      * Pause youtube videos when the slide is changed
@@ -429,7 +506,8 @@ class MetaYouTubeSlide extends MetaSlide {
         $options['after'] = array_merge($options['after'], array(
 			"$('#metaslider_{$slider_id} .flex-active-slide .youtube').each(function(index) {
 				$(this).data('mute') && $(this).tubeplayer('mute');
-            	$(this).data('autoPlay') && $(this).tubeplayer('play');
+				$(this).data('autoPlay') && $(this).tubeplayer('play');
+				if ($(this).data('lazyLoad') && $(this).data('autoPlay')) $(this).trigger('click');
 			});")
 		);
 
@@ -443,18 +521,27 @@ class MetaYouTubeSlide extends MetaSlide {
 						autoplay = true;
 					}
 				}
-				var player = $(this).tubeplayer({{$this->get_tubeplayer_params()}
-					onPlayerLoaded: function() {
-						$(this).data('mute') && $(this).tubeplayer('mute');
-						$(this).data('autoPlay') && $(this).tubeplayer('play');
-					},
-					onPlayerPlaying: function(id) {
-						$('#metaslider_{$slider_id} .flex-active-slide .youtube').data('autoplay', 0);
-						$('#metaslider_{$slider_id}').flexslider('pause');
-						$('#metaslider_{$slider_id}').data('flexslider').manualPause = true;
-						$('#metaslider_{$slider_id}').data('flexslider').manualPlay = false;
-					}{$autoPlay}
+				var eventType = $(this).data('lazyLoad')  ? 'click' : 'metaslider/load-youtube-video';
+				youtube.on(eventType, function() {
+					var player = $(this).tubeplayer({{$this->get_tubeplayer_params()}
+						onPlayerLoaded: function() {
+							$(this).data('mute') && $(this).tubeplayer('mute');
+							$(this).data('autoPlay') && $(this).tubeplayer('play');
+							$(this).data('lazyLoad') && $(this).tubeplayer('play');
+							$(this).addClass('video-loaded');
+						},
+						onPlayerPlaying: function(id) {
+							$('#metaslider_{$slider_id} .flex-active-slide .youtube').data('autoplay', 0);
+							$('#metaslider_{$slider_id}').flexslider('pause');
+							$('#metaslider_{$slider_id}').data('flexslider').manualPause = true;
+							$('#metaslider_{$slider_id}').data('flexslider').manualPlay = false;
+						}{$autoPlay}
+					});
 				});
+				if ($(this).data('lazyLoad')) {
+					autoplay && $(this).trigger('click');
+				}
+				$(this).data('lazyLoad') || $(this).trigger('metaslider/load-youtube-video');
 			});")
 		);
 
@@ -478,16 +565,25 @@ class MetaYouTubeSlide extends MetaSlide {
         	    if (youtube.parents('.rslides1_on').length) {
         	        autoplay = true;
         	    }
-        	}
-			$(this).tubeplayer({{$this->get_tubeplayer_params()}
-				onPlayerLoaded: function() {
-					$(this).data('mute') && $(this).tubeplayer('mute');
-					$(this).data('autoPlay') && $(this).tubeplayer('play');
-				},
-        	    onPlayerPlaying: function(id) {
-        	        $('#metaslider_{$slider_id} .rslides1_on .youtube').data('autoplay', 0);
-        	    }
-        	});
+			}
+			var eventType = youtube.data('lazyLoad')  ? 'click' : 'metaslider/load-youtube-video';
+			youtube.on(eventType, function() {
+				$(this).tubeplayer({{$this->get_tubeplayer_params()}
+					onPlayerLoaded: function() {
+						$(this).data('mute') && $(this).tubeplayer('mute');
+						$(this).data('autoPlay') && $(this).tubeplayer('play');
+						$(this).data('lazyLoad') && $(this).tubeplayer('play');
+						$(this).addClass('video-loaded');
+					},
+					onPlayerPlaying: function(id) {
+						$('#metaslider_{$slider_id} .rslides1_on .youtube').data('autoplay', 0);
+					}
+				});
+			});
+			if (youtube.data('lazyLoad')) {
+				autoplay && youtube.trigger('click');
+			}
+			youtube.data('lazyLoad') || youtube.trigger('metaslider/load-youtube-video');
         });";
 
         // we don't want this filter hanging around if there's more than one slideshow on the page
@@ -510,7 +606,7 @@ class MetaYouTubeSlide extends MetaSlide {
             'controls' => "youtube.data('showControls')",
 			'showRelated' => "youtube.data('showRelated')",
             'theme' => "youtube.data('theme')",
-            'color' => "youtube.data('color')"
+			'color' => "youtube.data('color')"
         );
 
         $tubeplayer_params = apply_filters('metaslider_tubeplayer_params', $tubeplayer_params, $this->slider->ID, $this->slide->ID);
@@ -520,7 +616,7 @@ class MetaYouTubeSlide extends MetaSlide {
         }
 
         return $params;
-    }
+	}
 
     /**
      * Return wp_iframe

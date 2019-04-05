@@ -1,4 +1,4 @@
-# Copyright (C) 2018 ml-slider-pro
+# Copyright (C) 2019 ml-slider-pro
 # This file is distributed under the same license as the ml-slider-pro package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: John Doe <mail@example.com>\n"
 "Language-Team: Team Updraft <mail@example.com>\n"
 "X-Poedit-Basepath: ..\n"
@@ -17,15 +17,15 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/ml-slider-pro.php:222
+#: src/ml-slider-pro.php:223
 msgid "The MetaSlider Pro Add-on Pack requires the MetaSlider plugin to be installed. You may download it by clicking <a href='%s'>here</a>."
 msgstr ""
 
-#: src/ml-slider-pro.php:228
+#: src/ml-slider-pro.php:229
 msgid "The MetaSlider Pro Add-on Pack requires the MetaSlider plugin to be activated. You may activate it by clicking <a href='%s'>here</a>."
 msgstr ""
 
-#: src/ml-slider-pro.php:234
+#: src/ml-slider-pro.php:235
 msgid "The MetaSlider Pro Add-on Pack requires the MetaSlider plugin to be at least version %s. You may update it by clicking <a href='%s'>here</a>."
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "External URL"
 msgstr ""
 
-#: src/modules/external/slide.php:201, src/modules/layer/slide.php:239, src/modules/vimeo/slide.php:221, src/modules/youtube/slide.php:188
+#: src/modules/external/slide.php:201, src/modules/layer/slide.php:239, src/modules/vimeo/slide.php:221, src/modules/youtube/slide.php:197
 msgid "Please update to MetaSlider to version 3.2 or above."
 msgstr ""
 
@@ -165,7 +165,7 @@ msgstr ""
 msgid "Please set a height in the slideshow settings"
 msgstr ""
 
-#: src/modules/layer/slide.php:131, src/modules/post_feed/slide.php:1169, src/modules/vimeo/slide.php:633, src/modules/youtube/slide.php:560
+#: src/modules/layer/slide.php:131, src/modules/post_feed/slide.php:1169, src/modules/vimeo/slide.php:633, src/modules/youtube/slide.php:656
 msgid "Add to slideshow"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 msgid "WebM Source"
 msgstr ""
 
-#: src/modules/layer/slide.php:299, src/modules/vimeo/slide.php:259, src/modules/youtube/slide.php:241
+#: src/modules/layer/slide.php:299, src/modules/vimeo/slide.php:259, src/modules/youtube/slide.php:250
 msgid "General"
 msgstr ""
 
@@ -753,11 +753,11 @@ msgstr ""
 msgid "Purple"
 msgstr ""
 
-#: src/modules/theme_editor/theme_editor.php:1598, src/modules/youtube/slide.php:234
+#: src/modules/theme_editor/theme_editor.php:1598, src/modules/youtube/slide.php:243
 msgid "Red"
 msgstr ""
 
-#: src/modules/theme_editor/theme_editor.php:1599, src/modules/youtube/slide.php:235
+#: src/modules/theme_editor/theme_editor.php:1599, src/modules/youtube/slide.php:244
 msgid "White"
 msgstr ""
 
@@ -845,34 +845,38 @@ msgstr ""
 msgid "YouTube"
 msgstr ""
 
-#: src/modules/youtube/slide.php:218
+#: src/modules/youtube/slide.php:226
 msgid "Show related videos (disabling this may instead show only recommend videos from the channel, <a href=\"https://developers.google.com/youtube/player_parameters#playsinline\" target=\"_blank\">see here</a>)"
 msgstr ""
 
-#: src/modules/youtube/slide.php:219
+#: src/modules/youtube/slide.php:227
 msgid "Mute video on start (enabling this may help with auto play, <a href=\"https://developers.google.com/web/updates/2017/09/autoplay-policy-changes\" target=\"_blank\">see here</a>)"
 msgstr ""
 
-#: src/modules/youtube/slide.php:220
+#: src/modules/youtube/slide.php:228
 msgid "Enable controls"
 msgstr ""
 
-#: src/modules/youtube/slide.php:221
+#: src/modules/youtube/slide.php:229
 msgid "Auto play video"
 msgstr ""
 
-#: src/modules/youtube/slide.php:225, src/modules/youtube/slide.php:245
+#: src/modules/youtube/slide.php:230
+msgid "Lazy load video"
+msgstr ""
+
+#: src/modules/youtube/slide.php:234, src/modules/youtube/slide.php:254
 msgid "Theme"
 msgstr ""
 
-#: src/modules/youtube/slide.php:227
+#: src/modules/youtube/slide.php:236
 msgid "Dark"
 msgstr ""
 
-#: src/modules/youtube/slide.php:228
+#: src/modules/youtube/slide.php:237
 msgid "Light"
 msgstr ""
 
-#: src/modules/youtube/slide.php:232
+#: src/modules/youtube/slide.php:241
 msgid "Color"
 msgstr ""

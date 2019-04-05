@@ -2,11 +2,22 @@
 
 Requires at least: 3.5
 Tested up to: 5.1
-Stable tag: 2.12.0
+Stable tag: 2.13.1
+Requires PHP: 5.2
 
 Extends MetaSlider, allowing slides to be opened in a lightbox.
 
 == Changelog ==
+
+= 2.13.1 - 2019/Mar/20 =
+
+* FIX: Fixes a bug where some users will see an error with Youtube
+
+= 2.13.0 - 2019/Mar/19 =
+
+* FEATURE: Adds lazy loading to YouTube videos
+* TWEAK: Updates bundled updater class dependency to latest series (1.6.*)
+* FIX: Updates computed ratio on videos to work with locale settings
 
 = 2.12.0 - 2018/Dec/13 =
 
@@ -304,4 +315,4 @@ Layer Slide scaling JS extracted to it's own jQuery plugin
 - Initial Version
 
 == Upgrade Notice ==
-* 2.12.0 : Update now if you have been experiencing issues with video autoplay
+* 2.13.1 : Update now if you see an error notice regarding Youtube
