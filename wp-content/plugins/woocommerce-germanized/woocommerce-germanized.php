@@ -3,11 +3,11 @@
  * Plugin Name: WooCommerce Germanized
  * Plugin URI: https://www.vendidero.de/woocommerce-germanized
  * Description: WooCommerce Germanized extends WooCommerce to become a legally compliant store in the german market.
- * Version: 2.2.7
+ * Version: 2.2.9
  * Author: Vendidero
  * Author URI: https://vendidero.de
  * Requires at least: 3.8
- * Tested up to: 5.0
+ * Tested up to: 5.1
  * WC requires at least: 2.4.0
  * WC tested up to: 3.5.0
  * Requires at least WooCommerce: 2.4
@@ -31,7 +31,7 @@ final class WooCommerce_Germanized {
 	 *
 	 * @var string
 	 */
-	public $version = '2.2.7';
+	public $version = '2.2.9';
 
 	/**
 	 * Single instance of WooCommerce Germanized Main Class
@@ -162,9 +162,9 @@ final class WooCommerce_Germanized {
 		do_action( 'woocommerce_germanized_loaded' );
 
 		if ( did_action( 'woocommerce_loaded' ) ) {
-			$this->checkbox_includes();
+			$this->woocommerce_loaded_includes();
 		} else {
-			add_action( 'woocommerce_loaded', array( $this, 'checkbox_includes' ) );
+			add_action( 'woocommerce_loaded', array( $this, 'woocommerce_loaded_includes' ) );
 		}
 	}
 
@@ -181,7 +181,6 @@ final class WooCommerce_Germanized {
 	 * Init WooCommerceGermanized when WordPress initializes.
 	 */
 	public function init() {
-
 		// Before init action
 		do_action( 'before_woocommerce_germanized_init' );
 
@@ -235,9 +234,23 @@ final class WooCommerce_Germanized {
 	 */
 	public function autoload( $class ) {
 
+        $original_class = $class;
+        $class          = strtolower( $class );
+
+	    $matcher = array(
+	        'wc_gzd_',
+            'ekomi\\',
+            'digitick\sepa',
+            'defuse\crypto',
+        );
+
+        $is_match = ( str_replace( $matcher, '', $class ) != $class );
+
+	    if ( ! $is_match ) {
+	        return;
+        }
+
 		$path = $this->plugin_path() . '/includes/';
-		$original_class = $class;
-		$class = strtolower( $class );
 		$file = 'class-' . str_replace( '_', '-', $class ) . '.php';
 
 		if ( strpos( $class, 'wc_gzd_admin' ) !== false ) {
@@ -397,10 +410,16 @@ final class WooCommerce_Germanized {
 
 	}
 
-	public function checkbox_includes() {
+	public function woocommerce_loaded_includes() {
 		// Checkboxes
 		include_once WC_GERMANIZED_ABSPATH . 'includes/class-wc-gzd-legal-checkbox.php';
 		include_once WC_GERMANIZED_ABSPATH . 'includes/class-wc-gzd-legal-checkbox-manager.php';
+
+		// Product Attribute
+        if ( wc_gzd_get_dependencies()->woocommerce_version_supports_crud() ) {
+            include_once WC_GERMANIZED_ABSPATH . 'includes/class-wc-gzd-product-attribute.php';
+            include_once WC_GERMANIZED_ABSPATH . 'includes/class-wc-gzd-product-attribute-helper.php';
+        }
 	}
 
 	public function is_frontend() {
@@ -614,7 +633,7 @@ final class WooCommerce_Germanized {
 		$locale = apply_filters( 'plugin_locale', $locale, 'woocommerce-germanized' );
 
         unload_textdomain( 'woocommerce-germanized' );
-		load_textdomain( 'woocommerce-germanized', trailingslashit( WP_LANG_DIR ) . 'woocommerce-germanized/woocommerce-germanized-' . $locale . '.mo' );
+        load_textdomain( 'woocommerce-germanized', trailingslashit( WP_LANG_DIR ) . 'woocommerce-germanized/woocommerce-germanized-' . $locale . '.mo' );
 		load_plugin_textdomain( 'woocommerce-germanized', false, plugin_basename( dirname( __FILE__ ) ) . '/i18n/languages/' );
 	}
 

@@ -53,7 +53,7 @@ class WC_GZD_Emails {
         add_filter( 'woocommerce_gzd_email_template_id_comparison', array( $this, 'check_for_partial_refund_mail' ), 10, 3 );
 
         // Filter customer-processing-order Woo 3.5 payment text
-		add_filter( 'woocommerce_before_template_part', array( $this, 'maybe_set_gettext_processing_filter' ), 10, 4 );
+		add_filter( 'woocommerce_before_template_part', array( $this, 'maybe_set_gettext_email_filter' ), 10, 4 );
 
         // Hide username if an email contains a password or password reset link (TS advises to do so)
         if ( 'yes' === get_option( 'woocommerce_gzd_hide_username_with_password' ) ) {
@@ -97,21 +97,33 @@ class WC_GZD_Emails {
 		return $actions;
 	}
 
-	public function maybe_set_gettext_processing_filter( $template_name, $template_path, $located, $args ) {
-		if ( 'emails/customer-processing-order.php' === $template_name || 'emails/plain/customer-processing-order.php' === $template_name ) {
+	public function maybe_set_gettext_email_filter( $template_name, $template_path, $located, $args ) {
+
+	    if ( 'emails/customer-processing-order.php' === $template_name || 'emails/plain/customer-processing-order.php' === $template_name ) {
 			if ( isset( $args['order'] ) ) {
 				$GLOBALS['wc_gzd_processing_order'] = $args['order'];
 				add_filter( 'gettext', array( $this, 'replace_processing_email_text' ), 10, 3 );
 			}
 		}
+
+		// Adjust customer addressing within emails
+		if ( strpos( $template_name, 'emails/' ) !== false && isset( $args['order'] ) ) {
+            $GLOBALS['wc_gzd_email_order'] = $args['order'];
+            add_filter( 'gettext', array( $this, 'replace_title_email_text' ), 10, 3 );
+        }
 	}
 
 	public function replace_processing_email_text( $translated, $original, $domain ) {
 		if ( 'woocommerce' === $domain ) {
-			if ( 'Just to let you know &mdash; your payment has been confirmed, and order #%s is now being processed:' === $original || 'Your order has been received and is now being processed. Your order details are shown below for your reference:' === $original ) {
+		    $search = array(
+		        'Just to let you know &mdash; we\'ve received your order #%s, and it is now being processed:',
+                'Just to let you know &mdash; your payment has been confirmed, and order #%s is now being processed:',
+                'Your order has been received and is now being processed. Your order details are shown below for your reference:',
+            );
+
+			if ( in_array( $original, $search ) ) {
 				if ( isset( $GLOBALS['wc_gzd_processing_order'] ) ) {
 					$order = $GLOBALS['wc_gzd_processing_order'];
-
 					return $this->get_processing_email_text( $order );
 				}
 			}
@@ -119,6 +131,28 @@ class WC_GZD_Emails {
 
 		return $translated;
 	}
+
+	public function replace_title_email_text( $translated, $original, $domain ) {
+        if ( 'woocommerce' === $domain ) {
+            if ( 'Hi %s,' === $original ) {
+                if ( isset( $GLOBALS['wc_gzd_email_order'] ) ) {
+                    $order         = $GLOBALS['wc_gzd_email_order'];
+                    $title_text    = get_option( 'woocommerce_gzd_email_title_text' );
+                    $title_options = array(
+                        '{first_name}' => $order->get_billing_first_name(),
+                        '{last_name}'  => $order->get_billing_last_name(),
+                        '{title}'      => wc_gzd_get_customer_title( wc_gzd_get_crud_data( $order, 'billing_title' ) )
+                    );
+
+                    $title_text    = str_replace( array_keys( $title_options ), array_values( $title_options ), $title_text );
+
+                    return apply_filters( 'woocommerce_gzd_email_title', esc_html( $title_text ), $order );
+                }
+            }
+        }
+
+        return $translated;
+    }
 
 	protected function get_processing_email_text( $order_id ) {
 		$order        = is_numeric( $order_id ) ? wc_get_order( $order_id ) : $order_id;
@@ -479,24 +513,33 @@ class WC_GZD_Emails {
 		// Add order item name actions
 		add_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_differential_taxation_mark', wc_gzd_get_hook_priority( 'email_product_differential_taxation' ), 2 );
 
-		if ( get_option( 'woocommerce_gzd_display_emails_product_units' ) === 'yes' )
+		if ( 'yes' === get_option( 'woocommerce_gzd_display_emails_product_units' ) ) {
 			add_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_units', wc_gzd_get_hook_priority( 'email_product_units' ), 2 );
-		if ( get_option( 'woocommerce_gzd_display_emails_delivery_time' ) === 'yes' )
+        }
+		if ( 'yes' === get_option( 'woocommerce_gzd_display_emails_delivery_time' ) ) {
 			add_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_delivery_time', wc_gzd_get_hook_priority( 'email_product_delivery_time' ), 2 );
-		if ( get_option( 'woocommerce_gzd_display_emails_product_item_desc' ) === 'yes' )
-			add_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_item_desc', wc_gzd_get_hook_priority( 'email_product_item_desc' ), 2 );
-		if ( get_option( 'woocommerce_gzd_display_emails_unit_price' ) === 'yes' )
+        }
+
+		if ( 'yes' === get_option( 'woocommerce_gzd_display_emails_product_item_desc' ) ) {
+            add_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_item_desc', wc_gzd_get_hook_priority( 'email_product_item_desc' ), 2 );
+        }
+
+        if ( 'yes' === get_option( 'woocommerce_gzd_display_emails_product_attributes' ) ) {
+            add_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_attributes', wc_gzd_get_hook_priority( 'email_product_attributes' ), 2 );
+        }
+
+		if ( 'yes' === get_option( 'woocommerce_gzd_display_emails_unit_price' ) ) {
 			add_filter( 'woocommerce_order_formatted_line_subtotal', 'wc_gzd_cart_product_unit_price', wc_gzd_get_hook_priority( 'email_product_unit_price' ), 2 );
+        }
 
 		do_action( 'woocommerce_gzd_after_set_email_cart_item_filters', $this, $current );
-
 	}
 
 	public function remove_order_email_filters() {
     	// Make sure to explicitly remove order item name filters - removing "woocommerce_gzd_template_order_item_hooks" may not be sufficient thankyou hooks have already been applied
 		remove_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_units', wc_gzd_get_hook_priority( 'order_product_units' ) );
 		remove_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_delivery_time', wc_gzd_get_hook_priority( 'order_product_delivery_time' ) );
-		remove_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_item_desc', wc_gzd_get_hook_priority( 'order_product_item_desc' ) );
+        remove_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_item_desc', wc_gzd_get_hook_priority( 'order_product_item_desc' ) );
 
     	// Remove actions and filters from template hooks
 		remove_filter( 'woocommerce_order_formatted_line_subtotal', 'wc_gzd_cart_product_unit_price', wc_gzd_get_hook_priority( 'order_product_unit_price' ) );
@@ -508,8 +551,9 @@ class WC_GZD_Emails {
 		remove_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_units', wc_gzd_get_hook_priority( 'email_product_units' ) );
 		remove_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_delivery_time', wc_gzd_get_hook_priority( 'email_product_delivery_time' ) );
 		remove_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_item_desc', wc_gzd_get_hook_priority( 'email_product_item_desc' ) );
-		remove_filter( 'woocommerce_order_formatted_line_subtotal', 'wc_gzd_cart_product_unit_price', wc_gzd_get_hook_priority( 'email_product_unit_price' ) );
+        remove_filter( 'woocommerce_order_item_name', 'wc_gzd_cart_product_attributes', wc_gzd_get_hook_priority( 'email_product_attributes' ) );
 
+        remove_filter( 'woocommerce_order_formatted_line_subtotal', 'wc_gzd_cart_product_unit_price', wc_gzd_get_hook_priority( 'email_product_unit_price' ) );
 	}
 
 	/**

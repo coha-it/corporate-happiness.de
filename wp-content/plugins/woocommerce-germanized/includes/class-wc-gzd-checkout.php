@@ -215,11 +215,11 @@ class WC_GZD_Checkout {
 	}
 
 	public function free_shipping_auto_select( $rates ) {
-
 		$do_check = is_checkout() || is_cart() || self::$force_free_shipping_filter;
 
-		if ( ! $do_check )
+		if ( ! $do_check ) {
 			return $rates;
+        }
 
 		$keep = array();
 		$hide = false;
@@ -233,15 +233,26 @@ class WC_GZD_Checkout {
 		// Check for cost-free shipping
 		foreach ( $rates as $key => $rate ) {
 
-			// Do only hide if free_shipping exists
-			if ( strpos( $key, 'free_shipping' ) !== false ) {
-				$hide = true;
-			}
+		    if ( is_a( $rate, 'WC_Shipping_Rate' ) ) {
+		        if ( 'free_shipping' === $rate->method_id ) {
+		            $keep[] = $key;
+		            $hide   = true;
+                } elseif ( 'local_pickup' === $rate->method_id ) {
+		            $keep[] = $key;
+                } elseif( $rate->cost == 0 ) {
+		            $keep[] = $key;
+                }
+            } else {
+                // Do only hide if free_shipping exists
+                if ( strpos( $key, 'free_shipping' ) !== false ) {
+                    $hide = true;
+                }
 
-			// Always show local pickup
-			if ( $rate->cost == 0 || strpos( $key, 'local_pickup' ) !== false ) {
-				$keep[] = $key;
-			}
+                // Always show local pickup
+                if ( $rate->cost == 0 || strpos( $key, 'local_pickup' ) !== false ) {
+                    $keep[] = $key;
+                }
+            }
 		}
 
 		// Unset all other rates
@@ -253,9 +264,9 @@ class WC_GZD_Checkout {
 			}
 
 			foreach ( $rates as $key => $rate ) {
-
-				if ( ! in_array( $key, $keep ) )
-					unset( $rates[ $key ] );
+				if ( ! in_array( $key, $keep ) ) {
+                    unset( $rates[ $key ] );
+                }
 			}
 		}
 
@@ -615,46 +626,34 @@ class WC_GZD_Checkout {
 		array_push( $metas, '_units' );
 		array_push( $metas, '_delivery_time' );
 		array_push( $metas, '_unit_price' );
+
 		return $metas;
 	}
 
-	public function set_formatted_billing_address( $fields = array(), $order ) {
+	public function set_formatted_billing_address( $fields, $order ) {
 
-		if ( 'yes' !== get_option( 'woocommerce_gzd_checkout_address_field' ) )
+		if ( 'yes' !== get_option( 'woocommerce_gzd_checkout_address_field' ) ) {
 			return $fields;
+        }
 
-		if ( wc_gzd_get_crud_data( $order, 'billing_title' ) )
-			$fields['title'] = $this->get_customer_title( wc_gzd_get_crud_data( $order, 'billing_title' ) );
+		if ( wc_gzd_get_crud_data( $order, 'billing_title' ) ) {
+			$fields['title'] = wc_gzd_get_customer_title( wc_gzd_get_crud_data( $order, 'billing_title' ) );
+        }
 
 		return $fields;
 	}
 
-	public function set_formatted_shipping_address( $fields = array(), $order ) {
+	public function set_formatted_shipping_address( $fields, $order ) {
 
-		if ( 'yes' !== get_option( 'woocommerce_gzd_checkout_address_field' ) )
+		if ( 'yes' !== get_option( 'woocommerce_gzd_checkout_address_field' ) ) {
 			return $fields;
+        }
 
-		if ( wc_gzd_get_crud_data( $order, 'shipping_title' ) )
-			$fields['title'] = $this->get_customer_title( wc_gzd_get_crud_data( $order, 'shipping_title' ) );
+		if ( wc_gzd_get_crud_data( $order, 'shipping_title' ) ) {
+			$fields['title'] = wc_gzd_get_customer_title( wc_gzd_get_crud_data( $order, 'shipping_title' ) );
+        }
 
 		return $fields;
-	}
-
-	public function get_customer_title( $value = 1 ) {
-
-		$option = absint( $value );
-
-		$titles = apply_filters( 'woocommerce_gzd_title_options', array( 1 => __( 'Mr.', 'woocommerce-germanized' ), 2 => __( 'Ms.', 'woocommerce-germanized' ) ) );
-
-		if ( '[deleted]' === $value ) {
-			return $value;
-		}
-
-		if ( array_key_exists( $option, $titles ) ) {
-			return $titles[ $option ];
-		} else {
-			return __( 'Ms.', 'woocommerce-germanized' );
-		}
 	}
 
 	public function set_formatted_address( $placeholder, $args ) {

@@ -62,8 +62,15 @@
     };
 
     GermanizedVariationForm.prototype.onUpdate = function( event ) {
+
         setTimeout( function() {
-            if ( ! event.data.GermanizedvariationForm.$singleVariationWrap.is( ':visible' ) || event.data.GermanizedvariationForm.$button.is( '[disabled]' ) ) {
+            if( typeof event.data === 'undefined' || ! event.data.hasOwnProperty( 'GermanizedvariationForm' ) ) {
+                return;
+            } else if ( typeof event.data.GermanizedvariationForm === 'undefined' ) {
+                return;
+            }
+
+            if ( ! event.data.GermanizedvariationForm.$singleVariation.is( ':visible' ) || event.data.GermanizedvariationForm.$button.is( '[disabled]' ) ) {
                 event.data.GermanizedvariationForm.onReset( event );
             }
         }, 250);
