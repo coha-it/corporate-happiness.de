@@ -1,2 +1,27 @@
+/* Navigation Logo */
 .navbar-brand>img {width: auto;height: 100%;}
 .navbar-brand {padding: 5px 15px 0px 15px;}
+
+/* Navigation */
+.site-navigation .navbar-default {background: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);}
+.site-navigation .site-navigation-inner { max-width: 1200px; margin-left: auto; margin-right: auto; }
+
+/* Nav-Entry */
+.site-navigation .navbar-default .navbar-nav > li > a {font-family: Lato, Poppins, sans-serif;color: #000;text-transform: uppercase;font-size: 13px;}
+
+@media screen and (max-width: 1600px) {
+    .navbar-nav > li > a {padding: 20px 20px;}
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > li > a:hover {background-color: transparent;color: #b3a036 !important;}
+
+
+@media screen and (max-width: 767px) {
+	/* Mobile Logo */
+	.mobile-logo {text-align: left;height: 75px;display: inline-block;}
+	.mobile-logo img {height: 100%;max-width: 100%;}
+
+}
