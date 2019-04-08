@@ -41,7 +41,7 @@
 						<div class="mobile-logo">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( 
 get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url( home_url( '/' ) ); 
-?>/wp-content/themes/produktseite-coha_tk/includes/img/Corporate-Happiness-Logo.svg"/></a>
+?>/wp-content/themes/produktseite-coha_tk/includes/img/coha_logo_web_250.png"/></a>
 						</div>
 						<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
