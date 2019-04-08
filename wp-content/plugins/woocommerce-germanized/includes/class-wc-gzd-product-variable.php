@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) )
  */
 class WC_GZD_Product_Variable extends WC_GZD_Product {
 
+    protected $unit_prices_array = array();
+
 	/**
 	 * Get the min or max variation unit regular price.
 	 * @param  string $min_or_max - min or max
@@ -108,16 +110,22 @@ class WC_GZD_Product_Variable extends WC_GZD_Product {
 
 		if ( $this->has_unit() ) {
 
-			$min_price = current( $prices['price'] );
-			$max_price = end( $prices['price'] );
+			$min_price     = current( $prices['price'] );
+			$max_price     = end( $prices['price'] );
+            $min_reg_price = current( $prices['regular_price'] );
+            $max_reg_price = end( $prices['regular_price'] );
 
 			if ( wc_gzd_get_dependencies()->woocommerce_version_supports_crud() ) {
 
                 if ( $min_price !== $max_price ) {
-                    $price = apply_filters( 'woocommerce_gzd_variable_unit_price_html', wc_format_price_range( $min_price, $max_price ), $this );
+                    $price = wc_format_price_range( $min_price, $max_price );
+                } elseif ( $this->is_on_sale() && $min_reg_price === $max_reg_price ) {
+                    $price = wc_format_sale_price( wc_price( $max_reg_price ), wc_price( $min_price ) );
                 } else {
-                    $price = apply_filters( 'woocommerce_gzd_variable_unit_price_html', wc_price( $min_price ), $this );
+                    $price = wc_price( $min_price );
                 }
+
+                $price = apply_filters( 'woocommerce_gzd_variable_unit_price_html', $price, $this );
 
             } else {
 
@@ -271,7 +279,6 @@ class WC_GZD_Product_Variable extends WC_GZD_Product {
 		}
 
 		return $this->unit_prices_array[ $price_hash ];
-
 	}
 
 }
