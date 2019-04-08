@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700" rel="stylesheet">-->
 
 	<?php wp_head(); ?>
-	<link rel="stylesheet" type="text/css" href="/wp-content/themes/produktseite-coha_tk/includes/css/coha-custom.css" />
+	<?php /* <link rel="stylesheet" type="text/css" href="/wp-content/themes/produktseite-coha_tk/includes/css/coha-custom.css" /> */ ?>
 </head>
 
 <body id="body" <?php body_class(); ?> data-spy="scroll" data-target=".container-subnav" data-offset="90">
@@ -52,9 +52,9 @@ get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url
 						</button>
 	
 						<!-- Your site title as branding in the menu -->
-						<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo 
-esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url( home_url( '/' ) ); 
-?>/wp-content/themes/produktseite-coha_tk/includes/img/Corporate-Happiness-Logo.svg"></img></a>
+						<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+							<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/produktseite-coha_tk/includes/img/coha_logo_web_250.png" />
+						</a>
 					</div >
 
 					<!-- The WordPress Menu goes here -->
