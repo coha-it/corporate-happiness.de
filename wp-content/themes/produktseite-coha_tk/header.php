@@ -44,7 +44,7 @@ get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url
 ?>/wp-content/themes/produktseite-coha_tk/includes/img/Corporate-Happiness-Logo.svg"/></a>
 						</div>
 						<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
 							<span class="sr-only"><?php _e('Toggle navigation','_tk') ?> </span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>

@@ -3,11 +3,15 @@
 .navbar-brand {padding: 5px 15px 0px 15px;}
 
 /* Navigation */
-.site-navigation .navbar-default {background: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);}
+.site-navigation .navbar-default {background: #fff;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);}
 .site-navigation .site-navigation-inner { max-width: 1200px; margin-left: auto; margin-right: auto; }
 
 /* Nav-Entry */
-.site-navigation .navbar-default .navbar-nav > li > a {font-family: Lato, Poppins, sans-serif;color: #000;text-transform: uppercase;font-size: 13px;}
+.site-navigation .navbar-default .navbar-nav > .menu-item  a {font-family: Lato, Poppins, sans-serif;color: #000;text-transform: uppercase;font-size: 13px;}
+
+.nav.navbar-nav.navbar-right {
+    max-width: calc(100% - 150px);
+}
 
 @media screen and (max-width: 1600px) {
     .navbar-nav > li > a {padding: 20px 20px;}
@@ -21,7 +25,13 @@
 
 @media screen and (max-width: 767px) {
 	/* Mobile Logo */
-	.mobile-logo {text-align: left;height: 75px;display: inline-block;}
-	.mobile-logo img {height: 100%;max-width: 100%;}
+	.mobile-logo {text-align: left;height: 65px;display: inline-block;}
+	.mobile-logo img {height: 100%;max-width: 100%;padding: 5px 9px 8px;}
 
+
+	/* Hamburger Menu */
+	.navbar-header {position: relative; }
+	.navbar-default .navbar-toggle {position: absolute;right: 0;top: 0;bottom: 0;background: transparent;border: unset;padding: 20px 30px 20px 30px;border-radius: 0;}
+	.navbar-default .navbar-toggle.collapsed {background-color: transparent;}
+	.navbar-default .navbar-toggle:not(.collapsed) {background-color: #d9d9e0;}
 }

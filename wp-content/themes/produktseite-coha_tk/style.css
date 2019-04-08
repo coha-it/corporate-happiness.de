@@ -37,10 +37,12 @@ Credits:
 body {
 	word-wrap: break-word;
 	font-family: 'Open Sans', sans-serif;
+	font-family: TisaPro, Lato, 'Open Sans', sans-serif;
 	background:#EDECEC;
 	font-size: 16px;
 	line-height: 1.72857143;
-color: #59606b;
+	color: #59606b;
+	color: #54656c;
 	padding-top:60px;
 }
 
@@ -147,10 +149,6 @@ padding: 12px 15px 8px 15px;
 .site-navigation .navbar {
 
 }
-
-.site-navigation .navbar-collapse {
-    padding-left: 0;
-	}
 
 .site-navigation .navbar-default {
     background-color: #EDEBEC;
@@ -780,6 +778,7 @@ Startseite NEU
 
 .page-template-page-with-slider-startseite .caption, .page-template-page-with-slider-startseite .caption h1, .page-template-page-with-slider-startseite .caption h2, .page-template-page-with-slider-startseite .caption p{
 	font-family: 'Open Sans', sans-serif;
+	font-family: Lato, 'Open Sans', sans-serif;
 	color:#FFF;
 	}
 .page-template-page-with-slider-startseite .metaslider{
@@ -998,9 +997,7 @@ padding: 8px 10px;
 background-color:#EFD84E;
 color:;
 }
-.grey-bg {
-background-color:#f4f3f3;
-}
+.grey-bg {background-color:#f4f3f3;background-color: rgba(175, 197, 203, 0.65);color: #425d63;}
 .dark-bg {
 background-color:#59606b;
 color:#fff;
@@ -1323,9 +1320,7 @@ display:none;
     float: right;
 }
 
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle .active {
-    background: #;
-} 
+
 
 .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
     max-height: 430px;
