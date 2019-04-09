@@ -20,10 +20,10 @@ var classNotScrolling = 'scrolled-up';
         var y = CoHa.window.scrollTop();
 
         // Its Top
-        if(y >= 0) {
+        if(y <= 0) {
             _body.removeClass(classScrolling);
             _body.addClass(classNotScrolling);
-            
+
         } 
         // scrolled down a bit
         else {
