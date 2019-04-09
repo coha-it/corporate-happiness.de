@@ -170,8 +170,8 @@ font-weight: 400;
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > li > a:hover {
     color: #2f2f30;
-    background-color: #EFD84E;
-	border-color: #EFD84E;
+    /* background-color: #EFD84E; */
+    /* border-color: #EFD84E; */
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
@@ -216,8 +216,7 @@ background:#EFD84E;
 
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
     color:#2f2f30;
-    background-color: #EFD84E;
-	
+    /* background-color: #EFD84E; */
 }
 
 .current-page-ancestor a.dropdown-toggle {

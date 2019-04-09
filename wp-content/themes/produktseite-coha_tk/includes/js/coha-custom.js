@@ -64,7 +64,7 @@ var scrollDowns = 0;
             }
 
             if(scrollingDown) {
-                console.log('shrink', y, lastY);
+                // console.log('shrink', y, lastY);
 
                 // Scrolling Down
                 scrollDowns = y - lastY;
@@ -96,7 +96,7 @@ var scrollDowns = 0;
                 }
             }
 
-            console.log(y, lastY);
+            // console.log(y, lastY);
         }
 
     }
