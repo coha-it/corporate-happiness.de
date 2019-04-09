@@ -512,3 +512,28 @@ function email_encode_function( $atts, $content ){
 add_shortcode( 'email', 'email_encode_function' );
 
 
+
+/*
+  Add Custom JS File (coha-custom.js)
+*/
+add_action( 'wp_enqueue_scripts', 'my_custom_script_load');
+function my_custom_script_load(){
+  wp_enqueue_script(
+    'coha-custom',
+    get_template_directory_uri() . '/includes/js/coha-custom.js'
+  );
+}
+
+/*
+  Overwrite jQuery Version 
+*/
+function replace_core_jquery_version() {
+  wp_deregister_script( 'jquery' );
+
+  wp_register_script(
+    'jquery',
+    get_template_directory_uri().'/includes/js/jquery/jquery-2.2.4.min.js',
+    [],
+    '3.3.1' );
+}
+add_action( 'wp_enqueue_scripts', 'replace_core_jquery_version' );

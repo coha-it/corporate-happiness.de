@@ -1,13 +1,18 @@
 /* Navigation Logo */
 .navbar-brand>img {width: auto;height: 100%;}
-.navbar-brand {padding: 5px 15px 0px 15px;}
+.navbar-brand {padding: 5px 15px 10px 15px;height: 100%;width: 100%;}
 
 /* Navigation */
-.site-navigation .navbar-default {background: #fff;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);}
-.site-navigation .site-navigation-inner { max-width: 1200px; margin-left: auto; margin-right: auto; }
+.site-navigation {background: #fff;}
+.site-navigation .navbar {background: #fff;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);}
+.site-navigation .site-navigation-inner {max-width: 1200px;margin-left: auto;margin-right: auto;background: #fff;}
 
 /* Nav-Entry */
 .site-navigation .navbar-default .navbar-nav > .menu-item  a {font-family: Lato, Poppins, sans-serif;color: #000;text-transform: uppercase;font-size: 13px;}
+
+@media screen and (min-width: 1600px) {
+	.site-navigation .site-navigation-inner {max-width: 1400px;}
+}
 
 @media screen and (max-width: 1600px) {
     .navbar-nav > li > a {padding: 20px 20px;}
@@ -18,13 +23,17 @@
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > li > a:hover {background-color: transparent;color: #b3a036 !important;}
 
+/* No Mobile! */
 @media screen and (min-width: 768px) {
-	.nav.navbar-nav.navbar-right {max-width: calc(100% - 150px);}
+	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: center;}
+	.nav.navbar-nav.navbar-right {max-width: calc(100% - 150px); margin-right: 0;}
+
+	.navbar-header {max-width: 250px;width: 100%;}
 }
 
 @media screen and (max-width: 767px) {
 	/* Mobile Logo */
-	.mobile-logo {text-align: left;height: 65px;display: inline-block;}
+	.mobile-logo {text-align: left;height: 100%;display: inline-block;}
 	.mobile-logo img {height: 100%;max-width: 100%;padding: 5px 9px 8px;}
 
 
@@ -34,3 +43,18 @@
 	.navbar-default .navbar-toggle.collapsed {background-color: transparent;}
 	.navbar-default .navbar-toggle:not(.collapsed) {background-color: #d9d9e0;}
 }
+
+
+/* SCROLLING */
+
+/* Body */
+body {transition: padding 200ms;}
+body.scrolled-up {padding-top: 80px;}
+body.scrolling-down {}
+
+/* NavBar */
+body 				.site-navigation .navbar {transition: height 200ms;height: 60px;}
+body.scrolled-up 	.site-navigation .navbar {height: 80px;}
+body.scrolling-down .site-navigation .navbar {height: 60px;}
+
+
