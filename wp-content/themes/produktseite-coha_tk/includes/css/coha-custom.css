@@ -28,7 +28,7 @@
 	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: center;}
 	.nav.navbar-nav.navbar-right {max-width: calc(100% - 150px); margin-right: 0;}
 
-	.navbar-header {max-width: 250px;width: 100%;}
+	.navbar-header {max-width: 200px;width: 100%;}
 }
 
 @media screen and (max-width: 767px) {
