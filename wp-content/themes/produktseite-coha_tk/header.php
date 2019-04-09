@@ -20,11 +20,19 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Droid+Serif:300,400,700' rel='stylesheet' type='text/css'>
-<!--<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet" type='text/css'>
-<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700" rel="stylesheet">-->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet" type='text/css'>
+		 <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700" rel="stylesheet">-->
+
+	<?php /* 
+		Tisa Pro Font 
+		Lato Font
+	*/ ?>
+	<link rel="stylesheet" href="https://use.typekit.net/cvy3vwb.css">
 
 	<?php wp_head(); ?>
-	<link rel="stylesheet" type="text/css" href="/wp-content/themes/produktseite-coha_tk/includes/css/coha-custom.css" />
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/includes/css/coha-custom.css" />
 </head>
 
 <body id="body" <?php body_class(); ?> data-spy="scroll" data-target=".container-subnav" data-offset="90">
