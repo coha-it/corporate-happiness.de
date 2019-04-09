@@ -143,7 +143,7 @@ padding: 12px 15px 8px 15px;
 
 
 .site-navigation {
-     border-bottom: 4px solid #EFD84E;
+     border-bottom: 4px solid #FECC0B;
 }
 
 .site-navigation .navbar {
@@ -170,13 +170,13 @@ font-weight: 400;
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > li > a:hover {
     color: #2f2f30;
-    background-color: #EFD84E;
-	border-color: #EFD84E;
+    background-color: #FECC0B;
+	border-color: #FECC0B;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
      color: #2f2f30;
-    background-color: #EFD84E;
+    background-color: #FECC0B;
 }
 
 .navbar-default .navbar-toggle {
@@ -185,7 +185,7 @@ font-weight: 400;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle .active {
-background:#EFD84E;
+background:#FECC0B;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -209,25 +209,25 @@ background:#EFD84E;
 .dropdown-menu li a:hover, .dropdown-menu li a:focus {
     color:#2f2f30;
     text-decoration: none;
-    background-color: #EFD84E;
+    background-color: #FECC0B;
     background-image: none;
 }
 
 
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
     color:#2f2f30;
-    background-color: #EFD84E;
+    background-color: #FECC0B;
 	
 }
 
 .current-page-ancestor a.dropdown-toggle {
             color:#2f2f30;
-    background-color: #EFD84E;
+    background-color: #FECC0B;
 }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
     color:#2f2f30;
-    background-color: #EFD84E;
+    background-color: #FECC0B;
 }
 
 
@@ -338,7 +338,7 @@ float:right;
 
 .menu-above-page-neue-arbeitswelt-container {
     color: #2f2f30;
-    background-color: #EFD84E;
+    background-color: #FECC0B;
 	
 }
 
@@ -430,7 +430,7 @@ padding-bottom:25px;
     left: -.5em;
     margin: 0;
     border-radius: 100%;
-    background-color: #EFD84E;
+    background-color: #FECC0B;
     color: #fff;
     font-size: .857em;
     -webkit-font-smoothing: antialiased;
@@ -723,7 +723,7 @@ object {
       top:0;
       width: 100%;
       z-index: 9999 !important;
-	  background-color: #EFD84E;
+	  background-color: #FECC0B;
 
 	}
 	
@@ -769,8 +769,8 @@ margin-top: 20px;
 
 .panel-default > .panel-heading {
     color: #fff;
-    background-color: #EFD84E;
-    border-color: #EFD84E;
+    background-color: #FECC0B;
+    border-color: #FECC0B;
 }
 /*--------------------------------------------------------------
 Startseite NEU
@@ -994,7 +994,7 @@ padding: 8px 10px;
 /* myonepagerbg*/
 
 .yellow-bg {
-background-color:#EFD84E;
+background-color:#FECC0B;
 color:;
 }
 .grey-bg {background-color:#f4f3f3;background-color: rgba(175, 197, 203, 0.65);color: #425d63;}
