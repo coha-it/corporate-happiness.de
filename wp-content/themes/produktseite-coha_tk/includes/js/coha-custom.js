@@ -23,6 +23,7 @@ var classNotScrolling = 'scrolled-up';
         if(y >= 0) {
             _body.removeClass(classScrolling);
             _body.addClass(classNotScrolling);
+            
         } 
         // scrolled down a bit
         else {
