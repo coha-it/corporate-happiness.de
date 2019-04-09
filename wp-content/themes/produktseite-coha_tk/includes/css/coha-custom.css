@@ -8,7 +8,7 @@
 .site-navigation .site-navigation-inner {max-width: 1200px;margin-left: auto;margin-right: auto;background: #fff;}
 
 /* Nav-Entry */
-.site-navigation .navbar-default .navbar-nav > .menu-item  a {font-family: Lato, Poppins, sans-serif;color: #000;text-transform: uppercase;font-size: 13px;}
+.site-navigation .navbar-default .navbar-nav > .menu-item  a {font-family: Lato, Poppins, sans-serif;color: #000;text-transform: uppercase;font-size: 13px;text-align: center;}
 
 @media screen and (min-width: 1600px) {
 	.site-navigation .site-navigation-inner {max-width: 1400px;}
@@ -26,7 +26,7 @@
 /* No Mobile! */
 @media screen and (min-width: 768px) {
 	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: center;}
-	.nav.navbar-nav.navbar-right {max-width: calc(100% - 150px); margin-right: 0;}
+	.nav.navbar-nav.navbar-right {max-width: calc(100% - 200px);margin-right: 0;}
 
 	.navbar-header {max-width: 200px;width: 100%;}
 }
@@ -34,7 +34,7 @@
 @media screen and (max-width: 767px) {
 	/* Mobile Logo */
 	.mobile-logo {text-align: left;height: 100%;display: inline-block;}
-	.mobile-logo img {height: 100%;max-width: 100%;padding: 5px 9px 8px;}
+	.mobile-logo img {height: 100%;max-width: 100%;padding: 5px 15px 8px;}
 
 
 	/* Hamburger Menu */
@@ -48,12 +48,20 @@
 /* SCROLLING */
 
 /* Body */
-body {transition: padding 200ms;}
-body.scrolled-up {padding-top: 80px;}
-body.scrolling-down {}
+body 					{padding-top: 80px; }
+
+body.scrolled-up,
+body.scrolling-down 	{transition: padding 200ms;}
+
+body.scrolled-up 		{padding-top: 80px;}
+body.scrolling-down 	{padding-top: 60px;}
 
 /* NavBar */
-body 				.site-navigation .navbar {transition: height 200ms;height: 60px;}
+body 				.site-navigation .navbar {}
+
+body.scrolled-up    .site-navigation .navbar,
+body.scrolling-down .site-navigation .navbar {transition: height 200ms;}
+
 body.scrolled-up 	.site-navigation .navbar {height: 80px;}
 body.scrolling-down .site-navigation .navbar {height: 60px;}
 
