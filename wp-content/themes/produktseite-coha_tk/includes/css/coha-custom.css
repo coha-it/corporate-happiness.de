@@ -8,7 +8,7 @@
 /* Navigation */
 .site-navigation {background: #fff;}
 .site-navigation .navbar {background: #fff;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);}
-.site-navigation .site-navigation-inner {max-width: 1200px;margin-left: auto;margin-right: auto;background: #fff;}
+.site-navigation .site-navigation-inner {max-width: 1200px;margin-left: auto;margin-right: auto;/* background: #fff; */}
 
 /* Nav-Entry */
 .site-navigation .navbar-default .navbar-nav > .menu-item  a {font-family: Lato, Poppins, sans-serif;color: #000;text-transform: uppercase;font-size: 13px;text-align: center;}
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 1600px) {
-    .navbar-nav > li > a {padding: 20px 20px;}
+    .navbar-nav > li > a {padding: 15px 20px;}
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -28,8 +28,8 @@
 
 /* No Mobile! */
 @media screen and (min-width: 768px) {
-	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: start;overflow: scroll;}
-	.nav.navbar-nav.navbar-right {max-width: calc(100% - 200px);margin-right: 0;}
+	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: flex-end;overflow: visible;overflow-x: visible;overflow-y: scroll;width: 100%;}
+	.nav.navbar-nav.navbar-right {max-width: calc(100% - 200px);max-width: 1000px;margin-right: 0;}
 
 	.navbar-header {max-width: 200px;width: 100%;}
 }
@@ -54,19 +54,24 @@
 body 					{padding-top: 80px; }
 
 body.scrolled-up,
-body.scrolling-down 	{transition: padding 200ms;}
+body.scrolled-down 	{transition: padding 200ms;}
 
 body.scrolled-up 		{padding-top: 80px;}
-body.scrolling-down 	{padding-top: 60px;}
+body.scrolled-down 	{padding-top: 60px;}
 
 /* NavBar */
 body 				.site-navigation .navbar {}
 
 body.scrolled-up    .site-navigation .navbar,
-body.scrolling-down .site-navigation .navbar {transition: height 200ms;}
+body.scrolled-down .site-navigation .navbar {transition: height 400ms, max-height 400ms;}
 
 body.scrolled-up 	.site-navigation .navbar {height: 80px;}
-body.scrolling-down .site-navigation .navbar {height: 60px;}
+body.scrolled-down .site-navigation .navbar {height: 60px;}
 
+/* NavBar Shrinked */
+body.scrolled-down .site-navigation .navbar.shrinked {height: 35px;background-color: rgba(255, 255, 255, 0.86);}
 
+/* Shrinked Image */
+.navbar-brand>img {clip-path: inset(0 0 0 0 ); transition: 200ms;}
+.shrinked .navbar-brand>img {clip-path: inset(0 49% 0 0);}
 
