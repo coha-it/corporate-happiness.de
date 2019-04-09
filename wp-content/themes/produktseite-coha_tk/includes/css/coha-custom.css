@@ -28,7 +28,7 @@
 
 /* No Mobile! */
 @media screen and (min-width: 768px) {
-	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: flex-end;overflow: visible;overflow-x: visible;overflow-y: scroll;width: 100%;}
+	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: flex-end;overflow: visible;overflow-x: visible;overflow-y: visible;width: 100%;}
 	.nav.navbar-nav.navbar-right {max-width: calc(100% - 200px);max-width: 1000px;margin-right: 0;}
 
 	.navbar-header {max-width: 200px;width: 100%;}
@@ -37,7 +37,7 @@
 @media screen and (max-width: 767px) {
 	/* Mobile Logo */
 	.mobile-logo {text-align: left;height: 100%;display: inline-block;}
-	.mobile-logo img {height: 100%;max-width: 100%;padding: 5px 15px 8px;}
+	.mobile-logo img {height: 100%;max-width: 100%;padding: 5px 15px 8px;padding: 3% 10% 5%;}
 
 
 	/* Hamburger Menu */
@@ -65,13 +65,16 @@ body 				.site-navigation .navbar {}
 body.scrolled-up    .site-navigation .navbar,
 body.scrolled-down .site-navigation .navbar {transition: height 400ms, max-height 400ms;}
 
-body.scrolled-up 	.site-navigation .navbar {height: 80px;}
+body.scrolled-up 	.site-navigation .navbar {height: 80px;max-height: 80px;}
 body.scrolled-down .site-navigation .navbar {height: 60px;}
 
 /* NavBar Shrinked */
 body.scrolled-down .site-navigation .navbar.shrinked {height: 35px;background-color: rgba(255, 255, 255, 0.86);}
 
 /* Shrinked Image */
-.navbar-brand>img {clip-path: inset(0 0 0 0 ); transition: 200ms;}
-.shrinked .navbar-brand>img {clip-path: inset(0 49% 0 0);}
+.navbar-brand>img,
+.mobile-logo img {clip-path: inset(0 0 0 0 ); transition: 200ms;}
+
+.shrinked .navbar-brand>img,
+.shrinked .mobile-logo img {clip-path: inset(0 49% 0 0);}
 

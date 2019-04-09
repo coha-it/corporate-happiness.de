@@ -1,13 +1,13 @@
 var CoHa = {
     settings: {
         scroll: {
-            shrinkStartAtY: 700,
+            shrinkStartAtY: 1100,
             shrinkEndAtY: 250,
 
             // shrinkStartAtScrolls: 50,
-            shrinkStartAtScrolls: 10,
+            shrinkStartAtScrolls: 100,
             // shrinkEndAtScrolls: 25,
-            shrinkEndAtScrolls: 50,
+            shrinkEndAtScrolls: 25,
         },
     },
     body: jQuery('body'),
@@ -17,16 +17,21 @@ var CoHa = {
         scrolledUp: 'scrolled-up',
         shrinked: 'shrinked',
     },
-    functions: {
-
-    },
+    functions: {},
 };
+
+var y = 0;
 var lastY = 0;
+var scrollingUp = true;
+var scrollingDown = !scrollingUp;
 var scrollUps = 0;
 var scrollDowns = 0;
 
 // jQuery Alias
 (function($) {
+
+    y = CoHa.window.scrollTop();
+    lastY = y;
 
     // Define Scroll Function
     CoHa.functions.scroll = function() {
@@ -35,10 +40,12 @@ var scrollDowns = 0;
         var _classes = CoHa.classes;
         var _settings = CoHa.settings;
         var baseHeight = 120;
-        var y = CoHa.window.scrollTop();
 
-        var scrollingUp = y < lastY;
-        var scrollingDown = !scrollingUp;
+        y = CoHa.window.scrollTop();
+        if(lastY == 0) { lastY = y; }
+
+        scrollingUp = y < lastY;
+        scrollingDown = !scrollingUp;
 
         // Its Top
         if(y <= 0) {
@@ -57,29 +64,40 @@ var scrollDowns = 0;
             }
 
             if(scrollingDown) {
+                console.log('shrink', y, lastY);
+
                 // Scrolling Down
-                scrollDowns += 1;
+                scrollDowns = y - lastY;
                 scrollUps = 0;
-                if(y >= _settings.scroll.shrinkStartAtY && scrollDowns > _settings.scroll.shrinkStartAtScrolls) {
+                if(y > _settings.scroll.shrinkStartAtY && scrollDowns > _settings.scroll.shrinkStartAtScrolls) {
                     // Start Shrinking
                     if(!_navbar.hasClass(_classes.shrinked)) {
                         _navbar.addClass(_classes.shrinked);
+
+                        // Reset LastY
                     }
+                    lastY = y;
+
                 }
+
             } else if(scrollingUp) {
                 // If Scrolling up
-                scrollUps += 1;
+                scrollUps = lastY - y;
                 scrollDowns = 0;
                 if(scrollUps > _settings.scroll.shrinkEndAtScrolls || y < _settings.scroll.shrinkEndAtY) {
                     // Unshrink
                     if(_navbar.hasClass(_classes.shrinked)) {
                         _navbar.removeClass(_classes.shrinked);
+                        // Reset LastY
+                        
                     }
-                }
-            }  
-        }
+                    lastY = y;
 
-        lastY = y;
+                }
+            }
+
+            console.log(y, lastY);
+        }
 
     }
 
