@@ -23,16 +23,7 @@
 	<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet" type='text/css'>
 		 <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700" rel="stylesheet">-->
 
-	<?php /* 
-		Tisa Pro Font 
-		Lato Font
-	*/ ?>
-	<link rel="stylesheet" href="https://use.typekit.net/cvy3vwb.css">
-
 	<?php wp_head(); ?>
-
-	<!-- Custom CSS -->
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/includes/css/coha-custom.css" />
 </head>
 
 <body id="body" <?php body_class(); ?> data-spy="scroll" data-target=".container-subnav" data-offset="90">

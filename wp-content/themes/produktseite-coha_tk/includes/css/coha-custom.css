@@ -1,3 +1,6 @@
+/* Navbar Nav */
+.navbar-nav {margin: unset;}
+
 /* Navigation Logo */
 .navbar-brand>img {width: auto;height: 100%;}
 .navbar-brand {padding: 5px 15px 10px 15px;height: 100%;width: 100%;}
@@ -25,7 +28,7 @@
 
 /* No Mobile! */
 @media screen and (min-width: 768px) {
-	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: center;}
+	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: start;overflow: scroll;}
 	.nav.navbar-nav.navbar-right {max-width: calc(100% - 200px);margin-right: 0;}
 
 	.navbar-header {max-width: 200px;width: 100%;}
@@ -64,5 +67,6 @@ body.scrolling-down .site-navigation .navbar {transition: height 200ms;}
 
 body.scrolled-up 	.site-navigation .navbar {height: 80px;}
 body.scrolling-down .site-navigation .navbar {height: 60px;}
+
 
 
