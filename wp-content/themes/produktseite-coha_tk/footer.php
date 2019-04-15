@@ -19,7 +19,7 @@
 			<div class="site-footer-inner col-sm-12">
 
 				<div class="site-info">
-				© 2019 Corporate Happiness® — Email: <a href="mailto:<?php echo antispambot( 'info@corporate-happiness.de' ); ?>"><?php echo antispambot( 'info@corporate-happiness.de' ); ?></a> | Vorübergehend mobile: <a href="tel:4915223083496">+49 1522 3083496</a> </br>
+				© 2019 Corporate Happiness® — Email: <a href="mailto:<?php echo antispambot( 'info@corporate-happiness.de' ); ?>"><?php echo antispambot( 'info@corporate-happiness.de' ); ?></a> | Vorübergehend mobil: <a href="tel:4915223083496">+49 1522 3083496</a> </br>
 				Corporate Happiness® ist eine eingetragene Marke der Corporate Happiness GmbH.
 				</div><!-- close .site-info -->
 				<div class="site-footer-menu">
