@@ -32,7 +32,7 @@
 	.nav.navbar-nav.navbar-right {max-width: calc(100% - 200px);margin-right: 0;}
 
 	.navbar-nav>li {}
-	.site-navigation .navbar-default .navbar-nav > .menu-item a {display: flex;height: 100%;vertical-align: middle;justify-content: center;align-items: center;padding: 0 8px;}
+	.site-navigation .navbar-default .navbar-nav > .menu-item a {display: flex;height: 100%;vertical-align: middle;justify-content: center;/* padding-top: 0; *//* padding-bottom: 0; */align-items: center;}
 
 	.navbar-header {max-width: 200px;width: 100%;}
 }
@@ -61,6 +61,7 @@
 	.nav.navbar-nav.navbar-right {justify-content: space-between;max-width: calc(100% - 100px);display: inline-block;text-align: right;}
 	.navbar-nav>li {height: 50%;float: none;display: inline-block;}
 	.navbar-header {width: 100px;}
+	.site-navigation .navbar-default .navbar-nav > .menu-item a {padding: 0 6px;}
 }
 
 
