@@ -31,6 +31,9 @@
 	.nav.navbar-nav {height: 100%;display: flex;align-items: center;justify-content: flex-end;overflow: visible;overflow-x: visible;overflow-y: visible;width: 100%;}
 	.nav.navbar-nav.navbar-right {max-width: calc(100% - 200px);margin-right: 0;}
 
+	.navbar-nav>li {}
+	.site-navigation .navbar-default .navbar-nav > .menu-item a {display: flex;height: 100%;vertical-align: middle;justify-content: center;align-items: center;padding: 0 8px;}
+
 	.navbar-header {max-width: 200px;width: 100%;}
 }
 
@@ -56,7 +59,7 @@
 /* Between Tablet and Mobile */
 @media screen and (min-width: 768px) and (max-width: 1060px) {
 	.nav.navbar-nav.navbar-right {justify-content: space-between;max-width: calc(100% - 100px);display: inline-block;text-align: right;}
-	.navbar-nav>li {height: 40%; float: none; display: inline-block;}
+	.navbar-nav>li {height: 50%;float: none;display: inline-block;}
 	.navbar-header {width: 100px;}
 }
 
