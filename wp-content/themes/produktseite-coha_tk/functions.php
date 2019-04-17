@@ -512,3 +512,8 @@ function email_encode_function( $atts, $content ){
 add_shortcode( 'email', 'email_encode_function' );
 
 
+# Eigene Groesse definieren
+add_image_size('coha_650px_coverbild', 650, 650, true);
+add_image_size('coha_650px_350px_coverbild', 650, 350, true);
+
+
