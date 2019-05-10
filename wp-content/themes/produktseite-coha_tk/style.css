@@ -37,7 +37,7 @@ Credits:
 body {
 	word-wrap: break-word;
 	font-family: 'Open Sans', sans-serif;
-	font-family: TisaPro, Lato, 'Open Sans', sans-serif;
+	font-family: Lato, 'Open Sans', sans-serif, TisaPro;
 	background:#EDECEC;
 	font-size: 16px;
 	line-height: 1.72857143;
