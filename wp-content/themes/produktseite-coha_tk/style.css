@@ -783,8 +783,9 @@ margin-top: 20px;
 
 .panel-default > .panel-heading {
     color: #fff;
-    background-color: #EFD84E;
+    background-color: #e6cf40;
     border-color: #EFD84E;
+    border: 0;
 }
 /*--------------------------------------------------------------
 Startseite NEU
