@@ -512,8 +512,54 @@ function email_encode_function( $atts, $content ){
 add_shortcode( 'email', 'email_encode_function' );
 
 
-# Eigene Groesse definieren
-add_image_size('coha_650px_coverbild', 650, 650, true);
-add_image_size('coha_650px_350px_coverbild', 650, 350, true);
+
+/*
+  Add Custom CSS File (coha-custom.css)
+*/
+// Load the theme stylesheets
+function theme_styles()  
+{ 
+  /* 
+    Tisa Pro Font 
+    Lato Font
+  */
+  wp_enqueue_style(
+    'coha-fonts',
+    'https://use.typekit.net/cvy3vwb.css'
+  );
+  
+
+	// Load all of the styles that need to appear on all pages
+	wp_enqueue_style(
+    'coha-custom',
+    get_template_directory_uri().'/includes/css/coha-custom.css'
+  );
+
+}
+add_action('wp_enqueue_scripts', 'theme_styles', 5000);
+
+/*
+  Add Custom JS File (coha-custom.js)
+*/
+function my_custom_script_load(){
+  wp_enqueue_script(
+    'coha-custom',
+    get_template_directory_uri() . '/includes/js/coha-custom.js'
+  );
+}
+add_action( 'wp_enqueue_scripts', 'my_custom_script_load');
 
 
+/*
+  Overwrite jQuery Version 
+*/
+function replace_core_jquery_version() {
+  wp_deregister_script( 'jquery' );
+
+  wp_register_script(
+    'jquery',
+    get_template_directory_uri().'/includes/js/jquery/jquery-2.2.4.min.js',
+    [],
+    '3.3.1' );
+}
+add_action( 'wp_enqueue_scripts', 'replace_core_jquery_version' );
