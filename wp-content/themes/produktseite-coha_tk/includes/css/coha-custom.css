@@ -8,6 +8,7 @@
 /* Navigation */
 .site-navigation {background: #fff;}
 .site-navigation .navbar {background: #fff;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);}
+.site-navigation .navbar .navbar-brand {width: 150px;}
 .site-navigation .site-navigation-inner {max-width: 1200px;margin-left: auto;margin-right: auto;/* background: #fff; */}
 
 /* Nav-Entry */
@@ -34,13 +35,17 @@
 	.navbar-nav>li {}
 	.site-navigation .navbar-default .navbar-nav > .menu-item a {display: flex;height: 100%;vertical-align: middle;justify-content: center;/* padding-top: 0; *//* padding-bottom: 0; */align-items: center;}
 
-	.navbar-header {max-width: 200px;width: 100%;}
+	.navbar-header {/* max-width: 200px; *//* width: 100%; */overflow: hidden;width: 150px;transition: 200ms;}
+	.shrinked .navbar-header {width: 56px;}
 }
 
 @media screen and (max-width: 767px) {
 	/* Mobile Logo */
 	.mobile-logo {text-align: left;height: 100%;display: inline-block;}
-	.mobile-logo img {height: 100%;max-width: 100%;padding: 5px 15px 8px;padding: 3% 10% 5%;}
+	.mobile-logo {width: 150px;text-align: left;overflow: hidden;transition: 200ms;}
+
+	.mobile-logo a {display: inline-block;width: 100%;height: 100%;width: 150px;transition: 200ms;}
+	.mobile-logo img {height: 100%;max-width: 100%;padding: 5px 15px 8px;/* padding: 3% 10% 5%; */}
 
 
 	/* Hamburger Menu */
@@ -58,9 +63,10 @@
 
 /* Between Tablet and Mobile */
 @media screen and (min-width: 768px) and (max-width: 1060px) {
-	.nav.navbar-nav.navbar-right {justify-content: space-between;max-width: calc(100% - 100px);display: inline-block;text-align: right;}
+	.nav.navbar-nav.navbar-right {justify-content: space-between;max-width: calc(100% - 100px);max-width: 75%;display: inline-block;text-align: right;}
 	.navbar-nav>li {height: 50%;float: none;display: inline-block;}
-	.navbar-header {width: 100px;}
+	.navbar-header {width: 150px;}
+	.navbar-header .navbar-brand {padding-right: 0;/* padding-bottom: 0; *//* padding-top: 0; */}
 	.site-navigation .navbar-default .navbar-nav > .menu-item a {padding: 0 6px;}
 }
 
@@ -90,10 +96,14 @@ body.scrolled-down .site-navigation .navbar.shrinked {height: 35px;background-co
 
 /* Shrinked Image */
 .navbar-brand>img,
-.mobile-logo img {clip-path: inset(0 0 0 0 ); transition: 200ms;}
+.mobile-logo img {/*clip-path: inset(0 0 0 0 );*/ transition: 200ms;}
 
 .shrinked .navbar-brand>img,
-.shrinked .mobile-logo img {clip-path: inset(0 49% 0 0);}
+.shrinked .mobile-logo img {/* clip-path: inset(0 49% 0 0); */}
+
+.shrinked .mobile-logo {width: 55px;transition: 200ms;}
+.shrinked .mobile-logo a {/* text-align: left; */transition: 200ms;}
+.shrinked .mobile-logo a img {text-align: left;}
 
 
 /* Hamburger Menu */
@@ -108,3 +118,13 @@ body.scrolled-down .site-navigation .navbar.shrinked {height: 35px;background-co
 .navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(2)    {transform: rotate(45deg);margin-top: 3px;margin-bottom: -3px;}
 .navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(3)    {opacity: 0;height: 0;width: 0; margin-left: auto; margin-right: auto;}
 .navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(4)    {transform: rotate(-45deg);margin-top: -5px;}
+
+
+
+
+
+
+
+
+
+
