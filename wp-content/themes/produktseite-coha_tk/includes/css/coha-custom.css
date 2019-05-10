@@ -8,7 +8,7 @@
 /* Navigation */
 .site-navigation {background: #fff;}
 .site-navigation .navbar {background: #fff;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);}
-.site-navigation .navbar .navbar-brand {width: 150px;}
+.site-navigation .navbar .navbar-brand {width: 200px;}
 .site-navigation .site-navigation-inner {max-width: 1200px;margin-left: auto;margin-right: auto;/* background: #fff; */}
 
 /* Nav-Entry */
@@ -35,7 +35,7 @@
 	.navbar-nav>li {}
 	.site-navigation .navbar-default .navbar-nav > .menu-item a {display: flex;height: 100%;vertical-align: middle;justify-content: center;/* padding-top: 0; *//* padding-bottom: 0; */align-items: center;}
 
-	.navbar-header {/* max-width: 200px; *//* width: 100%; */overflow: hidden;width: 150px;transition: 200ms;}
+	.navbar-header {/* max-width: 200px; *//* width: 100%; */overflow: hidden;width: 200px;transition: 200ms;}
 	.shrinked .navbar-header {width: 56px;}
 }
 
