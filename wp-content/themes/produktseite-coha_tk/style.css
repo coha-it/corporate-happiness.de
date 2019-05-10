@@ -48,13 +48,15 @@ body {
 
 a {
     color: #F9C72A;
+    color: #d8c347;
+    color: #e2cc45;
     text-decoration: none;
-	font-weight:600;
+    font-weight:600;
 }
 
 a:hover, a:focus {
-    color: #F9C72A;
-	text-decoration: underline;
+    color: #b9a52b;
+    text-decoration: underline;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -385,10 +387,24 @@ padding-bottom:25px;
 	font-size:90%;
 }
 
+.btn {
+    padding: 8px 20px;
+    /* font-size: 14px; */
+    letter-spacing: 1px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 0;
+}
+
+
+
 .btn-primary {
     color: #2f2f30;
-    background-color: #F9C72A;
-    border-color: #F9C72A;
+    background-color: #efd84d;
+    border-color: #efd84d;
+    border: 0;
+    /* text-transform: uppercase; */
 }
 
  
@@ -991,10 +1007,7 @@ padding: 8px 10px;
 /* SHORTCODE CSS */
 /* myonepagerbg*/
 
-.yellow-bg {
-background-color:#EFD84E;
-color:;
-}
+.yellow-bg {background-color: #efd84d;}
 .grey-bg {background-color:#f4f3f3;/* background-color: rgba(175, 197, 203, 0.65); */color: #425d63;}
 .dark-bg {
 background-color:#59606b;
