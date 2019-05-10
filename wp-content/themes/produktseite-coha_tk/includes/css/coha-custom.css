@@ -119,12 +119,7 @@ body.scrolled-down .site-navigation .navbar.shrinked {height: 35px;background-co
 .navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(3)    {opacity: 0;height: 0;width: 0; margin-left: auto; margin-right: auto;}
 .navbar-toggle:not(.collapsed) .icon-bar:nth-of-type(4)    {transform: rotate(-45deg);margin-top: -5px;}
 
-
-
-
-
-
-
-
-
+/* Hamburger Menu - Font */
+.scrolled-up .sr-only {font-size: 8px;opacity: 1;}
+.sr-only {transition: 500ms;clip: unset;font-size: 0px;width: auto;height: auto;position: absolute;left: 0;right: 0;top: 50%;margin: 10px auto 0;display: inline-block;font-family: Lato;opacity: .5;}
 
