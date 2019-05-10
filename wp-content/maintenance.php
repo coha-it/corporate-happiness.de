@@ -23,9 +23,9 @@ header('Retry-After: 600');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="https://corporate-happiness.de/wp-content/uploads/2017/02/cropped-ico-coha-32x32.png">
-    <link rel="stylesheet" href="https://corporate-happiness.de/wp-content/maintenance/assets/styles.css">
-    <script src="https://corporate-happiness.de/wp-content/maintenance/assets/timer.js"></script>
+    <link rel="icon" href="https://www.corporate-happiness.de/wp-content/uploads/2017/02/cropped-ico-coha-32x32.png">
+    <link rel="stylesheet" href="https://www.corporate-happiness.de/wp-content/maintenance/assets/styles.css">
+    <script src="https://www.corporate-happiness.de/wp-content/maintenance/assets/timer.js"></script>
     <title>Geplante Wartungsaufgaben</title>
 </head>
 
@@ -44,10 +44,10 @@ header('Retry-After: 600');
     <!--START_SOCIAL_LINKS_BLOCK-->
     <section class="social-links">
                     <a class="social-links__link" href="https://www.facebook.com/Plesk" target="_blank" title="Facebook">
-                <span class="icon"><img src="https://corporate-happiness.de/wp-content/maintenance/assets/images/facebook.svg" alt="Facebook"></span>
+                <span class="icon"><img src="https://www.corporate-happiness.de/wp-content/maintenance/assets/images/facebook.svg" alt="Facebook"></span>
             </a>
                     <a class="social-links__link" href="https://twitter.com/Plesk" target="_blank" title="Twitter">
-                <span class="icon"><img src="https://corporate-happiness.de/wp-content/maintenance/assets/images/twitter.svg" alt="Twitter"></span>
+                <span class="icon"><img src="https://www.corporate-happiness.de/wp-content/maintenance/assets/images/twitter.svg" alt="Twitter"></span>
             </a>
             </section>
     <!--END_SOCIAL_LINKS_BLOCK-->
@@ -56,7 +56,7 @@ header('Retry-After: 600');
 
 <footer class="footer">
     <div class="footer__content">
-        Powered by <a href="https://www.plesk.com/" target="_blank"><img class="logo" src="https://corporate-happiness.de/wp-content/maintenance/assets/images/plesk-logo.png" alt="Plesk"></a>
+        Powered by <a href="https://www.plesk.com/" target="_blank"><img class="logo" src="https://www.corporate-happiness.de/wp-content/maintenance/assets/images/plesk-logo.png" alt="Plesk"></a>
     </div>
 </footer>
 
