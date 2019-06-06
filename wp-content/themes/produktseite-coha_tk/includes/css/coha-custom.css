@@ -1,3 +1,30 @@
+/* Inputs */
+input,
+textarea,
+select {
+    box-shadow: unset;
+    border: 1px solid rgb(223, 228, 231);
+    padding: 5px 6px;
+}
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+	color: rgb(187, 187, 187);
+	font-weight: normal;
+}
+
+/* Paragraphs */
+p {margin-left:0; margin-right:0;}
+
+/* Required */
+label > span.required:after {
+    content: "*";
+    display: inline-block;
+    margin-left: 3px;
+    color: rgba(209, 73, 73, 0.85);
+    font-weight: 500;
+}
+
 /* Navbar Nav */
 .navbar-nav {margin: unset;}
 
@@ -130,3 +157,4 @@ body.scrolled-down .site-navigation .navbar.shrinked {height: 35px;background-co
 
 /* disable Loader */
 .coha--loader {display: none !important;}
+
