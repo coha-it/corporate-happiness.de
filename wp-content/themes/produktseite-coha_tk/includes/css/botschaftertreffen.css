@@ -4,6 +4,7 @@ body .sy-slides-wrap{height: unset; height: inherit; height: auto;}
     margin-bottom: 0;
     color: #ffffff;
     background: #fdbf1e;
+    background: #e6cf42;
     padding: 15px 15px 12px;
     font-weight: 700;
     font-size: 26px;
@@ -11,11 +12,19 @@ body .sy-slides-wrap{height: unset; height: inherit; height: auto;}
 .botschaft .subtitel {
     text-align: center;
     background: #fdbe1f;
+    background: #e6cf42;
     color: #fff;
     font-weight: 700;
     padding: 15px;
     font-size: 1.25em;
+    /* line-height: 1.2; */
     margin: 0;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
 }
 .botschaft .subtitel .and {
     display: block;

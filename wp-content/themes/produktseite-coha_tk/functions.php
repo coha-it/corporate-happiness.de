@@ -127,7 +127,7 @@ function _tk_scripts() {
 	wp_enqueue_style( '_tk-bootstrap-wp', get_template_directory_uri() . '/includes/css/bootstrap-wp.css' );
 
 	// load bootstrap css
-	wp_enqueue_style( '_tk-bootstrap', get_template_directory_uri() . '/includes/resources/bootstrap/css/bootstrap.min.css' );
+	// wp_enqueue_style( '_tk-bootstrap', get_template_directory_uri() . '/includes/resources/bootstrap/css/bootstrap.min.css' );
 
 	// load Font Awesome css
 	wp_enqueue_style( '_tk-font-awesome', get_template_directory_uri() . '/includes/css/font-awesome.min.css', false, '4.1.0' );
@@ -136,7 +136,7 @@ function _tk_scripts() {
 	wp_enqueue_style( '_tk-style', get_stylesheet_uri() );
 
 	// load bootstrap js
-	wp_enqueue_script('_tk-bootstrapjs', get_template_directory_uri().'/includes/resources/bootstrap/js/bootstrap.min.js', array('jquery') );
+	// wp_enqueue_script('_tk-bootstrapjs', get_template_directory_uri().'/includes/resources/bootstrap/js/bootstrap.min.js', array('jquery') );
 
 	// load bootstrap wp js
 	wp_enqueue_script( '_tk-bootstrapwp', get_template_directory_uri() . '/includes/js/bootstrap-wp.js', array('jquery') );
@@ -529,11 +529,9 @@ function theme_styles()
   );
   
 
-	// Load all of the styles that need to appear on all pages
-	wp_enqueue_style(
-    'coha-custom',
-    get_template_directory_uri().'/includes/css/coha-custom.css'
-  );
+  // Load all of the styles that need to appear on all pages
+  wp_enqueue_style('aos-css',get_template_directory_uri().'/includes/css/aos/aos.css');
+	wp_enqueue_style('coha-custom-css',get_template_directory_uri().'/includes/css/coha-custom.css');
 
 }
 add_action('wp_enqueue_scripts', 'theme_styles', 5000);
@@ -542,10 +540,8 @@ add_action('wp_enqueue_scripts', 'theme_styles', 5000);
   Add Custom JS File (coha-custom.js)
 */
 function my_custom_script_load(){
-  wp_enqueue_script(
-    'coha-custom',
-    get_template_directory_uri() . '/includes/js/coha-custom.js'
-  );
+  wp_enqueue_script('aos-js', get_template_directory_uri() . '/includes/js/aos/aos.js');  
+  wp_enqueue_script('coha-custom-js',get_template_directory_uri() . '/includes/js/coha-custom.js');
 }
 add_action( 'wp_enqueue_scripts', 'my_custom_script_load');
 
@@ -563,3 +559,4 @@ function replace_core_jquery_version() {
     '3.3.1' );
 }
 add_action( 'wp_enqueue_scripts', 'replace_core_jquery_version' );
+
