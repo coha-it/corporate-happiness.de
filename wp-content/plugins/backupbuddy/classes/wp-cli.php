@@ -43,7 +43,7 @@ class backupbuddy_wp_cli extends WP_CLI_Command {
 		$results = backupbuddy_api::runBackup( $profile, $friendlyTrigger = 'wp-cli', $backupMode = '1' );
 		
 		
-		if ( true === $results ) { // success
+		if ( ! empty( $results['success'] ) ) { // success
 			WP_CLI::success( 'Backup completed successfully.' );
 			return;
 		} else { // fail

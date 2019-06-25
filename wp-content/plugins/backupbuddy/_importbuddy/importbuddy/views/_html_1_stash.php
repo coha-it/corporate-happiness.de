@@ -18,7 +18,7 @@ $wp_version = 1;
  * @return string|array  Error string or JSON response array.
  */
 function stashAPI( $settings, $action, $additional_params = array() ) {
-	$api_url = 'https://stash-api.ithemes.com';
+	$api_url = 'https://stash-api-2.ithemes.com';
 
 	global $wp_version;
 	$url_params = array(

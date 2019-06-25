@@ -1,71 +1,62 @@
-=== EU Cookie Law ===
-Contributors: alexmoss, Milmor, pleer, ShaneJones
-Version:	3.0.5
+﻿=== EU Cookie Law (GDPR) ===
+Contributors: Milmor, alexmoss, ShaneJones
+Version:	3.0.6
+Donate link: https://www.paypal.me/milesimarco
 Stable tag:	trunk
-Author:		Alex Moss, Marco Milesi, Peadig, Shane Jones
+Author:		Marco Milesi, Alex Moss, Shane Jones
 Author URI:   https://profiles.wordpress.org/milmor/
-Tags: eu cookie, cookies, law, analytics, european, italia, garante, privacy, eu cookie law, italy, cookie, consent, europe
+Tags: GDPR, cookie law, notice, cookie, cookie consent, cookies, analytics, european, italia, garante, privacy, eu cookie law, italy, consent, europe
 Requires at least: 4.4
-Tested up to: 4.9
+Tested up to: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-EU Cookie Law informs users that your site uses cookies, with option to lock scripts before consent. Light + Customizable style.
+EU Cookie Law informs users that your site uses cookies, with option to lock scripts before consent. Light & Customizable.
 
 == Description ==
 
-EU Cookie Law is a **light, elegant and powerful** solution that allows your website to comply the european cookie law by informing users that your site has cookies, with a popup for more information and option to lock scripts before acceptance (as required by  **Italian Law - Garante della Privacy** dispositions).
+EU Cookie Law is a **light, elegant and powerful** solution to comply european cookie law and **GDPR**, with popup and options to lock scripts before acceptance.
 
-You can customise the style to perfectly fit your website and you have many options to control cookies behaviour after and before acceptance.
+Various customizations included to perfectly fit your website and keep cookies under control (before and after the consent).
+
+Simply install the plugin and follow the instructions on the Settings page.
 
 https://www.youtube.com/watch?v=6f2qxC3GZJ8
 
 Demo: [www.sanpellegrinoterme.gov.it](http://www.sanpellegrinoterme.gov.it)
 
 = Features =
-* **GDPR** compliant (if you have doubts, ask in the forum)
+* **GDPR** compliant
 * **Customizable banner** (color, position, strings)
 * Consent by **Clicking, Scrolling and Navigation**
 * Set your page, popup or custom URL for Cookie Policy
 * Set cookie expiry
-* Fully **responsive** for tablets and smartphones
-* Compatible with **mobile** themes and plugins 
-* Compatible with **multilanguage** plugins
-* Certified for **WPML**
 * Shortcode to **revoke cookie consent**
 * Shortcode to show a list of cookies
+* **Responsive** design
+* Certified for **WPML** and compatible with various **multilanguage** plugins
 * Compatible with Disqus and Jetpack InfiniteScroll
 
 = Advanced Features =
-* Block scripts if cookies are not accepted
-* **Automatic block of iframes, embeds, scripts and objects**
-* Complete set of developer Shortcodes and PHP Functions
-* Manual and **Automatic** set width and height of blocked content
+* **Automatic block of iframes, embeds, scripts and objects** before cookie consent, with overlay alert
+* Complete set of shortcodes, PHP filters and functions
 
-Simply install the plugin and follow the instructions on the Settings page.
+You can prevent cookies using `[cookie]` and `[/cookie]` shortcodes in posts, pages and widgets, or play with php:
 
-= Cookie block =
-You can lock cookies using `[cookie]` and `[/cookie]` shortcodes in every post, page and widget. You can use php functions too:
-`if ( !function_exists('cookie_accepted') || cookie_accepted() ) {
+`if ( function_exists(‘cookie_accepted’) && cookie_accepted() ) {
     // Your code
 }`
 
-**More Shortcodes & PHP Functions are available [in our faqs](//wordpress.org/plugins/eu-cookie-law/faq/).**
-
-> EU Cookie Law started from [Peadig](http://peadig.com/wordpress-plugins/eu-cookie-law/) in 2012 and in june 2015 has became part of [WPGov.it](http://www.wpgov.it) that aims to give Italian Public Government powerful open source solutions for websites.
+**Shortcodes parameters, PHP filters and functions are available [in our faqs](//wordpress.org/plugins/eu-cookie-law/faq/).**
 
 = Translations =
 You can add your translations here: [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/eu-cookie-law) 
 
-If you want to be translation editor for your locale, please send your username and language code (eg. it_IT) to milesimarco@outlook.com.
-[@tabakisp](//profiles.wordpress.org/tabakisp) (el)
-
-Thanks to: [Gerard Weijer](http://gerardweijer.nl), [Karsten Höfner](http://www.mister-mx.de), [Mariusz Kołacz](http://techformator.pl/), [Marco Milesi](http://marcomilesi.ml), [Núria Nadal](http://cherrycreative.es)
-
 = Contributions =
 
+* Plugin promoted from 2015 by [WPGov.it](http://www.wpgov.it), open source solutions developed for italian government websites
 * Italian community [Porte Aperte sul Web](http://www.porteapertesulweb.it)
-* This plugin was originally developed by [Peadig](http://peadig.com/wordpress-plugins/eu-cookie-law/).
+* This plugin was originally developed by [Peadig](http://peadig.com/wordpress-plugins/eu-cookie-law/) in 2012.
 
 == Installation ==
 
@@ -162,6 +153,9 @@ Click on the translations link to open the translation editor and adjust the str
 9. Fully customizable
 
 == Changelog ==
+
+= 3.0.6 21.05.2019 =
+* Tested up to WP 5.2
 
 = 3.0.5 10.06.2018 =
 * Various **bug fixes**

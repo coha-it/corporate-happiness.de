@@ -182,11 +182,12 @@ class WC_GZD_Admin {
 
 	public function set_order_parcel_delivery_opted_in( $order ) {
 
-		if ( ! wc_gzd_get_crud_data( $order, 'parcel_delivery_opted_in' ) )
+		if ( ! wc_gzd_get_crud_data( $order, 'parcel_delivery_opted_in' ) ) {
 			return;
+        }
 
 		?>
-        <p><strong style="display: block;"><?php _e( 'Parcel Delivery Data Transfer:', 'woocommerce-germanized' ) ?></strong>
+        <p class="parcel-delivery-checkbox-status"><strong style="display: block;"><?php _e( 'Parcel Delivery Data Transfer:', 'woocommerce-germanized' ) ?></strong>
             <span><?php echo ( wc_gzd_order_supports_parcel_delivery_reminder( wc_gzd_get_crud_data( $order, 'id' ) ) ? __( 'allowed', 'woocommerce-germanized' ) : __( 'not allowed', 'woocommerce-germanized' ) ); ?></span>
         </p>
 		<?php
@@ -199,7 +200,7 @@ class WC_GZD_Admin {
 
 		array_unshift( $products, (object) array(
 			'title' => 'Woo Germanized Pro',
-			'excerpt' => 'Upgrade jetzt auf die Pro Version von WooCommerce Germanized und profitiere von weiteren nützliche Funktionen speziell für den deutschen Markt sowie professionellem Support.',
+			'excerpt' => 'Upgrade jetzt auf die Pro Version von Germanized und profitiere von weiteren nützliche Funktionen speziell für den deutschen Markt sowie professionellem Support.',
 			'link' => 'https://vendidero.de/woocommerce-germanized#buy',
 			'price' => '69,95 €',
 		) );

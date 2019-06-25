@@ -245,7 +245,9 @@ class pb_backupbuddy_ui {
 		echo '>';
 
 		// LOOP THROUGH EACH ROW.
+		$itemi = 0;
 		foreach ( (array)$items as $item_id => $item ) {
+			$itemi++;
 			echo '	<tr class="entry-row" id="pb_rowitem-' . $item_id . '">';
 			if ( count( $settings['bulk_actions'] ) > 0 ) {
 				echo'	<th scope="row" class="check-column"><input type="checkbox" name="items[]" class="entries" value="' . $item_id . '"></th>';
@@ -270,6 +272,11 @@ class pb_backupbuddy_ui {
 			$i = 0;
 			foreach ( $settings['hover_actions'] as $action_slug => $action_title ) { // Display all hover actions.
 				$i++;
+				// If filter is set to not display edit link for first schedule. Don't show it.
+				if ( $itemi === 1 && ! empty( $settings['hide_edit_for_first_schedule'] ) && $action_slug == 'edit' ) {
+					continue; 
+				}
+
 				if ( $settings['hover_action_column_key'] != '' ) {
 					if ( is_array( $item[$settings['hover_action_column_key']] ) ) {
 						$hover_action_column_value = $item[$settings['hover_action_column_key']][0];
@@ -279,7 +286,7 @@ class pb_backupbuddy_ui {
 				} else {
 					$hover_action_column_value = '';
 				}
-				//echo 'slug: ' . $action_slug;
+
 				if ( strstr( $action_slug, '/' ) === false ) { // Word hover action slug.
 					$hover_link= pb_backupbuddy::page_url() . '&' . $action_slug . '=' . $item_id . '&value=' . $hover_action_column_value;
 				} else { // URL hover action slug so just append value to URL.

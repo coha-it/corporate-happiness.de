@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $elements = array(
 	'add_to_cart' => '#woocommerce_gzd_display_listings_add_to_cart',
 	'vat_notice' => '#woocommerce_gzd_display_footer_vat_notice',
-	'shipping_costs' => '#woocommerce_gzd_display_listings_shipping_costs',
+	'shipping_costs' => '#woocommerce_gzd_display_listings_shipping_costs_info',
 	'unit_price' => '#woocommerce_gzd_unit_price_text',
 	'display_checkout' => '#woocommerce_gzd_display_checkout_fallback',
 	'pay_now' => '#woocommerce_gzd_order_pay_now_button',
@@ -21,8 +21,8 @@ $elements = array(
 <ol class="tourbus-legs wc-gzd-tour" id="tour-settings-display">
 
 	<li data-orientation="centered">
-		<h2>WooCommerce Germanized Tour</h2>
-		<p>Lerne jetzt schnell und einfach die ersten Schritte zur Konfiguration von WooCommerce Germanized kennen.</p>
+		<h2>Germanized Tour</h2>
+		<p>Lerne jetzt schnell und einfach die ersten Schritte zur Konfiguration von Germanized kennen.</p>
 		<a class="button button-primary tourbus-next" href="javascript:void(0);">Los geht's</a>
 		<a class="button button-secondary" href="<?php echo WC_GZD_Admin::instance()->disable_tour_link( 'display' ); ?>" style="float: right">Nein, Danke</a>
 	</li>
@@ -69,7 +69,7 @@ $elements = array(
 
 	<li data-el="<?php echo $elements[ 'pay_now' ]; ?>" data-orientation="top">
 		<h2>Bezahlen-Button in E-Mails</h2>
-		<p>WooCommerce Germanized sorgt dafür, dass dem Käufer direkt nach der Bestellung (d.h. nach Betätigen des Kaufen-Buttons) eine Bestellbestätigung zugestellt wird. 
+		<p>Germanized sorgt dafür, dass dem Käufer direkt nach der Bestellung (d.h. nach Betätigen des Kaufen-Buttons) eine Bestellbestätigung zugestellt wird.
 		Das gilt auch für Einkäufe, die per PayPal (oder andere Zahlungsanbieter) getätigt werden. Für diesen Fall kannst du an dieser Stelle bewirken, dass der Kunde per Mail auch 
 		noch einmal einen Link zum Bezahlen erhält (falls der Kunde die Zahlung nach der Bestellung nicht abgeschlossen hat).</p>
 		<a class="button button-primary tourbus-next" href="javascript:void(0);">weiter</a>

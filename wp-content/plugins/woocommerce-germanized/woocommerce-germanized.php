@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: WooCommerce Germanized
+ * Plugin Name: Germanized for WooCommerce
  * Plugin URI: https://www.vendidero.de/woocommerce-germanized
- * Description: WooCommerce Germanized extends WooCommerce to become a legally compliant store in the german market.
- * Version: 2.2.10
+ * Description: Germanized for WooCommerce extends WooCommerce to become a legally compliant store in the german market.
+ * Version: 2.3.2
  * Author: Vendidero
  * Author URI: https://vendidero.de
  * Requires at least: 3.8
- * Tested up to: 5.1
+ * Tested up to: 5.2
  * WC requires at least: 2.4.0
  * WC tested up to: 3.6.0
  * Requires at least WooCommerce: 2.4
@@ -31,7 +31,7 @@ final class WooCommerce_Germanized {
 	 *
 	 * @var string
 	 */
-	public $version = '2.2.10';
+	public $version = '2.3.1';
 
 	/**
 	 * Single instance of WooCommerce Germanized Main Class
@@ -337,6 +337,7 @@ final class WooCommerce_Germanized {
 
 			include_once WC_GERMANIZED_ABSPATH . 'includes/admin/class-wc-gzd-admin.php';
 			include_once WC_GERMANIZED_ABSPATH . 'includes/admin/class-wc-gzd-admin-welcome.php';
+            include_once WC_GERMANIZED_ABSPATH . 'includes/admin/class-wc-gzd-admin-order.php';
 			include_once WC_GERMANIZED_ABSPATH . 'includes/admin/class-wc-gzd-admin-notices.php';
 			include_once WC_GERMANIZED_ABSPATH . 'includes/admin/class-wc-gzd-admin-customer.php';
 			include_once WC_GERMANIZED_ABSPATH . 'includes/admin/class-wc-gzd-admin-legal-checkboxes.php';
@@ -423,8 +424,20 @@ final class WooCommerce_Germanized {
 	}
 
 	public function is_frontend() {
-		return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
+		return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' ) && ! $this->is_rest_api_request();
 	}
+
+	public function is_rest_api_request() {
+	    if ( function_exists( 'WC' ) ) {
+            $wc = WC();
+
+            if ( is_callable( array( $wc, 'is_rest_api_request' ) ) ) {
+                return $wc->is_rest_api_request();
+            }
+        }
+
+        return false;
+    }
 
 	public function setup_compatibility() {
 		$plugins = apply_filters( 'woocommerce_gzd_compatibilities',
@@ -440,7 +453,8 @@ final class WooCommerce_Germanized {
 				'woocommerce-gateway-paypal-express-checkout',
 				'woocommerce-subscriptions',
 				'woo-paypalplus',
-				'dhl-for-woocommerce'
+				'dhl-for-woocommerce',
+                'elementor-pro',
 			)
 		);
 

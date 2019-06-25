@@ -159,19 +159,17 @@ class WC_GZD_Customer_Helper {
 		$user_id = get_current_user_id();
 
 		if ( is_cart() ) {
-
 			// On accessing cart - reset disable checkout signup so that the customer is rechecked before redirecting him to the checkout.
 			unset( WC()->session->disable_checkout_signup );
-
 		}
 
-		if ( get_option( 'woocommerce_enable_guest_checkout' ) === 'yes' && isset( $_GET[ 'force-guest' ] ) ) {
+		if ( ( 'yes' === get_option( 'woocommerce_enable_guest_checkout' ) && isset( $_GET[ 'force-guest' ] ) ) || 'yes' !== get_option( 'woocommerce_enable_signup_and_login_from_checkout' ) ) {
 
-			// Disable registration
+		    // Disable registration
 			WC()->session->set( 'disable_checkout_signup', true );
 
 		} elseif ( ! WC()->session->get( 'disable_checkout_signup' ) ) {
-			
+
 			if ( is_checkout() && ( ! is_user_logged_in() || ( $this->enable_double_opt_in_for_user() && ! wc_gzd_is_customer_activated() ) ) ) {
 				
 				WC()->session->set( 'login_redirect', 'checkout' );
@@ -179,9 +177,7 @@ class WC_GZD_Customer_Helper {
 				exit;
 
 			} elseif ( is_checkout() ) {
-
 				unset( WC()->session->login_redirect );
-
 			}
 		}
 	}
@@ -214,7 +210,7 @@ class WC_GZD_Customer_Helper {
 		}
 	}
 
-	public function registration_redirect( $redirect ) {
+	protected function registration_redirect() {
 		return apply_filters( 'woocommerce_gzd_customer_registration_redirect', add_query_arg( array( 'account' => 'activate' ), wc_gzd_get_page_permalink( 'myaccount' ) ) );
 	}
 
@@ -226,12 +222,11 @@ class WC_GZD_Customer_Helper {
 
 		// Has not been activated yet
 		if ( $this->enable_double_opt_in_for_user( $user_id ) && ! wc_gzd_is_customer_activated( $user_id ) ) {
-			add_filter( 'woocommerce_registration_redirect', array( $this, 'registration_redirect' ) );
-			return false;
+            wp_redirect( wp_validate_redirect( $this->registration_redirect() ) ); //phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect
+            exit;
 		}
 
 		return true;
-
 	}
 
 	public function get_double_opt_in_user_roles() {
@@ -280,8 +275,8 @@ class WC_GZD_Customer_Helper {
 	 */
 	public function customer_account_activation_check() {
 		if ( is_account_page() ) {
-			if ( isset( $_GET[ 'activate' ] ) ) {
-				$activation_code = wc_clean( wp_unslash( $_GET[ 'activate' ] ) );
+			if ( isset( $_GET['activate'] ) ) {
+				$activation_code = wc_clean( wp_unslash( $_GET['activate'] ) );
 
 				if ( ! empty( $activation_code ) ) {
 					$result = $this->customer_account_activate( $activation_code, true );
@@ -433,18 +428,21 @@ class WC_GZD_Customer_Helper {
 	 */
 	public function customer_new_account_activation( $customer_id, $new_customer_data = array(), $password_generated = false ) {
 
-		if ( ! $customer_id )
+		if ( ! $customer_id ) {
 			return;
+        }
 
-		if ( ! $this->enable_double_opt_in_for_user( $customer_id ) )
+		if ( ! $this->enable_double_opt_in_for_user( $customer_id ) ) {
 			return;
+        }
 
 		$user_pass           = ! empty( $new_customer_data['user_pass'] ) ? $new_customer_data['user_pass'] : '';
 		$user_activation     = $this->get_customer_activation_meta( $customer_id );
 		$user_activation_url = $this->get_customer_activation_url( $user_activation );
 
-		if ( $email = WC_germanized()->emails->get_email_instance_by_id( 'customer_new_account_activation' ) )
+		if ( $email = WC_germanized()->emails->get_email_instance_by_id( 'customer_new_account_activation' ) ) {
 			$email->trigger( $customer_id, $user_activation, $user_activation_url, $user_pass, $password_generated );
+        }
 	}
 
 	public function get_customer_activation_url( $key ) {

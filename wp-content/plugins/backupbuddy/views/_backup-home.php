@@ -17,22 +17,25 @@ if ( '' != pb_backupbuddy::_GET( 'rollback' ) ) {
 	return;
 }
 
-?>
-<script type="text/javascript">
-jQuery( function() {
-	jQuery('#screen-meta-links').append(
-		'<div id="backupbuddy-meta-link-wrap" class="hide-if-no-js screen-meta-toggle">' +
-			'<a href="?page=pb_backupbuddy_backup&wizard=1" class="show-settings no-dropdown"><?php esc_html_e( 'Quick Setup Wizard', 'it-l10n-backupbuddy' ); ?></a>' +
-		'</div>'
-	);
-});
-</script>
-<?php
+if ( true !== apply_filters( 'itbub_hide_quickwizard', false ) ): ?>
+	<script type="text/javascript">
+	jQuery( function() {
+		jQuery('#screen-meta-links').append(
+			'<div id="backupbuddy-meta-link-wrap" class="hide-if-no-js screen-meta-toggle">' +
+				'<a href="?page=pb_backupbuddy_backup&wizard=1" class="show-settings no-dropdown"><?php esc_html_e( 'Quick Setup Wizard', 'it-l10n-backupbuddy' ); ?></a>' +
+			'</div>'
+		);
+	});
+	</script>
+<?php endif;
 
 
 // Popup Quickstart modal if appears to be new install & quickstart not skip.
 if (
-	( '1' == pb_backupbuddy::_GET( 'wizard' ) )
+	true !== apply_filters( 'itbub_hide_quickwizard', false )
+	&&
+
+	( ( '1' == pb_backupbuddy::_GET( 'wizard' ) )
 	||
 	(
 		( '0' == pb_backupbuddy::$options['skip_quicksetup'] )
@@ -41,7 +44,7 @@ if (
 			&&
 			( '' == pb_backupbuddy::$options['importbuddy_pass_hash'] )
 		)
-	) {
+	) ) {
 	pb_backupbuddy::$ui->title( 'BackupBuddy Quick Setup Wizard' );
 	pb_backupbuddy::load_view( '_quicksetup', array() );
 	return;

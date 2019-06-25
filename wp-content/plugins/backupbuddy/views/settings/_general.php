@@ -73,18 +73,21 @@ $settings_form->add_setting(
 		'after' => '&nbsp;&nbsp; <span style="white-space: nowrap;">' . esc_html__( 'Confirm', 'it-l10n-backupbuddy' ) . ': <input style="width: 120px;" type="password" name="pb_backupbuddy_importbuddy_pass_hash_confirm" value="' . esc_attr( $importbuddy_pass_dummy_text ) . '"></span>',
 	)
 );
+
+if ( true !== apply_filters( 'itbub_hide_custom_backup_directory_option', false ) ) {
 $settings_form->add_setting(
-	array(
-		'type'   => 'text',
-		'name'   => 'backup_directory',
-		'title'  => __( 'Custom local storage directory', 'it-l10n-backupbuddy' ),
-		'tip'    => __( 'Leave blank for default. To customize, enter a full local path where all backup ZIP files will be saved to. This directory must have proper write and read permissions. Upon changing, any backups in the existing directory will be moved to the new directory. Note: This is only where local backups will be, not remotely stored backups. Remote storage is configured on the Remote Destinations page.', 'it-l10n-backupbuddy' ),
-		'rules'  => '',
-		'css'    => 'width: 250px;',
-		'before' => '<span style="white-space: nowrap;">',
-		'after'  => ' <span class="description">' . __( 'Blank for default', 'it-l10n-backupbuddy' ) . ':</span>&nbsp; <span class="code" style="background: #EAEAEA; white-space: normal;">' . backupbuddy_core::_getBackupDirectoryDefault() . '</span></span>',
-	)
-);
+		array(
+			'type'   => 'text',
+			'name'   => 'backup_directory',
+			'title'  => __( 'Custom local storage directory', 'it-l10n-backupbuddy' ),
+			'tip'    => __( 'Leave blank for default. To customize, enter a full local path where all backup ZIP files will be saved to. This directory must have proper write and read permissions. Upon changing, any backups in the existing directory will be moved to the new directory. Note: This is only where local backups will be, not remotely stored backups. Remote storage is configured on the Remote Destinations page.', 'it-l10n-backupbuddy' ),
+			'rules'  => '',
+			'css'    => 'width: 250px;',
+			'before' => '<span style="white-space: nowrap;">',
+			'after'  => ' <span class="description">' . __( 'Blank for default', 'it-l10n-backupbuddy' ) . ':</span>&nbsp; <span class="code" style="background: #EAEAEA; white-space: normal;">' . backupbuddy_core::_getBackupDirectoryDefault() . '</span></span>',
+		)
+	);
+}
 
 $roles = get_editable_roles();
 unset( $roles['administrator'] );

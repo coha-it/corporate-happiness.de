@@ -4,7 +4,10 @@ class Ithemes_Sync_Verb_Backupbuddy_Run_Backup extends Ithemes_Sync_Verb {
 	public static $description = 'Run a backup profile.';
 	
 	private $default_arguments = array(
-		'profile'	=> '', // Valid values: db, full, [numeric profile ID]
+		'profile'	   => '', // Valid values: db, full, [numeric profile ID]
+		'destinations' => array(),
+		'delete_after' => false,
+
 	);
 	
 	/*
@@ -17,9 +20,9 @@ class Ithemes_Sync_Verb_Backupbuddy_Run_Backup extends Ithemes_Sync_Verb {
 	 */
 	public function run( $arguments ) {
 		$arguments = Ithemes_Sync_Functions::merge_defaults( $arguments, $this->default_arguments );
-		$results = backupbuddy_api::runBackup( $arguments['profile'], 'iThemes Sync', $backupMode = '2' );
+		$results = backupbuddy_api::runBackup( $arguments['profile'], 'iThemes Sync', $backupMode = '2', '', $arguments['destinations'], $arguments['delete_after'] );
 		
-		if ( true !== $results ) {
+		if ( empty( $results['success'] ) || true !== $results['success'] ) {
 			return array(
 				'api' => '0',
 				'status' => 'error',
@@ -29,10 +32,10 @@ class Ithemes_Sync_Verb_Backupbuddy_Run_Backup extends Ithemes_Sync_Verb {
 		} else {
 			
 			return array(
-				'api' => '0',
-				'status' => 'ok',
+				'api'     => '0',
+				'status'  => 'ok',
 				'message' => 'Backup initiated successfully.',
-				//'serial' => $serial, //We don't get this...
+				'serial'  => $results['serial'],
 				'profile' => empty( pb_backupbuddy::$options['profiles'][$arguments['profile']] ) ? false : pb_backupbuddy::$options['profiles'][$arguments['profile']],
 			);
 			

@@ -209,21 +209,23 @@ $settings_form->add_setting(
 		'rules'   => 'required',
 	)
 );
-$settings_form->add_setting(
-	array(
-		'type'    => 'checkbox',
-		'name'    => 'hide_live',
-		'options' => array(
-			'unchecked' => '0',
-			'checked'   => '1',
-		),
-		'title'   => __( 'Hide "Stash Live" from menu', 'it-l10n-backupbuddy' ),
-		'tip'     => __( '[Default: Unchecked] When checked the `Stash Live` item will be removed from the left menu. Useful for developers with clients not using this feature.', 'it-l10n-backupbuddy' ),
-		'css'     => '',
-		'after'   => '<span class="description"> ' . __( 'Check to hide.', 'it-l10n-backupbuddy' ) . '</span>',
-		'rules'   => 'required',
-	)
-);
+if ( true !== apply_filters( 'itbub_hide_stash_live', false ) ) {
+	$settings_form->add_setting(
+		array(
+			'type'    => 'checkbox',
+			'name'    => 'hide_live',
+			'options' => array(
+				'unchecked' => '0',
+				'checked'   => '1',
+			),
+			'title'   => __( 'Hide "Stash Live" from menu', 'it-l10n-backupbuddy' ),
+			'tip'     => __( '[Default: Unchecked] When checked the `Stash Live` item will be removed from the left menu. Useful for developers with clients not using this feature.', 'it-l10n-backupbuddy' ),
+			'css'     => '',
+			'after'   => '<span class="description"> ' . __( 'Check to hide.', 'it-l10n-backupbuddy' ) . '</span>',
+			'rules'   => 'required',
+		)
+	);
+}
 $settings_form->add_setting(
 	array(
 		'type'    => 'checkbox',

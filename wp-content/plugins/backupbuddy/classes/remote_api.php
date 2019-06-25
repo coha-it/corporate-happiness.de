@@ -311,7 +311,8 @@ class backupbuddy_remote_api {
 			pb_backupbuddy::status( 'details', 'Updated remote session tokens.', $backupSerial );
 		}
 		
-		if ( true !== ( $maybeMessage = backupbuddy_api::runBackup( $profileArray, $triggerTitle = 'deployment_pulling', $backupMode = '', $backupSerial ) ) ) {
+		$maybeMessage = backupbuddy_api::runBackup( $profileArray, $triggerTitle = 'deployment_pulling', $backupMode = '', $backupSerial );
+		if ( empty( $maybeMessage['success'] ) ) {
 			$message = 'Error #48394873: Unable to launch backup at source. Details: `' . $maybeMessage . '`.';
 			pb_backupbuddy::status( 'error', $message, $backupSerial );
 			self::_reply( array( 'success' => false, 'error' => $message ) );

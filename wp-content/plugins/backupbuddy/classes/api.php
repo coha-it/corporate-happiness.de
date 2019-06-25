@@ -36,7 +36,7 @@ class backupbuddy_api {
 	 * @return	true|string									Returns true on success running the backup, else a string error message.
 	 *
 	 */
-	public static function runBackup( $generic_type_or_profile_id_or_array = '', $triggerTitle = 'BB API', $backupMode = '', $backupSerial = '' ) {
+	public static function runBackup( $generic_type_or_profile_id_or_array = '', $triggerTitle = 'BB API', $backupMode = '', $backupSerial = '', $destinations = array(), $delete_after = 0 ) {
 		self::_before();
 		return require( dirname(__FILE__) . '/api/_runBackup.php' );
 	}

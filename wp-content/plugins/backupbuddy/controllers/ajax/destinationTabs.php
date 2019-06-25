@@ -208,10 +208,12 @@ foreach ( pb_backupbuddy::$options['remote_destinations'] as $destination_id => 
 	);
 }
 
-$destination_tabs[] = array(
-	'title' => '<span class="dashicons dashicons-plus" style="vertical-align: middle;"></span> ' . esc_html__( 'Add New', 'it-l10n-backupbuddy' ) . '&nbsp;',
-	'slug'  => 'add_new',
-);
+if ( false === apply_filters( 'itbub_disable_add_destination_tab', false ) ) {
+	$destination_tabs[] = array(
+		'title' => '<span class="dashicons dashicons-plus" style="vertical-align: middle;"></span> ' . esc_html__( 'Add New', 'it-l10n-backupbuddy' ) . '&nbsp;',
+		'slug'  => 'add_new',
+	);
+}
 
 pb_backupbuddy::$ui->start_tabs(
 	'destinations',
@@ -247,7 +249,9 @@ foreach ( pb_backupbuddy::$options['remote_destinations'] as $destination_id => 
 		if ( true !== $pb_hide_test ) {
 			$test_button = '<a href="#" class="button secondary-button pb_backupbuddy_destpicker_test" href="#" title="Test destination settings.">Test Settings<img class="pb_backupbuddy_destpicker_testload" src="' . pb_backupbuddy::plugin_url() . '/images/loading.gif" title="Testing... This may take several seconds..."></a>';
 		}
-		$save_and_delete_button = '<a href="#" class="button secondary-button pb_backupbuddy_destpicker_delete" href="javascript:void(0)" title="Delete this Destination">Delete Destination</a>';
+		if ( false === apply_filters( 'itbub_disable_delete_destination_button', false ) ) :
+			$save_and_delete_button = '<a href="#" class="button secondary-button pb_backupbuddy_destpicker_delete" href="javascript:void(0)" title="Delete this Destination">Delete Destination</a>';
+		endif;
 		echo $settings->display_settings(
 			'Save Settings', // title.
 			$save_and_delete_button . '&nbsp;&nbsp;' . $test_button . '&nbsp;&nbsp;', // before.

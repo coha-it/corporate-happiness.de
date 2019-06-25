@@ -133,7 +133,7 @@ if ( is_multisite() && backupbuddy_core::is_network_activated() && ! defined( 'P
 
 		if ( is_network_admin() ) { // Network Admin pages.
 			pb_backupbuddy::add_page( '', 'backup', array( pb_backupbuddy::settings( 'name' ), __( 'Backup', 'it-l10n-backupbuddy' ) ), 'manage_network', $icon );
-			if ( '1' !== pb_backupbuddy::$options['hide_live'] ) {
+			if ( '1' !== pb_backupbuddy::$options['hide_live'] && ( true !== apply_filters( 'itbub_hide_stash_live', false ) ) ) {
 				pb_backupbuddy::add_page( 'backup', 'live', __( 'Stash Live', 'it-l10n-backupbuddy' ), 'manage_network' );
 			}
 			pb_backupbuddy::add_page( 'backup', 'migrate_restore', __( 'Restore / Migrate', 'it-l10n-backupbuddy' ), 'manage_network' );
@@ -168,7 +168,7 @@ if ( is_multisite() && backupbuddy_core::is_network_activated() && ! defined( 'P
 } else { // Standalone site.
 
 	pb_backupbuddy::add_page( '', 'backup', array( pb_backupbuddy::settings( 'name' ), __( 'Backup', 'it-l10n-backupbuddy' ) ), pb_backupbuddy::$options['role_access'], $icon );
-	if ( '1' !== pb_backupbuddy::$options['hide_live'] ) {
+	if ( '1' !== pb_backupbuddy::$options['hide_live'] && ( true !== apply_filters( 'itbub_hide_stash_live', false ) ) ) {
 		pb_backupbuddy::add_page( 'backup', 'live', __( 'Stash Live', 'it-l10n-backupbuddy' ), pb_backupbuddy::$options['role_access'] );
 	}
 	pb_backupbuddy::add_page( 'backup', 'migrate_restore', __( 'Restore / Migrate', 'it-l10n-backupbuddy' ), pb_backupbuddy::$options['role_access'] );

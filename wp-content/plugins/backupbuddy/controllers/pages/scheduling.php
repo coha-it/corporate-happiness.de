@@ -834,7 +834,7 @@ foreach ( pb_backupbuddy::$options['schedules'] as $schedule_id => $schedule ) {
 		$interval,
 		$destinations,
 		$run_time,
-		$on_off,
+		$on_off
 	);
 
 } // End foreach.

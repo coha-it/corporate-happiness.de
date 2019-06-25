@@ -32,7 +32,9 @@ class BackupBuddy_HTTP_Request {
 	}
 
 	public function get_built_url() {
-		return "{$this->url}/?" . http_build_query( $this->get_vars, null, '&' );
+		$url = apply_filters( 'it_bub_filter_http_request_url', $this->url );
+		
+		return "$url/?" . http_build_query( $this->get_vars, null, '&' );
 	}
 
 	public function get_response() {

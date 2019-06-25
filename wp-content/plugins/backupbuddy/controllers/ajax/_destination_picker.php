@@ -427,7 +427,9 @@ if ( 'true' != pb_backupbuddy::_GET( 'show_add' ) && $destination_list_count > 0
 					}
 					?>
 					<br><br><br>
-					<a href="javascript:void(0)" class="btn btn-small btn-addnew" onClick="jQuery('.bb_destinations-existing').hide(); jQuery('.bb_destinations-new').show();">Add New Destination +</a>
+					<?php if ( false === apply_filters( 'itbub_disable_add_destination_tab', false ) ) : ?>
+						<a href="javascript:void(0)" class="btn btn-small btn-addnew" onClick="jQuery('.bb_destinations-existing').hide(); jQuery('.bb_destinations-new').show();">Add New Destination +</a>
+					<?php endif; ?>
 				</ul>
 			</div>
 			<?php pb_bb_add_box( $mode, $picker_url ); ?>

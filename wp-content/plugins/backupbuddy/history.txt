@@ -1962,3 +1962,40 @@
 	Bug Fix: Fixed error that prevents users from disconnecting from Stash Live when no Stash remote destinations are active.
 8.3.4.0 - 2018-12-18 - Glenn Ansley
 	Enhancement: Added new Sync Verb addProfile allows for backup profile to be added via API.
+8.3.5.0 - 2019-01-30 - Glenn Ansley, Brian DiChiara
+	Enhancement: Add Sync Verb for creating a Backup Profile.
+	Enhancement: Add Sync Verb for Editing Remote Destinations.
+	Enhancement: Edit Sync Verb for start backup to allow option to send to Remote Destinations.
+	Bug Fix:     Resolved memory issue when sending large backups to Stash/S3 Destinations.
+8.3.6.0 - 2019-02-20 - Chris Jean, Joshua Benham
+	Enhancement: Improvements to Stash v2 and v3 that can dramatically improve performance of sending files.
+8.3.6.1 - 2019-02-21 - Lew Ayotte
+	Enhancement: Updating http to https
+8.3.7.0 - 2019-03-08 - Chris Jean
+	Bug Fix: Fixed Stash remote destinations sometimes not removing older uploads per the destination settings.
+8.3.8.0 - 2019-03-12 - Lew Ayotte
+	Enhancement: Added nextRun to getSchedules API.
+8.3.9.0 - 2019-03-12 - Chris Jean
+	Bug Fix: Fixed importbuddy bug that prevents all files in Stash from showing properly.
+8.3.10.0 - 2019-03-22 - Lew Ayotte
+	Enhancement: Adding filters for LiquidWeb UI improvements (Managed Press)
+8.3.11.0 - 2019-04-09 - Chris Jean
+	Bug Fix: Added support for a new BACKUPBUDDY_STASH_USE_LEGACY_UPLOAD define that may help some sites send files into Stash.
+8.3.12.0 - 2019-05-02 - Chris Jean, Josh Benham, Brian DiChiara
+	Enhancement: Added improved caching to the Stash Live system which can improve performance.
+	Enhancement: Added support for the Stash Live server to attempt to fix known issues that can prevent the service from functioning correctly.
+	Enhancement: Fixed error reporting in Stash Live to report error details from the AWS SDK API that were previously missing.
+8.3.13.0 - 2019-05-07 - Lew Ayotte
+	Enhancement: Custom template filter added, Destination list filter renamed
+8.3.14.0 - 2019-05-08 - Brian DiChiara, Jeremy Trask
+	Bug Fix: Corrected typo for apply_filter/s.
+8.4.15.0 - 2019-05-08 - Brian DiChiara
+	Bug Fix: Someone fat fingered the last release version.
+8.4.16.0 - 2019-06-17 - Chris Jean, Josh Benham
+	Bug Fix: Corrected an issue that caused Stash Live to send all files when creating a manual snapshot when the files were already present.
+8.4.17.0 - 2019-06-18 - Chris Jean, Josh Benham
+	Bug Fix: Some user's sites permanently cached invalid Stash Live credentials. This fix automatically clears the cache for sites that currently have this issue and adds measures to prevent it from happening in the future.
+8.4.17.1 - 2019-06-19 - Brian DiChiara, Josh Benham
+	Bug Fix: Fixes button layout issue in WP 5.2.2 update.
+8.4.18.0 - 2019-06-19 - Lew Ayotte
+    Enhancement: Version bump (that's it)

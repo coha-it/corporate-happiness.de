@@ -40,7 +40,7 @@ if ( 'deploy' == pb_backupbuddy::_GET( 'backupbuddy_backup' ) ) {
 	pb_backupbuddy::$ui->title( 'Create Backup' );
 }
 
-if ( 'true' == pb_backupbuddy::_GET( 'quickstart_wizard' ) ) {
+if ( 'true' == pb_backupbuddy::_GET( 'quickstart_wizard' ) && ( true !== apply_filters( 'itbub_hide_quickwizard') ) ) {
 	pb_backupbuddy::alert( 'Your Quick Setup Settings have been saved. Now performing your first backup...' );
 }
 
@@ -930,7 +930,9 @@ if ( 'deploy' == pb_backupbuddy::_GET( 'backupbuddy_backup' ) ) {
 					?>
 					<br><br>
 					<a href="javascript:void(0)" class="btn btn-small btn-white btn-cancel-send" onClick="jQuery('.bb_destinations').hide();">Nevermind</a>
-					<a href="javascript:void(0)" class="btn btn-small btn-addnew" onClick="jQuery('.bb_destinations-existing').hide(); jQuery('.bb_destinations-new').show();">Add New Destination +</a>
+					<?php if ( false === apply_filters( 'itbub_disable_add_destination_tab', false ) ) : ?>
+						<a href="javascript:void(0)" class="btn btn-small btn-addnew" onClick="jQuery('.bb_destinations-existing').hide(); jQuery('.bb_destinations-new').show();">Add New Destination +</a>
+					<?php endif; ?>
 				</ul>
 			</div>
 			<div class="bb_destinations-group bb_destinations-new bb_destinations-new" style="display: none;">

@@ -75,7 +75,7 @@ function wc_gzd_cart_product_item_desc( $title, $cart_item, $cart_item_key = '' 
 	}
 	
 	if ( ! empty( $product_desc ) )
-		$title .= '<div class="wc-gzd-item-desc item-desc">' . do_shortcode( $product_desc ) . '</div>';
+		$title .= '<div class="wc-gzd-cart-info wc-gzd-item-desc item-desc">' . do_shortcode( $product_desc ) . '</div>';
 	
 	return $title;
 }
@@ -128,31 +128,33 @@ function wc_gzd_cart_product_attributes( $title, $cart_item, $cart_item_key = ''
  * @return string
  */
 function wc_gzd_cart_product_delivery_time( $title, $cart_item, $cart_item_key = '' ) {
-	
+
 	$delivery_time = "";
 	
-	if ( isset( $cart_item[ 'data' ] ) ) {
+	if ( isset( $cart_item['data'] ) ) {
 	
-		$product = apply_filters( 'woocommerce_cart_item_product', $cart_item[ 'data' ], $cart_item, $cart_item_key );
+		$product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 	
-		if ( wc_gzd_get_gzd_product( $product )->get_delivery_time_term() )
+		if ( wc_gzd_get_gzd_product( $product )->get_delivery_time_term() ) {
 			$delivery_time = wc_gzd_get_gzd_product( $product )->get_delivery_time_html();
+        }
 	
-	} elseif ( isset( $cart_item[ 'delivery_time' ] ) ) {
+	} elseif ( isset( $cart_item['delivery_time'] ) ) {
 
-		$delivery_time = $cart_item[ 'delivery_time' ];
+		$delivery_time = $cart_item['delivery_time'];
 	
-	} elseif ( isset( $cart_item[ 'product_id' ] ) ) {
+	} elseif ( isset( $cart_item['product_id'] ) ) {
 
-		$product = wc_get_product( ! empty( $cart_item[ 'variation_id' ] ) ? $cart_item[ 'variation_id' ] : $cart_item[ 'product_id' ] );
+		$product = wc_get_product( ! empty( $cart_item['variation_id'] ) ? $cart_item['variation_id'] : $cart_item['product_id'] );
 
-		if ( $product && wc_gzd_get_gzd_product( $product )->get_delivery_time_term() )
+		if ( $product && wc_gzd_get_gzd_product( $product )->get_delivery_time_term() ) {
 			$delivery_time = wc_gzd_get_gzd_product( $product )->get_delivery_time_html();
-
+        }
 	}
 	 
-	if ( ! empty( $delivery_time ) )
-		$title .= '<p class="delivery-time-info">' . $delivery_time . '</p>';
+	if ( ! empty( $delivery_time ) ) {
+		$title .= '<p class="wc-gzd-cart-info delivery-time-info">' . $delivery_time . '</p>';
+    }
 	
 	return $title;
 }
@@ -165,7 +167,6 @@ function wc_gzd_cart_product_delivery_time( $title, $cart_item, $cart_item_key =
  * @return string            
  */
 function wc_gzd_cart_product_unit_price( $price, $cart_item, $cart_item_key = '' ) {
-	
 	$unit_price = "";
 
 	if ( isset( $cart_item[ 'data' ] ) ) {
@@ -175,23 +176,22 @@ function wc_gzd_cart_product_unit_price( $price, $cart_item, $cart_item_key = ''
 		if ( wc_gzd_get_gzd_product( $product )->has_unit() ) {
 			$unit_price = wc_gzd_get_gzd_product( $product )->get_unit_html( false );
 		}
-	
 	} elseif ( isset( $cart_item[ 'unit_price' ] ) ) {
 
 		$unit_price = $cart_item[ 'unit_price' ];
 
-	
 	} elseif ( isset( $cart_item[ 'product_id' ] ) ) {
 
 		$product = wc_get_product( ! empty( $cart_item[ 'variation_id' ] ) ? $cart_item[ 'variation_id' ] : $cart_item[ 'product_id' ] );
 
-		if ( $product && wc_gzd_get_gzd_product( $product )->has_unit() )
+		if ( $product && wc_gzd_get_gzd_product( $product )->has_unit() ) {
 			$unit_price = wc_gzd_get_gzd_product( $product )->get_unit_html( false );
-
+        }
 	}
 
-	if ( ! empty( $unit_price ) )
-		$price .= ' <span class="unit-price unit-price-cart">' . $unit_price . '</span>';
+	if ( ! empty( $unit_price ) ) {
+		$price .= ' <span class="wc-gzd-cart-info unit-price unit-price-cart">' . $unit_price . '</span>';
+    }
 	
 	return $price;
 }
@@ -228,7 +228,7 @@ function wc_gzd_cart_product_units( $title, $cart_item, $cart_item_key = '' ) {
 	}
 	
 	if ( ! empty( $units ) )
-		$title .= '<p class="units-info">' . $units . '</p>';
+		$title .= '<p class="wc-gzd-cart-info units-info">' . $units . '</p>';
 	
 	return $title;
 }

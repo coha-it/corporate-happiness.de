@@ -12,6 +12,7 @@ foreach( pb_backupbuddy::$options['schedules'] as $schedule_id => $schedule ) {
 		'type' => pb_backupbuddy::$options['profiles'][$schedule['profile']]['type'],
 		'interval' => $schedule['interval'],
 		'lastRun' => $schedule['last_run'],
+		'nextRun' => wp_next_scheduled( 'backupbuddy_cron', array( 'run_scheduled_backup', array( (int) $schedule_id ) ) ),
 		'enabled' => $on_off,
 		'profileID' => $schedule['profile'],
 		'profileTitle' => strip_tags( pb_backupbuddy::$options['profiles'][$schedule['profile']]['title'] ),

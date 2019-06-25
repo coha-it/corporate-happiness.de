@@ -63,6 +63,7 @@ if ( count( $schedules ) > 0 && '' == pb_backupbuddy::_GET( 'edit' ) ) {
 			),
 			'bulk_actions'  => array( 'delete_schedule' => 'Delete' ),
 			'css'           => 'width: 100%;',
+			'hide_edit_for_first_schedule' => apply_filters( 'itbub_disable_first_edit_schedule_link', false ),
 		)
 	);
 	echo '<br>';

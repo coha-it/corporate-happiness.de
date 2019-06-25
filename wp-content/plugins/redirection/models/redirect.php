@@ -305,7 +305,7 @@ class Red_Item {
 	 * @param string $requested_url
 	 * @return bool true if matched, false otherwise
 	 */
-	public function matches( $requested_url ) {
+	public function is_match( $requested_url ) {
 		if ( ! $this->is_enabled() ) {
 			return false;
 		}
@@ -352,6 +352,10 @@ class Red_Item {
 				'redirect_id' => $this->id,
 				'group_id' => $this->group_id,
 			);
+
+			if ( $target === true ) {
+				$target = $this->action_type === 'pass' ? $this->match->get_data()['url'] : '';
+			}
 
 			RE_Log::create( $url, $target, Redirection_Request::get_user_agent(), Redirection_Request::get_ip(), Redirection_Request::get_referrer(), $details );
 		}
