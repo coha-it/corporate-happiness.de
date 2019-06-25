@@ -8,6 +8,12 @@ h3.dot:before {content: "";border-radius: 100%;width:0;height: 0;padding: 6px;ma
 .nomargin,
 .no-margin {margin: 0 !important;}
 
+.vcenter {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+ }
+
 /* Hide Recaptcha Badge */
 .grecaptcha-badge{
 	visibility: collapse !important;  
