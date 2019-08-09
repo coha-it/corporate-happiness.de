@@ -22,16 +22,15 @@ class MetaPostFeedSlide extends MetaSlide {
      */
     public function hooks() {
 
-        if ( is_admin() ) {
-            add_filter( "media_upload_tabs", array( $this, "custom_media_upload_tab_name" ), 999, 1 );
-            add_action( "metaslider_save_{$this->identifier}_slide", array( $this, "save_slide" ), 5, 3 );
-            add_action( "media_upload_{$this->identifier}", array( $this, "get_iframe" ) );
-            add_action( "wp_ajax_create_{$this->identifier}_slide", array( $this, "ajax_create_slide" ) );
-            add_action( "metaslider_register_admin_styles", array( $this, "register_admin_styles" ), 10, 1 );
+        if (is_admin()) {
+            add_filter("media_upload_tabs", array($this, "custom_media_upload_tab_name"), 999, 1);
+            add_action("media_upload_{$this->identifier}", array($this, "get_iframe"));
+            add_action("wp_ajax_create_{$this->identifier}_slide", array($this, "ajax_create_slide"));
+            add_action("metaslider_register_admin_styles", array($this, "register_admin_styles"), 10, 1);
         }
-
-        add_filter( "metaslider_get_{$this->identifier}_slide", array( $this, "get_slide" ), 10, 2 );
-
+		
+		add_action("metaslider_save_{$this->identifier}_slide", array($this, "save_slide"), 5, 3);
+        add_filter("metaslider_get_{$this->identifier}_slide", array($this, "get_slide"), 10, 2);
     }
 
     /**

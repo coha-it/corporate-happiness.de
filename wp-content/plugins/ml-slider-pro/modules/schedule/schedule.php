@@ -111,14 +111,17 @@ class MetaSliderPro_Schedule_Slides{
 		}
 
 		// If no slides were determined to hide, return the original query
-		// I couldn't reproduce this bug, but it seems setting post__not_in as an
-		// empty array will cause issue sometimes. See the related bug for post__in
-		// https://core.trac.wordpress.org/ticket/28099
 		if (empty($slides_to_hide)) return $slides_query;
 		
 		// Return a new wp_query with just the slides needed
 		$args = $slides_query->query_vars;
 		$args['post__not_in'] = $slides_to_hide;
+
+		// WP will set defaults using fill_query_vars() and when duplicating 
+		// a query will then cause issues. For example, the default ['s' => ''] will
+		// set is_search() to true as they just use isset() to test it. 
+		$args = array_filter($args, array($this, 'remove_empty_vars'));
+
 		return new WP_Query($args);
 	}
 
@@ -245,6 +248,24 @@ class MetaSliderPro_Schedule_Slides{
 		<svg class="feather feather-eye-off" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-reactid="496"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
 	</button>
 	<?php 
+	}
+
+	/**
+	 * Used to filter out empty strings/arrays with array_filter()
+	 *
+	 * @param  mixed $item The item being tested
+	 * @return bool - Will return whether empty on arrays/strings
+	 */
+	protected function remove_empty_vars($item) {
+
+		// If it's an array and not empty, keep it (return true)
+		if (is_array($item)) return !empty($item);
+
+		// If it's a string and not '', keep it (return true)
+		if (is_string($item)) return ('' !== trim($item));
+
+		// Not likely to get this far but just in case, keep everything else
+		return true;
 	}
 
 	/**

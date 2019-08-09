@@ -16,16 +16,16 @@ class MetaLayerSlide extends MetaSlide {
      */
     public function __construct() {
 
-        if ( is_admin() ) {
-            add_filter( "metaslider_advanced_settings", array( $this, 'add_downscale_only_setting' ), 10, 2 );
-            add_action( "metaslider_save_{$this->identifier}_slide", array( $this, 'save_slide' ), 5, 3 );
-            add_action( "wp_ajax_create_{$this->identifier}_slide", array( $this, 'ajax_create_slide' ) );
-            add_action( "metaslider_register_admin_scripts", array( $this, 'register_admin_scripts' ), 10, 1 );
-            add_action( 'metaslider_register_admin_styles', array( $this, 'register_admin_styles' ), 10, 1 );
-            add_filter( 'media_view_strings', array( $this, 'custom_media_uploader_tabs' ), 10, 1 );
-        }
+		if (is_admin()) {
+			add_filter("metaslider_advanced_settings", array($this, 'add_downscale_only_setting'), 10, 2);
+			add_action("wp_ajax_create_{$this->identifier}_slide", array($this, 'ajax_create_slide'));
+			add_action("metaslider_register_admin_scripts", array($this, 'register_admin_scripts'), 10, 1);
+			add_action("metaslider_register_admin_styles", array($this, 'register_admin_styles'), 10, 1);
+			add_filter("media_view_strings", array($this, 'custom_media_uploader_tabs'), 10, 1);
+		}
 
-        add_filter( "metaslider_get_{$this->identifier}_slide", array( $this, 'get_slide' ), 10, 2 );
+		add_action("metaslider_save_{$this->identifier}_slide", array($this, 'save_slide'), 5, 3);
+        add_filter("metaslider_get_{$this->identifier}_slide", array($this, 'get_slide'), 10, 2);
     }
 
     /**

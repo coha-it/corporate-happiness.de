@@ -2,17 +2,24 @@
 
 Requires at least: 3.5
 Tested up to: 5.2
-Stable tag: 2.13.2
+Stable tag: 2.14.0
 Requires PHP: 5.2
 
-Extends MetaSlider, allowing slides to be opened in a lightbox.
+Extends MetaSlider, adding features such as video slides, layer slides and include additional CSS.
 
 == Changelog ==
 
+= 2.14.0 - 2019/July/26 =
+
+* TWEAK: Removes is_admin requirement when saving slides
+* FEATURE: Adds a CSS manager module to allow users to add custom CSS
+* FIX: Fixes scheduling query when another plugin/theme alters the initial query
+
 = 2.13.2 - 2019/Mar/21 =
 
+* FIX: Fixes a bug where some Vimeo video URLs render wrong video because of the wrong regex used
 * FIX: Fixes a bug where Nivo Slider captions disappear
-* TWEAK: Removed some ancient code for compatibility with PHP < 5.1
+* TWEAK: Removes some ancient code for compatibility with PHP < 5.1
 
 = 2.13.1 - 2019/Mar/20 =
 

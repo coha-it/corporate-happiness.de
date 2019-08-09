@@ -13,12 +13,11 @@
 		function vimeoVidId( url ) {
 		  // look for a string with 'vimeo', then whatever, then a 
 		  // forward slash and a group of digits.
-		  var match = /vimeo.*\/(\d+)/i.exec( url );
-
+		  var match = /(vimeo(pro)?\.com)\/(?:[^\d]+)?(\d+)\??(.*)?$/.exec(url);
 		  // if the match isn't null (i.e. it matched)
 		  if ( match ) {
 		    // the grouped/matched digits from the regex
-		    return match[1];
+		    return match[3];
 		  }
 
 		  return false;
