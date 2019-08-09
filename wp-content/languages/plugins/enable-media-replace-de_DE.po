@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Enable Media Replace - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-06-09 07:07:34+0000\n"
+"PO-Revision-Date: 2019-07-17 12:13:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,111 +11,187 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: Plugins - Enable Media Replace - Development (trunk)\n"
 
-#. Author URI of the plugin/theme
-msgid "http://www.mansjonasson.se"
-msgstr "http://www.mansjonasson.se"
+#: build/shortpixel/log/src/DebugItem.php:35
+msgid "[Data]"
+msgstr "[Daten]"
 
-#. Author of the plugin/theme
-msgid "Måns Jonasson"
-msgstr "Måns Jonasson"
+#: views/popup.php:115
+msgid "Replacement file is not the same filetype. This might cause unexpected issues"
+msgstr "Die hochgeladene Datei ist nicht vom gleichen Dateityp. Dies könnte unerwartete Effekte verursachen."
 
-#. Description of the plugin/theme
+#: views/popup.php:112
+msgid "%s f %s exceeds the maximum upload size for this site."
+msgstr "%s f %s überschreitet die maximal zulässige Upload-Größe für diese Website."
+
+#: views/popup.php:111
+msgid "Maximum file size: <strong>%s</strong>"
+msgstr "Maximale Dateigröße: <strong>%s</strong>"
+
+#: views/upload.php:346
+msgid "File successfully replaced"
+msgstr "Datei erfolgreich ersetzt"
+
+#: views/upload.php:341
+msgid "File Upload seems to have failed. No files were returned by system"
+msgstr "Der Datei-Upload ist anscheinend fehlgeschlagen. Es wurde keine Datei vom System zurückgegeben."
+
+#: views/upload.php:262
+msgid "Invalid Custom Date. Please custom date values (%s)"
+msgstr "Ungültiges eigenes Datumsformat. Bitte passe das Format an (%s)"
+
+#: classes/externals.php:31
+msgid "Replace and Search feature is not compatible with Beaver Builder."
+msgstr "Die Funktion „Suchen und ersetzen“ ist nicht kompatibel mit Beaver Builder."
+
+#: classes/replacer.php:99
+msgid "The uploaded file could not be moved to %1$s. This is most likely an issue with permissions, or upload failed."
+msgstr "Die hochgeladene Datei konnte nicht nach %1$s verschoben werden. Das ist wahrscheinlich ein Problem mit Berechtigungen oder der Upload ist fehlgeschlagen."
+
+#: views/notice.php:8 notice.php:8
+msgid "<a href=\"https://shortpixel.com/wp/af/VKG6LYN28044\" target=\"_blank\">ShortPixel</a> is an image optimization plugin and if you have it activated, upon replacing an image in Enable Media Replace, the image will be also automatically optimized."
+msgstr "<a href=\"https://shortpixel.com/wp/af/VKG6LYN28044\" target=\"_blank\">ShortPixel</a> ist ein Plugin zur Bild-Optimierung. Wenn du es aktiviert hast und ein Bild per Enable Media Replace ersetzt, wird auch dieses Bild automatisch optimiert."
+
+#: views/notice.php:6 notice.php:6
+msgid "Enable Media Replace is now compatible with ShortPixel!"
+msgstr "Enable Media Replace ist ab sofort kompatibel mit ShortPixel!"
+
+#: views/notice.php:2 notice.php:2
+msgid "Dismiss"
+msgstr "Ausblenden"
+
+#: views/popup.php:196
+msgid "Custom Date"
+msgstr "Eigenes Datum"
+
+#: views/popup.php:192
+msgid "Set a Custom Date"
+msgstr "eigenes Datum setzen"
+
+#: views/popup.php:191
+msgid "Keep the date %s(%s)%s"
+msgstr "Datum beibehalten %s(%s)%s"
+
+#: views/popup.php:190
+msgid "Replace the date"
+msgstr "Datum ersetzen"
+
+#: views/popup.php:188
+msgid "When replacing the media, do you want to:"
+msgstr "Beim Ersetzen des Bildes soll das Datum wie folgt geändert werden:"
+
+#: views/popup.php:181
+msgid "Date Options"
+msgstr "Datumsoptionen"
+
+#: popup.php:110 views/popup.php:172
+msgid "Note: If you check this option, the name and type of the file you are about to upload will replace the old file. All links pointing to the current file (%s) will be updated to point to the new file name."
+msgstr "Bemerkung: Wenn Du diese Option auswählst, wird der Name und Typ der Datei, die hochgeladen wird, die aktuelle Datei ersetzen. Alle Links zur aktuellen Datei (%s) werden geändert um die neue Datei zu referenzieren."
+
+#: popup.php:105 views/popup.php:158
+msgid "Note: This option requires you to upload a file of the same type (%s) as the one you are replacing. The name of the attachment will stay the same (%s) no matter what the file you upload is called."
+msgstr "Anmerkung: Bei dieser Option musst du eine Datei vom gleichen Typ hochladen wie diejenige, die ersetzt wird (%s). Der Name des Anhangs (%s) wird beibehalten, egal wie die neu hochgeladene Datei heißt."
+
+#: views/popup.php:143
+msgid "Replacement Options"
+msgstr "Ersetzungsoptionen"
+
+#: popup.php:82 views/popup.php:103 views/notice.php:11 notice.php:11
+msgid "More info"
+msgstr "Mehr Info"
+
+#: popup.php:69 views/popup.php:90
+msgid "Optimize your images with ShortPixel, get +50% credits!"
+msgstr "Optimiere deine Bilder mit ShortPixel, erhalte 50% zusätzliche Credits!"
+
+#: popup.php:63 views/popup.php:84
+msgid "NOTE: You are about to replace the media file \"%s\". There is no undo. Think about it!"
+msgstr "ACHTUNG: Du bist dabei, die Datei „%s“ zu ersetzen. Dies lässt sich nicht rückgängig machen. Denke gut darüber nach!"
+
+#: views/popup.php:75
+msgid "Choose Replacement Image"
+msgstr "Ersatz-Bild wählen"
+
+#: classes/emr-plugin.php:275
+msgid "M j, Y @ H:i"
+msgstr "j. M Y \\u\\m G:i"
+
+#. Author URI of the plugin
+msgid "https://shortpixel.com"
+msgstr "https://shortpixel.com"
+
+#. Author of the plugin
+msgid "ShortPixel"
+msgstr "ShortPixel"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/enable-media-replace/"
+msgstr "https://wordpress.org/plugins/enable-media-replace/"
+
+#. Description of the plugin
 msgid "Enable replacing media files by uploading a new file in the \"Edit Media\" section of the WordPress Media Library."
 msgstr "Ermöglicht das Ersetzen von Medien-Dateien durch das Hochladen einer neuen Datei in den „Dateianhang-Details“ der WordPress-Mediathek."
 
-#. Plugin URI of the plugin/theme
-msgid "http://www.mansjonasson.se/enable-media-replace"
-msgstr "http://www.mansjonasson.se/enable-media-replace"
-
-#. Plugin Name of the plugin/theme
+#. Plugin Name of the plugin
 msgid "Enable Media Replace"
 msgstr "Enable Media Replace"
 
-#: upload.php:84
+#: views/upload.php:301 upload.php:230
 msgid "File type does not meet security guidelines. Try another."
 msgstr "Dateityp entspricht nicht den Sicherheitsrichtlinien. Probier es mit einem anderen."
 
-#: upload.php:26
+#: upload.php:37
 msgid "The file %1$s can not be deleted by the web server, most likely because the permissions on the file are wrong."
 msgstr "Die Datei %1$s kann nicht durch den Webserver gelöscht werden, wahrscheinlich weil die Dateirechte nicht entsprechend gesetzt sind."
 
-#: popup.php:68
+#: popup.php:121 views/popup.php:209
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: popup.php:68
+#: popup.php:120 views/popup.php:208
 msgid "Upload"
 msgstr "Hochladen"
 
-#: popup.php:63
+#: popup.php:111 views/popup.php:174
 msgid "Please note that if you upload a new image, only embeds/links of the original size image will be replaced in your posts."
 msgstr "Bitte beachte: nur eingebettete Medien oder Links des Originalbildes werden ersetzt, wenn du ein neues Bild hochlädst – nicht aber die verkleinerten Versionen (Vorschaubilder, Mittelgroß, Groß, etc)."
 
-#: popup.php:62
-msgid ") will be updated to point to the new file name."
-msgstr ") werden auf die neue aktualisiert."
-
-#: popup.php:62
-msgid "Note: If you check this option, the name and type of the file you are about to upload will replace the old file. All links pointing to the current file ("
-msgstr "Hinweis: Der Name der neuen Datei wird die alte ersetzen. Alle Verweise auf die aktuelle Datei ("
-
-#: popup.php:61
+#: popup.php:109 views/popup.php:169
 msgid "Replace the file, use new file name and update all links"
 msgstr "Datei ersetzen, aber neuen Dateinamen verwenden und alle Links automatisch aktualisieren."
 
-#: popup.php:58
-msgid ") no matter what the file you upload is called."
-msgstr "), ganz egal wie die neue Datei heißt."
-
-#: popup.php:58
-msgid ") as the one you are replacing. The name of the attachment will stay the same ("
-msgstr ") wie die Datei, die du ersetzt. Der Name der Datei bleibt erhalten ("
-
-#: popup.php:58
-msgid "Note: This option requires you to upload a file of the same type ("
-msgstr "Hinweis: Die Datei muss vom selben Dateityp sein ("
-
-#: popup.php:57
+#: popup.php:104 views/popup.php:154
 msgid "Just replace the file"
 msgstr "Originaldatei ersetzen"
 
-#: popup.php:55
+#: popup.php:102
 msgid "Select media replacement type:"
 msgstr "Wähle die gewünschte Aktion:"
 
-#: popup.php:48
+#: popup.php:89 views/popup.php:110
 msgid "Choose a file to upload from your computer"
 msgstr "Datei vom Computer auswählen:"
 
-#: popup.php:46
-msgid "There is no undo. Think about it!"
-msgstr "Beachte, dass diese Aktion nicht rückgängig gemacht werden kann!"
-
-#: popup.php:46
-msgid "NOTE: You are about to replace the media file"
-msgstr "HINWEIS: Du bist dabei, diese Datei in der Mediathek zu ersetzen: "
-
-#: popup.php:30
+#: popup.php:44 views/popup.php:62
 msgid "Replace Media Upload"
 msgstr "Medien-Datei ersetzen"
 
-#: popup.php:14 upload.php:3
+#: popup.php:17 views/popup.php:24 views/upload.php:11 upload.php:6
 msgid "You do not have permission to upload files."
 msgstr "Du hast nicht die benötigten Rechte, um Dateien hochzuladen."
 
-#: enable-media-replace.php:148
+#: classes/emr-plugin.php:279
 msgid "Revised"
 msgstr "Zuletzt geändert"
 
-#: enable-media-replace.php:66
+#: classes/emr-plugin.php:202
 msgid "To replace the current file, click the link and upload a replacement."
 msgstr "Eine neue Datei hochladen, die die aktuelle ersetzen soll."
 
-#: enable-media-replace.php:66
+#: classes/emr-plugin.php:202
 msgid "Upload a new file"
 msgstr "Eine neue Datei hochladen"
 
-#: enable-media-replace.php:40 enable-media-replace.php:66
-#: enable-media-replace.php:107
+#: classes/emr-plugin.php:59 classes/emr-plugin.php:200
+#: classes/emr-plugin.php:233
 msgid "Replace media"
 msgstr "Datei ersetzen"
